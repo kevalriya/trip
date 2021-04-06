@@ -522,7 +522,7 @@ $ActiveSide='home';
 
         url: "{{route('login_response')}}",
         type: 'POST',
-        data: $("#login_form").serialize()+'&user=user',
+        data: $("#login_form").serialize()+'&email=user',
         dataType: 'json',
         success: function(data){
 

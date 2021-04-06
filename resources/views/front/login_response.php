@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
 
@@ -33,7 +34,7 @@ if($user['login_status'] === true)
     die();
       }
 
-      session_start();
+      
     if($user['role_id'] == 3){
      $_SESSION['email']=$user['email'];
      $_SESSION['userId']= $user['userId'];
