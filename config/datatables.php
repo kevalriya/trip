@@ -3,6 +3,8 @@
 return [
     /*
      * DataTables search options.
+     * 
+     * Changes
      */
     'search' => [
         /*
