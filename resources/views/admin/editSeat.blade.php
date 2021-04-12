@@ -73,7 +73,7 @@ $ActiveSide='fleet';
 
 	.seats_table td span {
 	    background-size: contain;
-	    padding: 7px 16px;
+	    padding: 0px 20px;
 	    background-repeat: no-repeat !important;
 	    background-position: center;
 	    height: 43px;
@@ -245,10 +245,10 @@ $ActiveSide='fleet';
 								}
 								else if($i==1 && $j==1 ){
 									
-									echo "<td><input type='hidden' value='3' name='$Latter[$i]$j' ><span class='steering' id='$Latter[$i]$j'></span></td>";
+									echo "<td style='padding: 0px; box-shadow:  -6px 0 4px -4px rgba(0,0,0,0.7);'><input type='hidden' value='3' name='$Latter[$i]$j' ><span class='steering' id='$Latter[$i]$j'></span></td>";
 								}
 								else{
-									echo "<td><input type='hidden' value='$SeatVal' id='input-$inputval' name='seat[$inputval]' ><span class='$cls' id='$inputval'></td>";
+									echo "<td style='padding: 0px'><input type='hidden' value='$SeatVal' id='input-$inputval' name='seat[$inputval]' ><span class='$cls' id='$inputval'></td>";
 								}
 								
 							}
