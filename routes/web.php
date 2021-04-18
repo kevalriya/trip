@@ -82,10 +82,12 @@ Route::put('admin/fleet-type/edit/{id}','FleetController@updateFleetType')->name
 	Route::get('admin/seatMap/{id}', 'SeatController@addseatMap')->name('addseatMap');
 
 	Route::resource('admin/trip','TripController');
+	Route::put('admin/trip', 'TripController@updateTabInfo')->name('trip.tabInfo');
 
 	Route::get('admin/trip-fare/edit/{id}','TripController@editTripFare')->name('editTripFare');
 	Route::put('admin/trip-fare/edit/{id}','TripController@updateTripFare')->name('updateTripFare');
 
+	
 
 	Route::get('admin/trip-time/edit/{id}','TripController@editTripTime')->name('editTripTime');
 	Route::put('admin/trip-time/edit/{id}','TripController@updateTripTime')->name('updateTripTime');
@@ -172,6 +174,7 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
 	Route::get('trip-schedule/edit/{id}','TripController@editTripschedule')->name('opeditTripschedule');
 	Route::put('trip-schedule/edit/{id}','TripController@updateTripschedule')->name('opupdateTripschedule');
 	Route::post('tripData', 'TripController@tripLists')->name('optripData');
+
 	Route::post('getseat', 'AjaxController@getSeat')->name('opgetSeat');
 
 	Route::resource('assigntrip','AssigntripController',[
@@ -269,3 +272,4 @@ Route::post('user-profile-booking-history', 'UserBookingController@Lists')->name
 	//payment
 	Route::post('/pay', 'RaveController@initialize')->name('pay');
 	Route::get('/rave/callback', 'RaveController@callback')->name('callback');
+

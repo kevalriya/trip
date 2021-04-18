@@ -14,6 +14,7 @@ use App\Model\Routepoint;
 use App\Model\Triptime;
 use App\Model\State;
 use App\Model\City;
+use App\Tab;
 use DB;
 class TripController extends Controller
 {
@@ -33,8 +34,8 @@ class TripController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.trip');
+        $data=Tab::where('id',8)->get();
+        return view('admin.trip', ['data'=>$data]);
     }
 
    public function tripScheduler()
@@ -55,8 +56,9 @@ class TripController extends Controller
         $Fleets=Fleet::all();
         $Operators=Operator::where('ACTIVE_INDICATOR','Y')->orderBy('OPERATOR_LEGAL_NAME', 'ASC')->get();
         $Drivers=User::where('ACTIVE_INDICATOR','Y')->where('USER_TYPE_CODE','DRIVER')->where('ACTIVE_INDICATOR','Y')->orderBy('FIRSTNAME', 'ASC')->get();
+        $data=Tab::where('id',9)->get();
 
-        return view('admin.addTrip',compact('Fleets','Operators','Drivers'));
+        return view('admin.addTrip',compact('Fleets','Operators','Drivers'), ['data'=>$data]);
     }
 
     /**
@@ -473,5 +475,28 @@ class TripController extends Controller
              $Ids[]= $Trip->TRIP_ID;
          }
          return $Ids;
+    }
+
+
+    public function updateTabInfo(Request $request) {
+      // $tab = Tab::find($request->id);
+      // $tab->description = $request->data;
+      // $tab->save();
+      // return response()->json($tab);
+
+      $update = DB::table('tabs')
+              ->where('id', $request->id)
+              ->update(['description' => $request->data]);
+      return "Successfully update the information!";
+      //  $Data=[
+      //       'description' =>  $request-> data,
+      //   ];
+
+      //   Tab::where('id',$request->id)->update($Data);
+      //   return "Success!";
+
+     // return $request->data;
+
+    // echo "<script>console.log('".Tab::all()."');</script>";
     }
 }

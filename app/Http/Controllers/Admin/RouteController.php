@@ -13,6 +13,7 @@ use App\Model\LGA;
 use App\Model\Salutation;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Tab;
 use Validator;
 class RouteController extends Controller
 {
@@ -35,8 +36,10 @@ class RouteController extends Controller
  
         $States=State::where('COUNTRY_ID',73)->orderBy('NAME','ASC')->get();
         $Operators=Operator::where('ACTIVE_INDICATOR','Y')->orderBy('OPERATOR_LEGAL_NAME', 'ASC')->get();
+
+        $data=Tab::where('id',5)->get();
        
-        return view('admin.route',compact('States','Operators'));
+        return view('admin.route',compact('States','Operators'), ['data'=>$data]);
     }
 
     /**
