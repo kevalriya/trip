@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Country;
 use App\Model\City;
 use App\Model\State;
-
+use App\Tab;
 class CityController extends Controller
 {
      /**
@@ -26,8 +26,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        
-        return view('admin.city');
+        $data=Tab::where('id',16)->get();
+        return view('admin.city', ['data'=>$data]);
     }
 
     /**
@@ -39,8 +39,8 @@ class CityController extends Controller
     {
      
       $Countries=Country::orderBy('COUNTRY_NAME', 'ASC')->get();
-        
-        return view('admin.addCity',compact('Countries'));
+        $data=Tab::where('id',17)->get();
+        return view('admin.addCity',compact('Countries'), ['data'=>$data]);
     }
 
     /**

@@ -6,6 +6,7 @@ $ActiveSide='route';
 @section('title','Add City')
 @section('headSection')
 <link rel="stylesheet" href="{{ asset('admin/plugins/select2/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/dist/css/info.css') }}">
 @endsection
 @section('main-content')
 	<!-- Content Wrapper. Contains page content -->
@@ -22,8 +23,11 @@ $ActiveSide='route';
   <!-- Apply any bg-* class to to the icon to color it -->
 	  <span class="info-box-icon bg-blue"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
 	  <div class="info-box-content">
-	    <span class="info-box-text">Add City</span>
-	    <span class="info-box-number"></span>
+	    <span class="info-box-number">Add City</span>
+		@foreach ($data as $i)
+        <textarea id="tabInfo" data-id="{{$i->id}}" readonly>{{$i->description}}</textarea>
+        @endforeach
+      <button class="btn-aqua" id="infoUpdate"><i class="fa fa-check fa-2x"></i></button>
 	  </div>
 	  <!-- /.info-box-content -->
 	</div>
@@ -118,10 +122,11 @@ $ActiveSide='route';
 	<!-- /.content-wrapper -->
 @endsection
 @section('footerSection')
-
+<script src="{{ asset('admin/dist/js/info.js') }}"></script>
 <script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
 
 <script>
+	updateInformation("{{route('trip.tabInfo')}}", '{{csrf_token()}}');
   $(document).ready(function() {
   	
   	  	 $(document).on('change', "#country", function(e) {

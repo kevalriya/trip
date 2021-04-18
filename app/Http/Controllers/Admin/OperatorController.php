@@ -10,6 +10,7 @@ use App\Model\Country;
 use App\Model\LGA;
 use App\Model\Salutation;
 use Illuminate\Support\Facades\Hash;
+use App\Tab;
 use Illuminate\Http\Request;
 
 class OperatorController extends Controller
@@ -30,8 +31,8 @@ class OperatorController extends Controller
      */
     public function index()
     {
-       
-        return view('admin.operator');
+        $data=Tab::where('id',12)->get();
+        return view('admin.operator', ['data'=>$data]);
     }
 
     /**
@@ -45,9 +46,8 @@ class OperatorController extends Controller
         $Countries=Country::where('COUNTRY_ID',73)->orderBy('COUNTRY_NAME', 'ASC')->first();
        
         $Salutations=Salutation::all();
-
-
-        return view('admin.addOperator',compact('Countries','Salutations'));
+        $data=Tab::where('id',14)->get();
+        return view('admin.addOperator',compact('Countries','Salutations'), ['data'=>$data]);
     }
 
     /**

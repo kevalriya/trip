@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Booking;
 use Illuminate\Http\Request;
+use App\Tab;
 use DataTables;
 class BookingController extends Controller
 { 
@@ -24,8 +25,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-       
-        return view('admin.booking');
+        $data=Tab::where('id',18)->get();
+        return view('admin.booking', ['data'=>$data]);
     }
 
 

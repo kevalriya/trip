@@ -9,6 +9,7 @@ use App\Model\Route;
 use App\Model\Amenitie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Tab;
 use DB;
 class FleetController extends Controller
 { 
@@ -42,20 +43,22 @@ class FleetController extends Controller
     public function FAQ()
     {
         $FAQS = DB::table('faq')->get();
+        $data=Tab::where('id',19)->get();
     
-       return view('admin.faq',compact('FAQS'));
+       return view('admin.faq',compact('FAQS'), ['data'=>$data]);
     } 
 
     public function addFaq()
     {
-        
-       return view('admin.addfaq');
+        $data=Tab::where('id',20)->get();
+        return view('admin.addfaq', ['data'=>$data]);
     } 
 
     public function editFaq(Request $request,$id)
     {
-       $Faq=db::table('faq')->where('id',$id)->first(); 
-       return view('admin.editFaq',compact('Faq'));
+       $Faq=db::table('faq')->where('id',$id)->first();
+       $data=Tab::where('id',21)->get();
+       return view('admin.editFaq',compact('Faq'), ['data'=>$data]);
     } 
 
      public function fleetType()

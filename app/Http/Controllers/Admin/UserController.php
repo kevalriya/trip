@@ -10,6 +10,7 @@ use App\Model\Country;
 use App\Model\LGA;
 use App\Model\Salutation;
 use Illuminate\Support\Facades\Hash;
+use App\Tab;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -30,8 +31,8 @@ class UserController extends Controller
      */
     public function index()
     {
-       
-        return view('admin.user');
+        $data=Tab::where('id',13)->get();
+        return view('admin.user', ['data'=>$data]);
     }
 
     /**
@@ -45,9 +46,9 @@ class UserController extends Controller
       $Countries=Country::where('COUNTRY_ID',73)->orderBy('COUNTRY_NAME', 'ASC')->first();
        
         $Salutations=Salutation::all();
+        $data=Tab::where('id',15)->get();
 
-
-        return view('admin.addUser',compact('Countries','Salutations'));
+        return view('admin.addUser',compact('Countries','Salutations'), ['data'=>$data]);
     }
 
     /**

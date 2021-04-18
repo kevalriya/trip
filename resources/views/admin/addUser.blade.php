@@ -7,6 +7,7 @@ $ActiveSide='operator';
 @section('headSection')
 <link rel="stylesheet" href="{{ asset('admin/plugins/select2/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('admin/plugins/datepicker/datepicker3.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/dist/css/info.css') }}">
 <style type="text/css">
 	.select2-container .select2-selection--single .select2-selection__rendered {
     padding-left: 0;
@@ -39,8 +40,11 @@ $ActiveSide='operator';
   <!-- Apply any bg-* class to to the icon to color it -->
 	  <span class="info-box-icon bg-blue"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
 	  <div class="info-box-content">
-	    <span class="info-box-text">Add User</span>
-	    <span class="info-box-number"></span>
+	    <span class="info-box-number">Add User</span>
+		@foreach ($data as $i)
+        <textarea id="tabInfo" data-id="{{$i->id}}" readonly>{{$i->description}}</textarea>
+        @endforeach
+      <button class="btn-aqua" id="infoUpdate"><i class="fa fa-check fa-2x"></i></button>
 	  </div>
 	  <!-- /.info-box-content -->
 	</div>
@@ -219,11 +223,12 @@ $ActiveSide='operator';
 	<!-- /.content-wrapper -->
 @endsection
 @section('footerSection')
-
+<script src="{{ asset('admin/dist/js/info.js') }}"></script>
 <script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
 
 <script>
+	updateInformation("{{route('trip.tabInfo')}}", '{{csrf_token()}}');
   $(document).ready(function() {
   	$('#state').empty();
 			$('#LGA').empty();
