@@ -49,7 +49,7 @@
            
                     <div class="col-md-4 col-sm-3 col-xs-6">
                         <h4>Payment Mode</h4>
-                        <img src="{{url('front/img/payment/payment1.png')}}" class="img-responsive">
+                        <img src="{{url('front/img/payment/paymentnew.png')}}" class="img-responsive" >
                     </div>
 
                 </div>
