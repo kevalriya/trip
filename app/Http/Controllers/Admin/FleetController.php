@@ -29,15 +29,15 @@ class FleetController extends Controller
      */
     public function index()
     {
-       
-        return view('admin.fleets');
+       $data=Tab::where('id',7)->get();
+        return view('admin.fleets', ['data'=>$data]);
     }
 
     public function parentType()
     {
         $parentTypes = DB::table('fleet_parent_type')->get();
-    
-       return view('admin.fleetparent',compact('parentTypes'));
+        $data=Tab::where('id',1)->get();
+       return view('admin.fleetparent',compact('parentTypes'), ['data'=>$data]);
     } 
 
     public function FAQ()
@@ -68,8 +68,8 @@ class FleetController extends Controller
                         ->select(['fleet_type.*',
                                     'fleet_parent_type.PARENT_TYPE_NAME','operator.OPERATOR_LEGAL_NAME'])
                         ->limit(3000)->get();
-        
-       return view('admin.fleetType',compact('Types'));
+        $data=Tab::where('id',2)->get();
+       return view('admin.fleetType',compact('Types'), ['data'=>$data]);
     }
 
     /**
@@ -84,8 +84,8 @@ class FleetController extends Controller
         $Routes=Route::all();;
         $Amenities=Amenitie::orderBy('AMENITY_NAME', 'ASC')->get();
         $fleetTypes = DB::table('fleet_type')->get();
-       
-        return view('admin.addFleet',compact('Operators','Routes','fleetTypes','Amenities'));
+       $data=Tab::where('id',23)->get();
+        return view('admin.addFleet',compact('Operators','Routes','fleetTypes','Amenities'), ['data'=>$data]);
     }
 
     public function addFleetType()
@@ -94,8 +94,8 @@ class FleetController extends Controller
         $parentTypes = DB::table('fleet_parent_type')->get();
         $seatMaps = DB::table('seatmap_library')->get();
 
-
-        return view('admin.addFleetType',compact('Operators','parentTypes','seatMaps'));
+        $data=Tab::where('id',3)->get();
+        return view('admin.addFleetType',compact('Operators','parentTypes','seatMaps'), ['data'=>$data]);
     }
 
     /**

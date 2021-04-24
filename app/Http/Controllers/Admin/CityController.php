@@ -123,8 +123,9 @@ class CityController extends Controller
     {
          $Countries=Country::orderBy('COUNTRY_NAME', 'ASC')->get();
          $City=City::where('CITY_CODE',$id)->first();
-         $States=State::where('COUNTRY_ID',$City->COUNTRY_ID)->orderBy('NAME','ASC')->get();   
-        return view('admin.editCity',compact('Countries','States','City'));
+         $States=State::where('COUNTRY_ID',$City->COUNTRY_ID)->orderBy('NAME','ASC')->get();
+         $data=Tab::where('id',26)->get(); 
+        return view('admin.editCity',compact('Countries','States','City'), ['data'=>$data]);
     }
 
     /**

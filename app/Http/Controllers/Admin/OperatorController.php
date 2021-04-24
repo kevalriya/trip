@@ -147,9 +147,9 @@ class OperatorController extends Controller
          $Countries=Country::where('COUNTRY_ID',73)->orderBy('COUNTRY_NAME', 'ASC')->first();
         $LGAS=LGA::where('STATE_CODE',$Operator->MAIN_CONTACT_STATE)->orderBy('LGA_NAME','ASC')->get();
         $Salutations=Salutation::all();
-        
+        $data=Tab::where('id',24)->get();
 
-        return view('admin.editOperator',compact('Cities','States','Countries','LGAS','Salutations','Operator'));
+        return view('admin.editOperator',compact('Cities','States','Countries','LGAS','Salutations','Operator'), ['data'=>$data]);
     }
 
     /**
@@ -218,7 +218,7 @@ class OperatorController extends Controller
       $Operator =  Operator::where([
             'OPERATOR_CODE' => $id
         ])->update($data);
-
+        
         return redirect(route('operator.edit',$id))->with('message','User updated successfully');
     }
 

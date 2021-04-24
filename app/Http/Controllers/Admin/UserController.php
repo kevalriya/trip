@@ -157,8 +157,8 @@ class UserController extends Controller
         $LGAS=LGA::where('STATE_CODE',$User->STATE_CODE)->orderBy('LGA_NAME','ASC')->get();
         $Salutations=Salutation::all();
         
-
-        return view('admin.editUser',compact('Cities','States','Countries','LGAS','Salutations','User'));
+        $data=Tab::where('id',25)->get();
+        return view('admin.editUser',compact('Cities','States','Countries','LGAS','Salutations','User'), ['data'=>$data]);
     }
 
     /**

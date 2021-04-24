@@ -9,6 +9,7 @@ $ActiveSide='route';
 <link rel="stylesheet" href="{{ asset('admin/plugins/select2/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('admin/plugins/timepicker/timePicker.css') }}">
     <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('admin/dist/css/info.css') }}">
 <style type="text/css"> 
   .ui-sortable-handle {
     cursor: move; /* fallback if grab cursor is unsupported */
@@ -99,8 +100,11 @@ th.next,th.prev{
   <!-- Apply any bg-* class to to the icon to color it -->
     <span class="info-box-icon bg-blue"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
     <div class="info-box-content">
-      <span class="info-box-text">Route Stop Point</span>
-      <span class="info-box-number"></span>
+      <span class="info-box-number">Route Stop Point</span>
+     @foreach ($data as $i)
+        <textarea id="tabInfo" data-id="{{$i->id}}" readonly>{{$i->description}}</textarea>
+        @endforeach
+      <button class="btn-aqua" id="infoUpdate"><i class="fa fa-check fa-2x"></i></button>
     </div>
     <!-- /.info-box-content -->
   </div>
@@ -427,12 +431,14 @@ th.next,th.prev{
   <!-- /.content-wrapper -->
 @endsection
 @section('footerSection')
+<script src="{{ asset('admin/dist/js/info.js') }}"></script>
 <script src="{{ asset('admin/plugins/timepicker/jquery-timepicker.js') }}"></script>
 <script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('admin/plugins/jQueryUI/jquery-ui.min.js') }}"></script>
 
 
 <script>
+updateInformation("{{route('trip.tabInfo')}}", '{{csrf_token()}}');
   $(document).ready(function() {
 
   

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\Amenitie;
 use Illuminate\Support\Facades\Hash;
+use App\Tab;
 use Illuminate\Http\Request;
 
 class AmenitieController extends Controller
@@ -27,7 +28,8 @@ class AmenitieController extends Controller
     {
       
         $Amenities=amenitie::orderBy('AMENITY_NAME', 'ASC')->get();
-        return view('admin.amenitie',compact('Amenities'));
+        $data=Tab::where('id',22)->get();
+        return view('admin.amenitie',compact('Amenities'), ['data'=>$data]);
     }
 
    
