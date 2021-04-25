@@ -13,6 +13,7 @@ use App\Model\LGA;
 use App\Model\Salutation;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Tab;
 use Validator;
 use DataTables;
 use Auth;
@@ -36,8 +37,8 @@ class RouteController extends Controller
     {
       
         $States=State::where('COUNTRY_ID',73)->orderBy('NAME','ASC')->get();
-       
-        return view('operator.route',compact('States'));
+       $data=Tab::where('id',5)->get();
+        return view('operator.route',compact('States'), ['data'=>$data]);
     }
 
     /**
@@ -211,7 +212,8 @@ class RouteController extends Controller
         $States=State::where('COUNTRY_ID',73)->orderBy('NAME','ASC')->get();
         $Cities=City::all();
         $RoutePoint=Routepoint::join('city', 'city.CITY_CODE', '=', 'route_stoppoint.CITY_CODE')->where('ROUTE_ID',$id)->select('route_stoppoint.*','city.CITY_NAME','city.STATE_CODE')->orderBy('ROUTE_STOPPOINT_SEQNO','ASC')->get();
-       return view('operator.routePoint',compact('Route','RoutePoint','States','Cities'));
+        $data=Tab::where('id',10)->get();
+       return view('operator.routePoint',compact('Route','RoutePoint','States','Cities'), ['data'=>$data]);
     }
 
     public function routeDetail($id)

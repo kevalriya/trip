@@ -32,7 +32,6 @@ class FleetController extends Controller
        $data=Tab::where('id',7)->get();
         return view('admin.fleets', ['data'=>$data]);
     }
-
     public function parentType()
     {
         $parentTypes = DB::table('fleet_parent_type')->get();

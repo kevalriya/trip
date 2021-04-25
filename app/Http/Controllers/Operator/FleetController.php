@@ -9,6 +9,7 @@ use App\Model\Route;
 use App\Model\Amenitie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use App\Tab;
 use DB;
 use Auth;
 use DataTables;
@@ -30,8 +31,8 @@ class FleetController extends Controller
      */
     public function index()
     {
-       
-        return view('operator.fleets');
+       $data=Tab::where('id',7)->get();
+        return view('operator.fleets', ['data'=>$data]);
     }
 
  
@@ -42,8 +43,8 @@ class FleetController extends Controller
                         ->select(['fleet_type.*',
                                     'fleet_parent_type.PARENT_TYPE_NAME'])
                        ->where('OPERATOR_CODE',Auth::guard('operator')->user()->OPERATOR_CODE)->limit(3000)->get();
-        
-       return view('operator.fleetType',compact('Types'));
+        $data=Tab::where('id',2)->get();
+       return view('operator.fleetType',compact('Types'), ['data'=>$data]);
     }
 
     /**
@@ -57,8 +58,8 @@ class FleetController extends Controller
         $Routes=Route::where('OPERATOR_CODE',Auth::guard('operator')->user()->OPERATOR_CODE)->get();
         $Amenities=amenitie::orderBy('AMENITY_NAME', 'ASC')->get();
         $fleetTypes = DB::table('fleet_type')->where('OPERATOR_CODE',Auth::guard('operator')->user()->OPERATOR_CODE)->get();
-
-        return view('operator.addFleet',compact('Routes','fleetTypes','Amenities'));
+         $data=Tab::where('id',23)->get();
+        return view('operator.addFleet',compact('Routes','fleetTypes','Amenities'), ['data'=>$data]);
     }
 
     public function addFleetType()
@@ -67,8 +68,8 @@ class FleetController extends Controller
         $parentTypes = DB::table('fleet_parent_type')->get();
         $seatMaps = DB::table('seatmap_library')->get();
 
-
-        return view('operator.addFleetType',compact('parentTypes','seatMaps'));
+        $data=Tab::where('id',3)->get();
+        return view('operator.addFleetType',compact('parentTypes','seatMaps'), ['data'=>$data]);
     }
 
     /**

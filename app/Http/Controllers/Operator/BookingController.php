@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Operator;
 use App\Http\Controllers\Controller;
 use App\Model\Booking;
 use Illuminate\Http\Request;
+use App\Tab;
 use Auth;
 use DataTables;
 class BookingController extends Controller
@@ -25,7 +26,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        return view('operator.booking');
+        $data=Tab::where('id',18)->get();
+        return view('operator.booking', ['data'=>$data]);
     }
 
 

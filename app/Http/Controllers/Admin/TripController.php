@@ -43,7 +43,6 @@ class TripController extends Controller
         
         return view('admin.tripschedule');
     }
-
     /**
      * Show the form for creating a new resource.
      *

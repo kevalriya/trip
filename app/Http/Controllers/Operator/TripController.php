@@ -14,6 +14,7 @@ use App\Model\Routepoint;
 use App\Model\Triptime;
 use App\Model\State;
 use App\Model\City;
+use App\Tab;
 use DB;
 use Auth;
 use DataTables;
@@ -35,8 +36,8 @@ class TripController extends Controller
      */
     public function index()
     {
-        
-        return view('operator.trip');
+        $data=Tab::where('id',8)->get();
+        return view('operator.trip', ['data'=>$data]);
     }
 
    public function tripScheduler()
@@ -55,7 +56,8 @@ class TripController extends Controller
         $Fleets=Fleet::where('OPERATOR_CODE',Auth::guard('operator')->user()->OPERATOR_CODE)->get();
         $Routes=Route::where('OPERATOR_CODE',Auth::guard('operator')->user()->OPERATOR_CODE)->get();  
         $Drivers=User::where('ACTIVE_INDICATOR','Y')->where('USER_TYPE_CODE','DRIVER')->where('ACTIVE_INDICATOR','Y')->orderBy('FIRSTNAME', 'ASC')->get();
-        return view('operator.addTrip',compact('Fleets','Routes','Drivers'));
+        $data=Tab::where('id',9)->get();
+        return view('operator.addTrip',compact('Fleets','Routes','Drivers'), ['data'=>$data]);
     }
 
     /**

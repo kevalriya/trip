@@ -99,8 +99,10 @@ th.next,th.prev{
   <!-- Apply any bg-* class to to the icon to color it -->
     <span class="info-box-icon bg-blue"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
     <div class="info-box-content">
-      <span class="info-box-text">Route Stop Point</span>
-      <span class="info-box-number"></span>
+      <span class="info-box-number">Route Stop Point</span>
+      @foreach ($data as $i)
+        <span id="tabInfo" data-id="{{$i->id}}" readonly>{{$i->description}}</span>
+        @endforeach
     </div>
     <!-- /.info-box-content -->
   </div>

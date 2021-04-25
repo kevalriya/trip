@@ -19,8 +19,10 @@ $ActiveSide='booking';
   <!-- Apply any bg-* class to to the icon to color it -->
   <span class="info-box-icon bg-blue"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
   <div class="info-box-content">
-    <span class="info-box-text">Booking List</span>
-    <span class="info-box-number"></span>
+    <span class="info-box-number">Booking List</span>
+    @foreach ($data as $i)
+        <span id="tabInfo" data-id="{{$i->id}}" readonly>{{$i->description}}</span>
+        @endforeach
   </div>
   <!-- /.info-box-content -->
 </div>
