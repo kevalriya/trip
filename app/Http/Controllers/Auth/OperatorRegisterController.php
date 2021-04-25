@@ -109,7 +109,7 @@ class OperatorRegisterController extends Controller
     'MAIN_CONTACT_LGA' => $request->LGA ,
     'MAIN_CONTACT_STATE' => $request->state ,
     'MAIN_CONTACT_COUNTRY' => $request->country ,
-    'password' => $password ,
+    'PASSWORD' => $password ,
     'FLEET_SIZE' => $request->fleetSize,
     'PREFERRED_ROUTES' => $request->preferredRoute ,
     'MAIN_CONTACT_ADDRESS' => $request->address ,

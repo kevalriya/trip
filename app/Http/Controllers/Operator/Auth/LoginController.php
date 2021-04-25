@@ -62,7 +62,6 @@ class LoginController extends Controller
 
      public function opAjaxLogin(Request $request)
     {
-
         $this->validateLogin($request);
 
          $admin = Operator::where('MAIN_CONTACT_EMAIL',$request->MAIN_CONTACT_EMAIL)->first();
