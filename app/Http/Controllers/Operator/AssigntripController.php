@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Model\AssignTrip;
 use App\Model\Route;
 use App\Model\Trip;
+use App\Tab;
 use DB;
 use Auth;
 class AssigntripController extends Controller
@@ -102,10 +103,9 @@ class AssigntripController extends Controller
     
       $Trip=Trip::where('TRIP_ID',$id)->where('OPERATOR_CODE',Auth::guard('operator')->user()->OPERATOR_CODE)->first();
        $AssignTrip=AssignTrip::where('TRIP_ID',$id)->where('ACTUAL_DEP_DATE',$date)->first();
-
-        return view('operator.startTrip',compact('Trip','AssignTrip','date','id'));
+        $data=Tab::where('id',34)->get();
+        return view('operator.startTrip',compact('Trip','AssignTrip','date','id'), ['data'=>$data]);
    
-      
     }
 
     public function endTrip($id)
@@ -118,8 +118,8 @@ class AssigntripController extends Controller
         $Trip=Trip::where('TRIP_ID',$id)->first();
        $AssignTrip=AssignTrip::where('TRIP_ID',$id)->where('ACTUAL_DEP_DATE',$date)->first();
        
-    
-        return view('operator.endTrip',compact('Trip','AssignTrip','date','id'));
+    $data=Tab::where('id',35)->get();
+        return view('operator.endTrip',compact('Trip','AssignTrip','date','id'), ['data'=>$data]);
     }
 
     /**

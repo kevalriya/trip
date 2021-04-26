@@ -144,8 +144,8 @@ class TripController extends Controller
         foreach ($FarePrices as $Price) {
                 $Fares[$Price->STOPPOINTSTART][$Price->STOPPOINTEND]=array('FAREADULT'=>$Price->FAREADULT,'FARECHILD'=>$Price->FARECHILD,'FARESPECIAL'=>$Price->FARESPECIAL );
             }  
-
-        return view('operator.editTrip',compact('Routes','Fleets','Trip','RoutePoint','Fares','Seat','Drivers'));
+            $data=Tab::where('id',30)->get();
+        return view('operator.editTrip',compact('Routes','Fleets','Trip','RoutePoint','Fares','Seat','Drivers'), ['data'=>$data]);
     }
 
     public function editTripFare($id)
@@ -161,8 +161,8 @@ class TripController extends Controller
         foreach ($FarePrices as $Price) {
                 $Fares[$Price->STOPPOINTSTART][$Price->STOPPOINTEND]=array('FAREADULT'=>$Price->FAREADULT,'FARECHILD'=>$Price->FARECHILD,'FARESPECIAL'=>$Price->FARESPECIAL );
             }  
-
-        return view('operator.tripFare',compact('Trip','RoutePoint','Fares'));
+            $data=Tab::where('id',33)->get();
+        return view('operator.tripFare',compact('Trip','RoutePoint','Fares'), ['data'=>$data]);
     }
 
     public function editTripTime($id)
@@ -183,16 +183,16 @@ class TripController extends Controller
         foreach ($Triptimes as $Triptime) {
                 $Times[$Triptime->CITY_CODE]=array('ARRIVAL_TIME'=>$Triptime->ARRIVAL_TIME,'DEPARTURE_TIME'=>$Triptime->DEPARTURE_TIME);
             }  
-
-       return view('operator.tripTime',compact('Route','Trip','RoutePoint','Times','States','Cities'));
+            $data=Tab::where('id',32)->get();
+       return view('operator.tripTime',compact('Route','Trip','RoutePoint','Times','States','Cities'), ['data'=>$data]);
     }
 
     public function editTripschedule($id)
     {
       
     $Trip=Trip::where('TRIP_ID',$id)->first();
-   
-       return view('operator.tripSchedule',compact('Trip'));
+   $data=Tab::where('id',31)->get();
+       return view('operator.tripSchedule',compact('Trip'), ['data'=>$data]);
     }
 
     /**

@@ -180,8 +180,8 @@ class FleetController extends Controller
         abort(403, 'Unauthorized action.');
 
        }
-
-        return view('operator.editFleetType',compact('parentTypes','seatMaps','fleetType'));
+       $data=Tab::where('id',27)->get();
+        return view('operator.editFleetType',compact('parentTypes','seatMaps','fleetType'), ['data'=>$data]);
     }
 
     /**
@@ -214,8 +214,8 @@ class FleetController extends Controller
         abort(403, 'Unauthorized action.');
 
        }
-       
-        return view('operator.editFleet',compact('Routes','fleetTypes','Fleet','Amenities'));
+       $data=Tab::where('id',29)->get();
+        return view('operator.editFleet',compact('Routes','fleetTypes','Fleet','Amenities'), ['data'=>$data]);
     }
 
 

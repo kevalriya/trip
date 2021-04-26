@@ -70,7 +70,6 @@ class FleetController extends Controller
         $data=Tab::where('id',2)->get();
        return view('admin.fleetType',compact('Types'), ['data'=>$data]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

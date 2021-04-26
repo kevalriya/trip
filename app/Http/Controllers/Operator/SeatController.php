@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Operator;
 use App\Model\Seat;
+use App\Tab;
 use DB;
 class SeatController extends Controller
 {
@@ -25,8 +26,8 @@ class SeatController extends Controller
      */
     public function index()
     {
-        
-        return view('operator.seat');
+        $data=Tab::where('id',6)->get();
+        return view('operator.seat', ['data'=>$data]);
     }
 
     /**
@@ -45,8 +46,8 @@ class SeatController extends Controller
             $default="no";
         }
         
-        
-        return view('operator.addSeat',compact('FleetTypes','default'));
+        $data=Tab::where('id',6)->get();
+        return view('operator.addSeat',compact('FleetTypes','default'), ['data'=>$data]);
     }
 
     /**
@@ -110,8 +111,8 @@ class SeatController extends Controller
             $default="no";
         }
     
-        
-        return view('operator.editSeat',compact('Seat','SeatArr','FleetTypes','default'));
+        $data=Tab::where('id',28)->get();
+        return view('operator.editSeat',compact('Seat','SeatArr','FleetTypes','default'), ['data'=>$data]);
     }
 
 
