@@ -66,7 +66,7 @@ class UserController extends Controller
             'firstName' => 'required|string|max:255',
             'surnameName' => 'required|string|max:255',
             'email' => 'required|string|unique:users,EMAIL_ADDRESS',
-            'phone' => 'required|numeric|unique:users,EMAIL_ADDRESS',
+            'phone' => 'required|numeric|unique:users,PHONE_NUMBER1',
             'password' => 'required|string|min:6',
             'state' => 'required',
             'country' => 'required',
