@@ -244,8 +244,8 @@ class FleetController extends Controller
        $seatMaps = DB::table('seatmap_library')->get();
        $fleetType = DB::table('fleet_type')->where('FLEET_TYPE_CODE',$id)->first();
 
-
-        return view('admin.editFleetType',compact('Operators','parentTypes','seatMaps','fleetType'));
+        $data=Tab::where('id',27)->get();
+        return view('admin.editFleetType',compact('Operators','parentTypes','seatMaps','fleetType'), ['data'=>$data]);
     }
 
     /**
@@ -272,8 +272,8 @@ class FleetController extends Controller
         $fleetTypes = DB::table('fleet_type')->get();
         $Amenities=Amenitie::orderBy('AMENITY_NAME', 'ASC')->get();
         $Fleet = Fleet::where('FLEET_ID',$id)->first();
-        
-        return view('admin.editFleet',compact('Operators','Routes','fleetTypes','Fleet','Amenities'));
+        $data=Tab::where('id',29)->get();
+        return view('admin.editFleet',compact('Operators','Routes','fleetTypes','Fleet','Amenities'), ['data'=>$data]);
     }
 
 
