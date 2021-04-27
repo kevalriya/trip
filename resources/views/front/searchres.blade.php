@@ -56,8 +56,9 @@
 	if(count($BusesRoutes) > 0 ){
 
 		foreach ($BusesRoutes as $Route) {
+           
 		$Dtime=	$Times[$Route->TRIP_ID][$Route->ROUTE_ID][0]['departure_time'];
-        $Atime=end($Times[$Route->TRIP_ID][$Route->ROUTE_ID])['arrival_time'];
+        $Atime= $Times[$Route->TRIP_ID][$Route->ROUTE_ID] ? end($Times[$Route->TRIP_ID][$Route->ROUTE_ID])['arrival_time'] : "";
         $sDtime=date('h:i',strtotime($Dtime));
         $sAtime=date('h:i',strtotime($Atime));
 		$startimes=$date.' '.$Dtime;
@@ -185,7 +186,7 @@
                         <select class="form-control" name="startBoard">
                         	<option value="">Select</option>
                         	<?php 
-                        	if(count($RoutepointData[$Route->ROUTE_ID]) > 0){
+                        	if(is_countable($RoutepointData[$Route->ROUTE_ID]) && count($RoutepointData[$Route->ROUTE_ID]) > 0){
                         	foreach ($RoutepointData[$Route->ROUTE_ID] as $Point) {
                         		 if(!in_array($Point['ROUTE_STOPPOINT_TYPE'], ['DROP-OFF','FINAL'])) {
                         		 	echo "<option value='".$Point['CITY_NAME']."'>".$Point['CITY_NAME']."</option>";
@@ -199,7 +200,7 @@
                         <select class="form-control" name="endBoard">
                                     <option value="">Select</option>
                             <?php    
-                            if(count($RoutepointData[$Route->ROUTE_ID]) > 0){
+                            if(is_countable($RoutepointData[$Route->ROUTE_ID]) && count($RoutepointData[$Route->ROUTE_ID]) > 0){
                         	foreach ($RoutepointData[$Route->ROUTE_ID] as $Point) {
                         		 if(!in_array($Point['ROUTE_STOPPOINT_TYPE'], ['START','PICK-UP'])) {
                         		 	echo "<option value='".$Point['CITY_NAME']."'>".$Point['CITY_NAME']."</option>";
