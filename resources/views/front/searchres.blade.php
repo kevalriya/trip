@@ -168,17 +168,18 @@
 
                 <div class="row" style="margin: 0px;">
                     
-                    <div class="col-md-6">
+                    <div class="col-md-12">
 
-                        <h4 class="seatmodal" style="margin-left: 20px;cursor: pointer;color: #ed8323;" data-type="6" data-uid="uuidinput{{$Route->TRIP_ID}}" data-bus="{{$Route->FLEET_REG_ID}}" data-trip="{{$Route->TRIP_ID}}" data-pic="{{$Route->ROUTE_ID}}" data-start="{{$startimes}}" data-end="{{$endtimes}}"	data-ret="10" data-seat="{{$Route->SEATMAP_LIB_CODE}}" data-route="{{$Route->ROUTE_ID}}"> <div class="i-check">
+                        <h4 class="seatmodal" style="margin-left: 20px;cursor: pointer;color: #ed8323;" data-type="6" data-uid="uuidinput{{$Route->TRIP_ID}}" data-bus="{{$Route->FLEET_REG_ID}}" data-trip="{{$Route->TRIP_ID}}" data-pic="{{$Route->ROUTE_ID}}" data-start="{{$startimes}}" data-end="{{$endtimes}}"	data-ret="10" data-seat="{{$Route->SEATMAP_LIB_CODE}}" data-route="{{$Route->ROUTE_ID}}"> <div class="i-check hide-check">
                                                 <label>
-                                                    <input class="i-check" type="checkbox"  name="bustypes[]" />
+                                                    <input class="i-check" type="checkbox" name="bustypes[]" />
                                                 </label>
-                                            </div> Choose your seat <small id="uuidinput{{$Route->TRIP_ID}}-text"> </small></h4> 
-                       
-                       
-                   
-                      
+                                            </div> Your seat(s): <span id="uuidinput{{$Route->TRIP_ID}}-text"> </span></h4> 
+                       </div>
+                       <div class="col-sm-12 col-md-8">
+                            <div id="insert_seat"></div>
+                        </div>
+                      <div class="col-sm-12 col-md-4">
                         <p>
 						<form method="post" action="<?php echo $Url ?>" onsubmit="return checkbooking('uuidinput{{$Route->TRIP_ID}}')">
 						 {{ csrf_field() }}

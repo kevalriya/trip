@@ -605,22 +605,7 @@ $fdate=trim(strip_tags($_GET['start']));
 </div>               
 
                     
-         <div id="insert_seat" class="modal fade" >
-        <div class="modal-dialog" style="max-width: 800px;width: 100%;">
-            <div class="modal-content" style="overflow: auto;">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-              <h4 class="modal-title ">Select Seat</h4>
-           
-              </div>
-                <div class="modal-body">
-
-                    </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-     </div>
-    </div>
+         
            					
 		 <div id="rating_route" class="modal fade" >
         <div class="modal-dialog modal-xs">
@@ -792,27 +777,31 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
     }
 });
 	
-	$(document).on('click', ".confirm-seat", function(e) {
+	// $(document).on('click', ".confirm-seat", function(e) {
 	
-	$('#insert_seat').modal('hide');
-	});
+	// $('#insert_seat').modal('hide');
+	// });
 		
-	$(document).on('click', ".close-seat", function(e) {
+	// $(document).on('click', ".close-seat", function(e) {
 		
-	var uid=$(this).attr('data-id');
+	// var uid=$(this).attr('data-id');
 	
-	var oldval=$('#'+uid).val('X');
-	var oldvalsid=$('#'+uid+'-main').val('X');
-	var oldvalsid=$('#'+uid+'-text').text('');
-	$('#insert_seat').modal('hide');
-	});
+	// var oldval=$('#'+uid).val('X');
+	// var oldvalsid=$('#'+uid+'-main').val('X');
+	// var oldvalsid=$('#'+uid+'-text').text('');
+	// $('#insert_seat').modal('hide');
+	// });
+
+    $(window).load(function() {
+        $(".seatmodal").click()
+    })
     
     $(document).on('click', ".seatmodal", function(e) {
 
             e.preventDefault;
             
         
-        $('#insert_seat').find('.modal-body').empty();
+        $('#insert_seat').empty();
         var bustype=$(this).attr('data-type');
         var uid=$(this).attr('data-uid');
     
@@ -830,8 +819,8 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
     var oldvalsid=$('#'+uid+'-main').val('X');
     
     
-       $('#insert_seat').find('.modal-body').load("{{route('seatmap')}}",{ _token: "{{csrf_token()}}",bustype:bustype,uid:uid,route_id:route_id,pickup_id:pickup_id,return_id:return_id,bus_id:bus_id,seat:seat,startDate:startDate,trip_id:trip_id,endDate:endDate},function(){
-        $('#insert_seat').modal({ backdrop: 'static', keyboard: false });
+       $('#insert_seat').load("{{route('seatmap')}}",{ _token: "{{csrf_token()}}",bustype:bustype,uid:uid,route_id:route_id,pickup_id:pickup_id,return_id:return_id,bus_id:bus_id,seat:seat,startDate:startDate,trip_id:trip_id,endDate:endDate},function(){
+     //   $('#insert_seat').modal({ backdrop: 'static', keyboard: false });
        
      
     });
@@ -1167,7 +1156,7 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 		</script>
 		
 		 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8">
     </script> 
 
 @endsection

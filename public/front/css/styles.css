@@ -11077,3 +11077,7 @@ img.mfp-img {
 .no-line, [class*=" no-line-"]{
   line-height: 2.5rem !important;
 }
+
+.hide-check {
+  display: none;
+}

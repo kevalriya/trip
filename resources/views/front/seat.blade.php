@@ -85,6 +85,6 @@
 
 <div class="clearfix"> </div>
 
-<button  class="btn btn-primary confirm-seat" data-id="<?php echo $uid ?>">Confirm</button>
-<button  class="btn btn-danger pull-right close-seat"  data-id="<?php echo $uid ?>">Close</button>
+<!-- <button  class="btn btn-primary confirm-seat" data-id="<?php echo $uid ?>">Confirm</button>
+<button  class="btn btn-danger pull-right close-seat"  data-id="<?php echo $uid ?>">Close</button> -->
 <div class="clearfix"> </div>
