@@ -14,7 +14,7 @@ class UserBookingController extends Controller
 
    public function index()
     {
-       
+        
         return view('front.user-profile-booking-history');
     }
 
@@ -24,6 +24,7 @@ class UserBookingController extends Controller
        if(!$Booking){
         die('No Booking Found');
        }
+      
        return view('front.viewBooking',compact('Booking'));
 
     }

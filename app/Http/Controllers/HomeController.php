@@ -31,12 +31,13 @@ class HomeController extends Controller
       $Amenities=Amenitie::orderBy('AMENITY_NAME', 'ASC')->get();
       $cityArr=array('ABJ','ONT','CAL','BNC');
       $Cities=City::whereIn('CITY_CODE',$cityArr)->get();
+      $Operators=Operator::where('ACTIVE_INDICATOR', 'Y')->limit(8)->get();
       $cityImg=array();
       foreach ($Cities as $City) {
         $cityImg[$City->CITY_CODE]=$City->CITY_PHOTO;
       }
       
-      return view('front.home',compact('Amenities','cityImg'));
+      return view('front.home', ['operators'=>$Operators], compact('Amenities','cityImg'));
     }
 
    public function seatMap(Request $request)

@@ -531,38 +531,24 @@ $Slideurl=config('constants.operator_slide_url');
             </div>
         </div>
       
-
-          <div class="container">
-        </div>
         <div class="special-area">
             <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
-                            <div class="bg-holder full text-center text-white">
+            @foreach ($operators as $operator)
+           <div class="bg-holder full text-center text-white">
                     <div class="bg-mask"></div>
-                    <div class="bg-img" style="background-image:url({{url($Slideurl.'1557458896.jpg')}});"></div>
+                    <div class="bg-img" style="background-image:url('images/operator/{{$operator->FLEET_PHOTO}}');"></div>
                     <div class="bg-front full-center">
                         <div class="owl-cap">
                           
-                            <h1 class="owl-cap-title">CP Client</h1>
+                            <h1 class="owl-cap-title">{{$operator->OPERATOR_LEGAL_NAME}}</h1>
                             <div class="owl-cap-price"><small>from</small>
-                                <h5>₦100.00</h5>
-                            </div><a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
+                                <h5>{{$operator->PREFERRED_ROUTES}}</h5>
+                            </div>
+                            <a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
                         </div>
                     </div>
                 </div>
-                                <div class="bg-holder full text-center text-white">
-                    <div class="bg-mask"></div>
-                    <div class="bg-img" style="background-image:url({{url($Slideurl.'1557460753.jpg')}});"></div>
-                    <div class="bg-front full-center">
-                        <div class="owl-cap">
-                          
-                            <h1 class="owl-cap-title">Test Operator</h1>
-                            <div class="owl-cap-price"><small>from</small>
-                                <h5>₦100.00</h5>
-                            </div><a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
-                        </div>
-                    </div>
-                </div>
-                                
+          @endforeach           
             </div>
         </div>
         <div class="container">

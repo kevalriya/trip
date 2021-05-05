@@ -92,11 +92,9 @@ $ActiveSide='home';
             <div class="row upperdiv">
                 <div class="col-md-8">
                 	<input type="hidden" id="insuranceval">
-				<?php 
-				
-				if(!isset(Auth::guard('web')->user()->EMAIL_ADDRESS)){
-				?>
-                    <h3>Customer</h3>
+				<?php if(!isset(Auth::guard('web')->user()->EMAIL_ADDRESS)){ ?>
+                <script> window.location.href = "/login"; </script>
+                    <!-- <h3>Customer</h3>
                     <p>Sign in to your <a href="#">Traveler account</a> for fast booking.</p>
                     <form>
                         <div class="row">
@@ -132,15 +130,17 @@ $ActiveSide='home';
 								
                             </label>
                         </div>
-                    </form>
-				<?php }
-				else{
-					$FullName= Auth::guard('web')->user()->FIRSTNAME." ".Auth::guard('web')->user()->MIDDLENAME." ".Auth::guard('web')->user()->SURNAME;
-					echo  '<input class="form-control required" id="email-no" type="hidden" value="'.Auth::guard('web')->user()->EMAIL_ADDRESS.'" />';
-					echo  '<input class="form-control required" id="name-no" type="hidden" value="'.$FullName.'" />';
-				}
-	$startBoard = $_POST['startBoard'];
-    $endBoard = $_POST['endBoard'];	
+                    </form> -->
+				<?php
+                    return;
+                    }
+				    else{
+					    $FullName= Auth::guard('web')->user()->FIRSTNAME." ".Auth::guard('web')->user()->MIDDLENAME." ".Auth::guard('web')->user()->SURNAME;
+					    echo  '<input class="form-control required" id="email-no" type="hidden" value="'.Auth::guard('web')->user()->EMAIL_ADDRESS.'" />';
+					    echo  '<input class="form-control required" id="name-no" type="hidden" value="'.$FullName.'" />';
+				    }
+	                $startBoard = $_POST['startBoard'];
+                    $endBoard = $_POST['endBoard'];	
 				?>
                     <div class="gap gap-small"></div>
                   
@@ -441,7 +441,7 @@ $ActiveSide='home';
 						<div class="panel-heading text-center">Repatriation Of Remains</div>
 						<div class="panel-body text-center">
 
-						<img src="{{url('images/repatriation.png')}}" style="width: 50px;height: 50px"> <br>
+						<img src="{{url('images/repatriation.png')}}" style="width: 45px;height: 40px"> <br>
 
 							<i class="fa fa-2x fa-check-circle-o  text-success" aria-hidden="true"></i>
 								<p>Deductible: Nil </p>
@@ -456,7 +456,7 @@ $ActiveSide='home';
                		 <div class="panel panel-default select-insurance" data-ins="HOSPITALIZATION">
 						<div class="panel-heading text-center">Hospitalization</div>
 						<div class="panel-body text-center">
-						<img src="{{url('images/hosp.png')}}" style="width: 50px;height: 50px"> <br>	
+						<img src="{{url('images/hosp.png')}}" style="width: 45px;height: 40px"> <br>	
 						<i class="fa fa-2x fa-check-circle-o  text-success" aria-hidden="true"></i>
 
 								<p>Deductible: Nil </p>
@@ -470,7 +470,7 @@ $ActiveSide='home';
                				  <div class="panel panel-default select-insurance" data-ins="HOSPITALIZATION ALLOWANCE">
       <div class="panel-heading text-center">Hospitalization allowance</div>
       <div class="panel-body text-center">
-      	<img src="{{url('images/hoa.png')}}" style="width: 50px;height: 50px"> <br>	
+      	<img src="{{url('images/hoa.png')}}" style="width: 45px;height: 37px; margin-top:5px"> <br>	
       	<i class="fa fa-2x fa-check-circle-o text-success" aria-hidden="true"></i>
       	<p>Deductible: ₦5 </p>
       	<p style="font-size: 13px;font-weight: 600">Insured: ₦20 </p>
@@ -482,7 +482,7 @@ $ActiveSide='home';
                				  <div class="panel panel-default select-insurance" data-ins="HOSPITALIZATION ALLOWANCE">
       <div class="panel-heading text-center">Medical Evacuation</div>
       <div class="panel-body text-center">
-      	 <img src="{{url('images/med.png')}}" style="width: 50px;height: 50px"> <br>	
+      	 <img src="{{url('images/med.png')}}" style="width: 45px;height: 40px"> <br>	
 
       	
       	<i class="fa fa-2x fa-check-circle-o text-success" aria-hidden="true"></i>

@@ -11,7 +11,6 @@ use App\Model\LGA;
 use App\Model\Salutation;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-
 class OperatorController extends Controller
 {
     /**
