@@ -441,7 +441,7 @@ $ActiveSide='home';
 						<div class="panel-heading text-center">Repatriation Of Remains</div>
 						<div class="panel-body text-center">
 
-						<img src="{{url('images/repatriation.png')}}" style="width: 45px;height: 40px"> <br>
+						<i class="fa fa-plus-square fa-3x" aria-hidden="true" style="margin-bottom: 20px; color:#ED8325;"></i> <br>
 
 							<i class="fa fa-2x fa-check-circle-o  text-success" aria-hidden="true"></i>
 								<p>Deductible: Nil </p>
@@ -456,7 +456,7 @@ $ActiveSide='home';
                		 <div class="panel panel-default select-insurance" data-ins="HOSPITALIZATION">
 						<div class="panel-heading text-center">Hospitalization</div>
 						<div class="panel-body text-center">
-						<img src="{{url('images/hosp.png')}}" style="width: 45px;height: 40px"> <br>	
+						<i class="fa fa-bed fa-3x" aria-hidden="true" style="margin-bottom: 20px; color:#ED8325;"></i> <br>	
 						<i class="fa fa-2x fa-check-circle-o  text-success" aria-hidden="true"></i>
 
 								<p>Deductible: Nil </p>
@@ -470,7 +470,7 @@ $ActiveSide='home';
                				  <div class="panel panel-default select-insurance" data-ins="HOSPITALIZATION ALLOWANCE">
       <div class="panel-heading text-center">Hospitalization allowance</div>
       <div class="panel-body text-center">
-      	<img src="{{url('images/hoa.png')}}" style="width: 45px;height: 37px; margin-top:5px"> <br>	
+      	<i class="fa fa-hospital-o fa-3x" aria-hidden="true" style="margin-bottom: 20px; color:#ED8325;"></i> <br>	
       	<i class="fa fa-2x fa-check-circle-o text-success" aria-hidden="true"></i>
       	<p>Deductible: ₦5 </p>
       	<p style="font-size: 13px;font-weight: 600">Insured: ₦20 </p>
@@ -482,7 +482,7 @@ $ActiveSide='home';
                				  <div class="panel panel-default select-insurance" data-ins="HOSPITALIZATION ALLOWANCE">
       <div class="panel-heading text-center">Medical Evacuation</div>
       <div class="panel-body text-center">
-      	 <img src="{{url('images/med.png')}}" style="width: 45px;height: 40px"> <br>	
+      	 <i class="fa fa-ambulance fa-3x" aria-hidden="true" style="margin-bottom: 20px; color:#ED8325;"></i> <br>	
 
       	
       	<i class="fa fa-2x fa-check-circle-o text-success" aria-hidden="true"></i>

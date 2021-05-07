@@ -61,6 +61,13 @@ $Slideurl=config('constants.operator_slide_url');
 }
 .embed-responsive.embed-responsive-4by3 > div:hover {transform: scale(1.07);}
 .embed-responsive.embed-responsive-4by3 > div{transition: 0.3s;}
+.carousel-inner .active.left  { left: -33%;             }
+.carousel-inner .active.right { left: 33%;              }
+.carousel-inner .next         { left: 33%               }
+.carousel-inner .prev         { left: -33%              }
+.carousel-control.left        { background-image: none; }
+.carousel-control.right       { background-image: none; }
+.carousel-inner .item         { background: white;      }
 </style>
 
 @endsection
@@ -533,6 +540,8 @@ $Slideurl=config('constants.operator_slide_url');
       
         <div class="special-area">
             <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
+            @if ($operators > 0)
+
             @foreach ($operators as $operator)
            <div class="bg-holder full text-center text-white">
                     <div class="bg-mask"></div>
@@ -548,20 +557,39 @@ $Slideurl=config('constants.operator_slide_url');
                         </div>
                     </div>
                 </div>
-          @endforeach           
+          @endforeach
+            @else
+                <div class="bg-holder full text-center text-white">
+                    <div class="bg-mask"></div>
+                    <div class="bg-img" style="background-image:url('images/operator/1562704039.jpg');"></div>
+                    <div class="bg-front full-center">
+                        <div class="owl-cap">
+                          
+                            <h1 class="owl-cap-title">Test Name</h1>
+                            <div class="owl-cap-price"><small>from</small>
+                                <h5>Test City</h5>
+                            </div>
+                            <a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
+                        </div>
+                    </div>
+                </div>
+            @endif
+                       
             </div>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div class="gap"></div>
             <h2 class="text-center mb20">Top Travel Destinations</h2>
-            <div class="row row-wrap text-center">
-                        
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumb">
+            <div id="myCarousel" class="carousel slide">
+  
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="col-xs-4">
+       <div class="thumb">
                         <header class="thumb-header">
                             <a class=" curved" href="#">
                                 <div class="embed-responsive embed-responsive-4by3">
-                                  <div class="embed-responsive-item" style="background: url('{{url($url.$cityImg['ABJ'])}}');background-position: center;background-size: cover;"></div>
+                                  <div class="embed-responsive-item" style="background: url('https://mediaim.expedia.com/destination/1/254a1fa7846c3ff537ff48dc7575ffc9.jpg');background-position: center;background-size: cover;"></div>
                                 </div>
                             </a>
                         </header>
@@ -570,14 +598,15 @@ $Slideurl=config('constants.operator_slide_url');
                             
                         </div>
                     </div>
-                </div>
-                        
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumb">
+      </div>
+    </div>
+    <div class="item">
+      <div class="col-xs-4">
+       <div class="thumb">
                         <header class="thumb-header">
                            <a class=" curved" href="#">
                                 <div class="embed-responsive embed-responsive-4by3">
-                                  <div class="embed-responsive-item" style="background: url('{{url($url.$cityImg['ONT'])}}');background-position: center;background-size: cover;"></div>
+                                  <div class="embed-responsive-item" style="background: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Onitsha_City_View.jpg');background-position: center;background-size: cover;"></div>
                                 </div>
                             </a>
                         </header>
@@ -586,15 +615,16 @@ $Slideurl=config('constants.operator_slide_url');
                             
                         </div>
                     </div>
-                </div>
-                        
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="thumb">
+      </div>
+    </div>
+    <div class="item">
+      <div class="col-xs-4">
+      <div class="thumb">
                         <header class="thumb-header">
                        
                             <a class=" curved" href="#">
                                 <div class="embed-responsive embed-responsive-4by3">
-                                  <div class="embed-responsive-item" style="background: url('{{url($url.$cityImg['CAL'])}}');background-position: center;background-size: cover;"></div>
+                                  <div class="embed-responsive-item" style="background: url('https://hotels.ng/guides/wp-content/uploads/2019/12/Calabar.jpg');background-position: center;background-size: cover;"></div>
                                 </div>
                             </a>
                         </header>
@@ -603,14 +633,15 @@ $Slideurl=config('constants.operator_slide_url');
                             
                         </div>
                     </div>
-                </div>
-                        
-                <div class="col-md-3 col-sm-6 col-xs-12">
+      </div>
+    </div>
+    <div class="item">
+      <div class="col-xs-4">
                     <div class="thumb">
                         <header class="thumb-header">
                             <a class=" curved" href="#">
                                 <div class="embed-responsive embed-responsive-4by3">
-                                  <div class="embed-responsive-item" style="background: url('{{url($url.$cityImg['BNC'])}}');background-position: center;background-size: cover;"></div>
+                                  <div class="embed-responsive-item" style="background: url('https://upload.wikimedia.org/wikipedia/commons/8/8f/Areal_view_of_the_ancient_city_of_Benin.jpg');background-position: center;background-size: cover;"></div>
                                 </div>
                             </a>
                         </header>
@@ -619,11 +650,54 @@ $Slideurl=config('constants.operator_slide_url');
                             
                         </div>
                     </div>
-                </div>
-                           
-               
-              
-            </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="col-xs-4">
+      <div class="thumb">
+                        <header class="thumb-header">
+                            <a class=" curved" href="#">
+                                <div class="embed-responsive embed-responsive-4by3">
+                                  <div class="embed-responsive-item" style="background: url('https://lithub.com/wp-content/uploads/sites/3/2020/07/lagos-slider-960x430.jpg');background-position: center;background-size: cover;"></div>
+                                </div>
+                            </a>
+                        </header>
+                        <div class="thumb-caption">
+                            <h4 class="thumb-title">Lagos</h4>
+                            
+                        </div>
+                    </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="col-xs-4">
+      <div class="thumb">
+                        <header class="thumb-header">
+                            <a class=" curved" href="#">
+                                <div class="embed-responsive embed-responsive-4by3">
+                                  <div class="embed-responsive-item" style="background: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/79/0f/70/visit-to-olumo-rock-olumorock.jpg?w=1000&h=700&s=1');background-position: center;background-size: cover;"></div>
+                                </div>
+                            </a>
+                        </header>
+                        <div class="thumb-caption">
+                            <h4 class="thumb-title">Abeokuta</h4>
+                            
+                        </div>
+                    </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
             <div class="gap gap-small"></div>
         </div>
 
@@ -633,7 +707,25 @@ $Slideurl=config('constants.operator_slide_url');
 
   @section('footerSection')
 
-   <script> 
+   <script>
+   $('#myCarousel').carousel({
+        interval: 3000
+    })
+
+$('.carousel .item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+  
+  if (next.next().length>0) {
+    next.next().children(':first-child').clone().appendTo($(this));
+  }
+  else {
+  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+  }
+});
 $(document).ready(function(){
 
     $(window).bind("pageshow", function() {

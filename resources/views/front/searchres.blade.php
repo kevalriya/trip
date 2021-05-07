@@ -76,7 +76,9 @@
                                                             <?php
                                                             if(isset($Route->FLEET_PHOTO)){
                                                             ?>
-                                                            <img src="{{url('/public/images/operator/'.$Route->FLEET_PHOTO)}}" alt="Image Alternative text" title="Image Title">
+
+                                                          
+                                                            <img src="images/operator/{{$Route->FLEET_PHOTO}}" alt="Image Alternative text" title="Image Title">
                                                         <?php } ?>
                                                             <p>{{ $Route->OPERATOR_LEGAL_NAME }}</p>
                                                         </div>
