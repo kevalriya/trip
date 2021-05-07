@@ -540,8 +540,8 @@ $Slideurl=config('constants.operator_slide_url');
       
         <div class="special-area">
             <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
+            
             @if ($operators > 0)
-
             @foreach ($operators as $operator)
            <div class="bg-holder full text-center text-white">
                     <div class="bg-mask"></div>
