@@ -8,7 +8,6 @@ $ActiveSide='fleet';
 <link rel="stylesheet" href="{{ asset('admin/plugins/select2/select2.min.css') }}">
 
      <link type="text/css" rel="stylesheet" href="{{ asset('admin/plugins/seat/mseat.css') }}">
-	 <link rel="stylesheet" href="{{ asset('admin/dist/css/info.css') }}">
     <style>
 .seat_layout td{
 		text-decoration: none;
@@ -69,23 +68,110 @@ $ActiveSide='fleet';
 	    width: 100%;
 	    max-width: 350px;
 	    text-align: center;
-	    margin: 30px auto;
+	    margin: 0px auto;
 	}
 
 	.seats_table td span {
-	    background-size: contain;
-	    padding: 0px 20px;
-	    background-repeat: no-repeat !important;
-	    background-position: center;
-	    height: 43px;
-	    display: inline-block;
+		background-size: contain;
+    padding: 0px 20px;
+    background-repeat: no-repeat !important;
+    background-position: center;
+    height: 50px;
+    display: inline-block;
 	}
+
+    .plane {
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.cockpit {
+    margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  /* border: 5px solid #d8d8d8; */
+  /* border-bottom: 0px; */
+  border-radius: 10px 10px 0 0;
+  /* &:before { */
+    /* content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 100%;
+    border-radius: 50%;
+    border-right: 5px solid #d8d8d8;
+    border-left: 5px solid #d8d8d8; */
+  /* } */
+  h1 {
+    width: 60%;
+    margin: 100px auto 35px auto;
+  }
+}
+
+.exit {
+  position: relative;
+  /* height: 50px; */
+  /* border: 5px solid #d8d8d8; */
+  border-radius: 10px;
+  padding: 10px;
+  /* &:before,
+  &:after {
+    content: "EXIT";
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 2px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    background: green;
+    color: white;
+    top: 50%;
+    transform: translate(0, -50%);
+  } */
+  &:before {
+    left: 0;
+  }
+  &:after {
+    right: 0;
+  }
+}
+
+.fuselage {
+  /* border-right: 5px solid #d8d8d8; */
+  /* border-left: 5px solid #d8d8d8; */
+}
+
+
+
 </style>
 </style>
 
 
       <script src="{{ asset('admin/plugins/seat/jquery-ui.custom.min.js') }}"></script>
       <script src="{{ asset('admin/plugins/seat/pjAdminBusTypes.js') }}"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script>
+      $(function() {
+    $("#sortable tbody").sortable({
+      cursor: "move",
+      placeholder: "sortable-placeholder",
+      helper: function(e, tr)
+      {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+        $helper.children().each(function(index)
+        {
+        // Set helper cell sizes to match the original sizes
+        $(this).width($originals.eq(index).width());
+        });
+        return $helper;
+      }
+    }).disableSelection();
+  });
+      </script>
 
 @endsection
 @section('main-content')
@@ -103,11 +189,8 @@ $ActiveSide='fleet';
   <!-- Apply any bg-* class to to the icon to color it -->
   <span class="info-box-icon bg-blue"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
   <div class="info-box-content">
-    <span class="info-box-number">Update Seat</span>
-    @foreach ($data as $i)
-        <textarea id="tabInfo" data-id="{{$i->id}}" readonly>{{$i->description}}</textarea>
-        @endforeach
-      <button class="btn-aqua" id="infoUpdate"><i class="fa fa-check fa-2x"></i></button>
+    <span class="info-box-text">Update Seat</span>
+    <span class="info-box-number"></span>
   </div>
   <!-- /.info-box-content -->
 </div>
@@ -211,8 +294,15 @@ $ActiveSide='fleet';
 		<div class="row mt-2">
 		
 		
-			<div class="col-md-3">
-				<table class="table borderless no-spacing seats_table">
+			<div class="col-md-3" style="max-width: 25%; width: auto !important">
+
+  <!-- <div class="cockpit">
+  <span class='steering' id='A1'></span>
+  </div> -->
+  <div class="exit exit--front fuselage" style="margin: 40px; box-shadow: 0px 0px 20px 5px grey">
+    
+
+  <table class="table borderless no-spacing seats_table" id="sortable">
 	<?php
 					$Latter=range('A', 'Z');
 					array_unshift($Latter, "#");
@@ -224,7 +314,7 @@ $ActiveSide='fleet';
 					for ($i=0; $i <= $Rows ; $i++) { 
 						echo "<tr>";
 						
-						echo "<td>".$Latter[$i]."</td>";
+						// echo "<td>".$Latter[$i]."</td>";
 							for ($j=1; $j <= $Columns ; $j++) { 
 								$inputval=$Latter[$i].$j;
 								if(isset($SeatArr[$inputval]) ){
@@ -245,14 +335,14 @@ $ActiveSide='fleet';
 								}
 
 								if($i==0){
-									echo "<td>".$j."</td>";
+									// echo "<td>".$j."</td>";
 								}
 								else if($i==1 && $j==1 ){
 									
-									echo "<td style='padding: 0px; box-shadow:  -6px 0 4px -4px rgba(0,0,0,0.7);'><input type='hidden' value='3' name='$Latter[$i]$j' ><span class='steering' id='$Latter[$i]$j'></span></td>";
+									echo "<td style='padding: 1px;'><input type='hidden' value='3' name='$Latter[$i]$j' ><span class='steering' id='$Latter[$i]$j'></span></td>";
 								}
 								else{
-									echo "<td style='padding: 0px'><input type='hidden' value='$SeatVal' id='input-$inputval' name='seat[$inputval]' ><span class='$cls' id='$inputval'></td>";
+									echo "<td style='padding: 1px'><input type='hidden' value='$SeatVal' id='input-$inputval' name='seat[$inputval]' ><span class='$cls' id='$inputval'></td>";
 								}
 								
 							}
@@ -260,6 +350,12 @@ $ActiveSide='fleet';
 					}
 					?>
 				</table>
+
+
+
+  </div>
+
+				
 			</div>
 				<div class="col-md-3">
 				<ul class="legends">
@@ -305,11 +401,10 @@ $ActiveSide='fleet';
 	<!-- /.content-wrapper -->
 @endsection
 @section('footerSection')
-<script src="{{ asset('admin/dist/js/info.js') }}"></script>
+
 <script src="{{ asset('admin/plugins/select2/select2.full.min.js') }}"></script>
 
 <script>
-updateInformation("{{route('trip.tabInfo')}}", '{{csrf_token()}}');
   $(document).ready(function() {
   		$('table span').click(function(){
 		var currentType = $(this).attr("class");
