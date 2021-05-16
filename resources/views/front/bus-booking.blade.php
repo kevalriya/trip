@@ -17,6 +17,17 @@ $ActiveSide='home';
 	font-weight: 500;
 }
 
+.panel {
+    box-shadow: rgba(46, 61, 73, 0.15) 12px 15px 20px 0px !important;
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+    border: none !important;
+}
+.panel-heading {
+    padding: 10px !important;
+    height: 60px !important;
+}
+
 </style>
 @endsection
 @section('main-content')
