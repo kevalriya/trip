@@ -13,11 +13,14 @@
 		
 		
 			<div class="col-md-12">
+			<div class="exit exit--front fuselage" style="width: fit-content; margin: 40px; box-shadow: 0px 0px 20px 5px grey">
 				<table class="table seattable borderless no-spacing seats_table">
 	<?php
 					$Latter=range('A', 'Z');
 					array_unshift($Latter, "#");
 
+					array_unshift($BookArr, 203);
+					array_unshift($BookArr, 204);
 
 					$Rows=$Seat->rows;
 					$Columns=$Seat->columns;
@@ -63,10 +66,12 @@
 								}
 								else if($i==1 && $j==1 ){
 									
-									echo "<td><span class='steering'  data-id='$seatId' data-name='$inputval' id='$Latter[$i]$j'></span></td>";
+									echo "<td style='padding:5px 1px; width: 20px'><span class='steering'  data-id='$seatId' data-name='$inputval' id='$Latter[$i]$j'></span></td>";
 								}
 								else{
-									echo "<td><span class='$cls' data-id='$seatId' data-name='$inputval' id='$inputval'></td>";
+									echo "<td style='padding:5px 1px; width:20px'><span class='$cls' data-id='$seatId' data-name='$inputval' id='$inputval'>";
+									if($SeatVal==1) echo "$inputval";
+									echo "</td>";
 								}
 								
 							}
@@ -74,6 +79,7 @@
 					}
 					?>
 				</table>
+				</div>
 			</div>
 			
 

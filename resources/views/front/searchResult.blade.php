@@ -67,9 +67,9 @@ $ActiveSide='home';
 
     .table.seats_table {
         width: 100%;
-        max-width: 350px;
+        /* max-width: 350px; */
         text-align: center;
-       
+        margin: 0px auto;
     }
 
     .seats_table td span {
@@ -80,6 +80,65 @@ $ActiveSide='home';
         height: 43px;
         display: inline-block;
     }
+
+    .plane {
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.cockpit {
+    margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  /* border: 5px solid #d8d8d8; */
+  /* border-bottom: 0px; */
+  border-radius: 10px 10px 0 0;
+  /* &:before { */
+    /* content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 500px;
+    width: 100%;
+    border-radius: 50%;
+    border-right: 5px solid #d8d8d8;
+    border-left: 5px solid #d8d8d8; */
+  /* } */
+  h1 {
+    width: 60%;
+    margin: 100px auto 35px auto;
+  }
+}
+
+.exit {
+  position: relative;
+  /* height: 50px; */
+  /* border: 5px solid #d8d8d8; */
+  border-radius: 10px;
+  padding: 10px;
+  /* &:before,
+  &:after {
+    content: "EXIT";
+    font-size: 14px;
+    line-height: 18px;
+    padding: 0px 2px;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    display: block;
+    position: absolute;
+    background: green;
+    color: white;
+    top: 50%;
+    transform: translate(0, -50%);
+  } */
+  &:before {
+    left: 0;
+  }
+  &:after {
+    right: 0;
+  }
+}
 
     .booking-filters{
         width: 100%;
@@ -1156,7 +1215,7 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 		</script>
 		
 		 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDabeCfIJYosISpEUO37J3cij5wt09LQNg">
     </script> 
 
 @endsection
