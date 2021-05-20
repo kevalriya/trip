@@ -13,7 +13,7 @@
 		
 		
 			<div class="col-md-12">
-			<div class="exit exit--front fuselage" style="width: fit-content; margin: 40px; box-shadow: 0px 0px 20px 5px grey">
+			<div class="exit exit--front fuselage" style="width: min-content; margin: 40px; box-shadow: 0px 0px 20px 5px grey; padding:15px;border-radius:20px;">
 				<table class="table seattable borderless no-spacing seats_table">
 	<?php
 					$Latter=range('A', 'Z');

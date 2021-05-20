@@ -56,7 +56,6 @@
 	if(count($BusesRoutes) > 0 ){
 
 		foreach ($BusesRoutes as $Route) {
-           
 		$Dtime=	$Times[$Route->TRIP_ID][$Route->ROUTE_ID][0]['departure_time'];
         $Atime= $Times[$Route->TRIP_ID][$Route->ROUTE_ID] ? end($Times[$Route->TRIP_ID][$Route->ROUTE_ID])['arrival_time'] : "";
         $sDtime=date('h:i',strtotime($Dtime));
@@ -76,8 +75,6 @@
                                                             <?php
                                                             if(isset($Route->FLEET_PHOTO)){
                                                             ?>
-
-                                                          
                                                             <img src="images/operator/{{$Route->FLEET_PHOTO}}" alt="Image Alternative text" title="Image Title">
                                                         <?php } ?>
                                                             <p>{{ $Route->OPERATOR_LEGAL_NAME }}</p>
@@ -138,31 +135,12 @@
 
 
 <div class="col-md-2 col-xs-4 pull-right">
-<button class="btn btn-primary view-seat-ng">Select Seat</button>
+<button class="btn btn-primary view-seat-ng seatmodal" data-type="6" data-uid="uuidinput{{$Route->TRIP_ID}}" data-bus="{{$Route->FLEET_REG_ID}}" data-trip="{{$Route->TRIP_ID}}" data-pic="{{$Route->ROUTE_ID}}" data-start="{{$startimes}}" data-end="{{$endtimes}}"	data-ret="10" data-seat="{{$Route->SEATMAP_LIB_CODE}}" data-route="{{$Route->ROUTE_ID}}">Select Seat</button>
 
 													<a style="font-size: smaller;" href="#"  data-toggle="modal" data-target="#cancel_policy" >Cancel Policy </a>	
 														
 													</div>
-
-
-
-
                                                 </div>
-
-                                            <div class="row __footer_row">
-                                                 <div class="col-xs-8">
-                                                    <ul class="booking-item-features booking-item-features-rentals booking-item-features-sign">
-																										
-                                                      	                                                       
-                                                        
-														
-                                                    </ul>
-                                                </div>
-
-                                 				
-                                 					
-
-                                            </div>
 
                                             </div>
                                             <div class="booking-item-details">
@@ -170,18 +148,9 @@
 
                 <div class="row" style="margin: 0px;">
                     
-                    <div class="col-md-12">
+                    <div class="col-md-12 originalSeatMapHere">
 
-                        <h4 class="seatmodal" style="margin-left: 20px;cursor: pointer;color: #ed8323;" data-type="6" data-uid="uuidinput{{$Route->TRIP_ID}}" data-bus="{{$Route->FLEET_REG_ID}}" data-trip="{{$Route->TRIP_ID}}" data-pic="{{$Route->ROUTE_ID}}" data-start="{{$startimes}}" data-end="{{$endtimes}}"	data-ret="10" data-seat="{{$Route->SEATMAP_LIB_CODE}}" data-route="{{$Route->ROUTE_ID}}"> <div class="i-check hide-check">
-                                                <label>
-                                                    <input class="i-check" type="checkbox" name="bustypes[]" />
-                                                </label>
-                                            </div> Your seat(s): <span id="uuidinput{{$Route->TRIP_ID}}-text"> </span></h4> 
-                       </div>
-                       <div class="col-sm-12 col-md-8">
-                            <div id="insert_seat"></div>
-                        </div>
-                      <div class="col-sm-12 col-md-4">
+                      <div class="col-md-4">
                         <p>
 						<form method="post" action="<?php echo $Url ?>" onsubmit="return checkbooking('uuidinput{{$Route->TRIP_ID}}')">
 						 {{ csrf_field() }}
@@ -245,6 +214,7 @@
 						</form>
 						 
 						</p>
+                      </div>
                     </div>
                 </div>
                 

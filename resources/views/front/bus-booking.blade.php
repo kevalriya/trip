@@ -532,12 +532,12 @@ $ActiveSide='home';
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-bus"></i>
                                                     <h5><?php echo date('H:i', strtotime($Old_startimes)); ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('D, M d', strtotime($Old_startimes)); ?></p>
+                                                    <p><?php echo date('D, M d', strtotime($Old_startimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $Old_pickup_text ?></p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-bus fa-flip-vertical"></i>
                                                     <h5><?php echo date('H:i', strtotime($Old_endtimes)); ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('D, M d', strtotime($Old_endtimes)); ?></p>
+                                                    <p><?php echo date('D, M d', strtotime($Old_endtimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $Old_return_text ?></p>
                                                 </div>
                                             </div>
@@ -555,12 +555,12 @@ $ActiveSide='home';
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-bus"></i>
                                                     <h5><?php echo date('H:i', strtotime($startimes)); ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('D, M d', strtotime($startimes)); ?></p>
+                                                    <p><?php echo date('D, M d', strtotime($startimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $pickup_text ?></p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-bus fa-flip-vertical"></i>
                                                     <h5><?php echo date('H:i', strtotime($endtimes)); ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('D, M d', strtotime($endtimes)); ?></p>
+                                                    <p><?php echo date('D, M d', strtotime($endtimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $return_text ?></p>
                                                 </div>
                                             </div>
@@ -632,12 +632,12 @@ $ActiveSide='home';
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-bus"></i>
                                                     <h5><?php echo date('H:i', strtotime($startimes)); ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('D, M d', strtotime($startimes)); ?></p>
+                                                    <p><?php echo date('D, M d', strtotime($startimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $pickup_text ?></p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-bus"></i>
                                                     <h5><?php echo date('H:i', strtotime($endtimes)); ?></h5>
-                                                    <p class="booking-item-date"><?php echo date('D, M d', strtotime($endtimes)); ?></p>
+                                                    <p><?php echo date('D, M d', strtotime($endtimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $return_text ?></p>
                                                 </div>
                                             </div>

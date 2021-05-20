@@ -67,9 +67,9 @@ $ActiveSide='home';
 
     .table.seats_table {
         width: 100%;
-        /* max-width: 350px; */
+        max-width: 350px;
         text-align: center;
-        margin: 0px auto;
+       
     }
 
     .seats_table td span {
@@ -80,65 +80,6 @@ $ActiveSide='home';
         height: 43px;
         display: inline-block;
     }
-
-    .plane {
-  margin: 20px auto;
-  max-width: 300px;
-}
-
-.cockpit {
-    margin-top: 20px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  /* border: 5px solid #d8d8d8; */
-  /* border-bottom: 0px; */
-  border-radius: 10px 10px 0 0;
-  /* &:before { */
-    /* content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 500px;
-    width: 100%;
-    border-radius: 50%;
-    border-right: 5px solid #d8d8d8;
-    border-left: 5px solid #d8d8d8; */
-  /* } */
-  h1 {
-    width: 60%;
-    margin: 100px auto 35px auto;
-  }
-}
-
-.exit {
-  position: relative;
-  /* height: 50px; */
-  /* border: 5px solid #d8d8d8; */
-  border-radius: 10px;
-  padding: 10px;
-  /* &:before,
-  &:after {
-    content: "EXIT";
-    font-size: 14px;
-    line-height: 18px;
-    padding: 0px 2px;
-    font-family: "Arial Narrow", Arial, sans-serif;
-    display: block;
-    position: absolute;
-    background: green;
-    color: white;
-    top: 50%;
-    transform: translate(0, -50%);
-  } */
-  &:before {
-    left: 0;
-  }
-  &:after {
-    right: 0;
-  }
-}
 
     .booking-filters{
         width: 100%;
@@ -661,10 +602,7 @@ $fdate=trim(strip_tags($_GET['start']));
     </div>
 
   </div>
-</div>               
-
-                    
-         
+</div>
            					
 		 <div id="rating_route" class="modal fade" >
         <div class="modal-dialog modal-xs">
@@ -773,7 +711,7 @@ $fdate=trim(strip_tags($_GET['start']));
 $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
 
 	$(document).on('click', '.yes-available', function(event) {
-	var uid=$('#insert_seat').find('#seat-uuid').val();
+	var uid=$('.insert_seat').find('#seat-uuid').val();
 	var oldval=$('#'+uid).val();
 	var oldvalsid=$('#'+uid+'-main').val();
 	var array = oldval.split(',');
@@ -821,9 +759,10 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
   });
 	
 	
-			$(document).on('click', '.view-seat-ng', function(event) {
+$(document).on('click', '.view-seat-ng', function(event) {
 	var parent=$(this).closest('.booking-item');
-  
+    $('.booking-item').not(this).removeClass('active');
+    $('.booking-item').parent().not(this).removeClass('active');
     if ($(parent).hasClass('active')) {
         $(parent).removeClass('active');
         $(parent).parent().removeClass('active');
@@ -835,32 +774,28 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
         });
     }
 });
-	
-	// $(document).on('click', ".confirm-seat", function(e) {
-	
-	// $('#insert_seat').modal('hide');
-	// });
-		
-	// $(document).on('click', ".close-seat", function(e) {
-		
-	// var uid=$(this).attr('data-id');
-	
-	// var oldval=$('#'+uid).val('X');
-	// var oldvalsid=$('#'+uid+'-main').val('X');
-	// var oldvalsid=$('#'+uid+'-text').text('');
-	// $('#insert_seat').modal('hide');
-	// });
-
-    $(window).load(function() {
-        $(".seatmodal").click()
-    })
     
     $(document).on('click', ".seatmodal", function(e) {
 
+        var currentTab = this.parentElement.parentElement.parentElement.parentElement;
+        
+        function insertAfter(referenceNode, newNode) {
+            referenceNode.appendChild(newNode);
+            referenceNode.insertBefore(newNode, referenceNode.childNodes[0]);
+        }
+        var getNodes = currentTab.querySelector(".originalSeatMapHere");
+        var el = document.createElement("div");
+        el.className = "col-md-8 seatMapRemove"
+        el.innerHTML = "<div class='insert_seat'></div>";
+       // var div = document.getElementById("foo");
+       $('.seatMapRemove').remove()
+        insertAfter(getNodes, el);
+
+        console.log(currentTab)
             e.preventDefault;
             
         
-        $('#insert_seat').empty();
+        $('.insert_seat').empty();
         var bustype=$(this).attr('data-type');
         var uid=$(this).attr('data-uid');
     
@@ -878,8 +813,8 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
     var oldvalsid=$('#'+uid+'-main').val('X');
     
     
-       $('#insert_seat').load("{{route('seatmap')}}",{ _token: "{{csrf_token()}}",bustype:bustype,uid:uid,route_id:route_id,pickup_id:pickup_id,return_id:return_id,bus_id:bus_id,seat:seat,startDate:startDate,trip_id:trip_id,endDate:endDate},function(){
-     //   $('#insert_seat').modal({ backdrop: 'static', keyboard: false });
+       $('.insert_seat').load("{{route('seatmap')}}",{ _token: "{{csrf_token()}}",bustype:bustype,uid:uid,route_id:route_id,pickup_id:pickup_id,return_id:return_id,bus_id:bus_id,seat:seat,startDate:startDate,trip_id:trip_id,endDate:endDate},function(){
+       // $('.insert_seat').modal({ backdrop: 'static', keyboard: false });
        
      
     });
@@ -949,7 +884,7 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
         if(currentType=="seat"){
            
             
-      var uid=$('#insert_seat').find('#seat-uuid').val();
+      var uid=$('.insert_seat').find('#seat-uuid').val();
     var oldval=$('#'+uid).val();
     var oldvalsid=$('#'+uid+'-main').val();
     var array = oldval.split(',');
@@ -965,15 +900,8 @@ $('.input-daterange input[name="end"]').datepicker('setDate', '+7d');
         var str=oldval+','+seatno;
          var res =str.replace("X,", "");
         $('#'+uid+'-text').text('- Seat #'+res + ' selected');
-        
-        
+        }    
         }
-        
-        
-           
-            
-        }
-        
     });
 
 	$(document).on('click','.route-details', function(e){
@@ -1214,8 +1142,7 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 }    
 		</script>
 		
-		 <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDabeCfIJYosISpEUO37J3cij5wt09LQNg">
+		 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDabeCfIJYosISpEUO37J3cij5wt09LQNg">
     </script> 
 
 @endsection
