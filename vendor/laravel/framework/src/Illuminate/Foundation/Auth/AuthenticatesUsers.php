@@ -5,6 +5,8 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\UserLogin;
+use BrowserDetect;
 
 trait AuthenticatesUsers
 {
@@ -120,6 +122,19 @@ trait AuthenticatesUsers
     protected function authenticated(Request $request, $user)
     {
         //
+        $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $out->writeln($request->header('User-Agent'));
+
+        $data = [
+            'USER_ID' => $user->USER_ID,
+            'USERNAME' => $user->EMAIL_ADDRESS,
+            'LOGIN_DEVICE_IP' => $request->ip(),
+            'LOGIN_DEVICE_BROWSER' => BrowserDetect::browserFamily(),
+            'LOGIN_DEVICE_BROWSER_VRSN' => BrowserDetect::browserVersion(),
+            'LOGIN_DEVICE_OS' => BrowserDetect::platformName()
+        ];
+
+        UserLogin::create($data);
     }
 
     /**

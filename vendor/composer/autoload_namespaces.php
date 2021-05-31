@@ -9,4 +9,5 @@ return array(
     'Unirest\\' => array($vendorDir . '/mashape/unirest-php/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Detection' => array($vendorDir . '/mobiledetect/mobiledetectlib/namespaced'),
 );

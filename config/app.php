@@ -177,7 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         KingFlamez\Rave\RaveServiceProvider::class,
-
+        hisorange\BrowserDetect\ServiceProvider::class,
     ],
 
     /*
@@ -230,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Rave' => KingFlamez\Rave\Facades\Rave::class,
-
+        'BrowserDetect' => hisorange\BrowserDetect\Facade::class,
     ],
 
 ];
