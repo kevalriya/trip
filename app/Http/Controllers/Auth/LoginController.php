@@ -96,9 +96,9 @@ class LoginController extends Controller
         else if ($this->attemptLogin($request)) {
 
              $request->session()->regenerate();
-            return response(['status' => 'success'], 200);
+            // return response(['status' => 'success'], 200);
 
-           // return $this->sendLoginResponse($request);
+           return $this->sendLoginResponse($request);
         }
     }
 

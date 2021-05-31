@@ -1142,7 +1142,7 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 }    
 		</script>
 		
-		 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDabeCfIJYosISpEUO37J3cij5wt09LQNg">
+		 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8">
     </script> 
 
 @endsection

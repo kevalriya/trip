@@ -104,7 +104,7 @@ $ActiveSide='home';
                 <div class="col-md-8">
                 	<input type="hidden" id="insuranceval">
 				<?php if(!isset(Auth::guard('web')->user()->EMAIL_ADDRESS)){ ?>
-                <script> window.location.href = "/login"; </script>
+                <!-- <script> window.location.href = "/login"; </script> -->
                     <!-- <h3>Customer</h3>
                     <p>Sign in to your <a href="#">Traveler account</a> for fast booking.</p>
                     <form>

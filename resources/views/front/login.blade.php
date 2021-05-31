@@ -534,9 +534,8 @@ $ActiveSide='home';
           
           $("html, body").animate({ scrollTop: $('#response').offset().top }, 500);
          
-         
-    
-             window.location.href = "{{route('bookinghistory')}}";
+        //  window.location.href = "{{back()}}";
+            //  window.location.href = "{{route('bookinghistory')}}";
         
     
             }else{

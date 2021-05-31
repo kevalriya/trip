@@ -238,7 +238,7 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
  Route::get('operator-register', 'Auth\OperatorRegisterController@showOperatorRegistrationForm')->name('operator.reg');
  Route::post('seat-map', 'HomeController@seatMap')->name('seatmap');
  Route::post('route-detail', 'HomeController@routeDetail')->name('routeDetail');
- Route::match(['get', 'post'],'bus-booking', 'HomeController@busBooking')->name('busBooking');
+ 
 
 
  Route::post('booking-payment', 'AjaxController@bookingPayment')->name('bookingPayment');
@@ -261,7 +261,7 @@ Route::group([ 'middleware' => 'auth:web'], function()
 Route::post('user-profile-booking-history', 'UserBookingController@Lists')->name('bookingData');
 
 //Route::post('admin/user-profile-booking-history', 'HomeController@bookingLists')->name('bookingData');
-
+Route::match(['get', 'post'],'bus-booking', 'HomeController@busBooking')->name('busBooking');
 
 });
 
