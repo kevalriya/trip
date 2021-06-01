@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use App\UserLogin;
 use BrowserDetect;
+use Carbon\Carbon;
 
 trait AuthenticatesUsers
 {
@@ -125,13 +126,19 @@ trait AuthenticatesUsers
         $out = new \Symfony\Component\Console\Output\ConsoleOutput();
         $out->writeln($request->header('User-Agent'));
 
+        $ip = $request->ip();
+        // $ip = '99.225.89.14';
+        $location_data = \Location::get($ip);
+
         $data = [
             'USER_ID' => $user->USER_ID,
             'USERNAME' => $user->EMAIL_ADDRESS,
-            'LOGIN_DEVICE_IP' => $request->ip(),
+            'LOGIN_DEVICE_IP' => $ip,
             'LOGIN_DEVICE_BROWSER' => BrowserDetect::browserFamily(),
             'LOGIN_DEVICE_BROWSER_VRSN' => BrowserDetect::browserVersion(),
-            'LOGIN_DEVICE_OS' => BrowserDetect::platformName()
+            'LOGIN_DEVICE_OS' => BrowserDetect::platformName(),
+            'LOGIN_LOCATION' => $location_data->cityName.', '.$location_data->regionCode.', '.$location_data->countryCode,
+            'LOGIN_LOCATION_GEO_COORD' => $location_data->latitude.', '.$location_data->longitude,
         ];
 
         UserLogin::create($data);
@@ -170,11 +177,10 @@ trait AuthenticatesUsers
      */
     public function logout(Request $request)
     {
+        $user = Auth::user();
         $this->guard()->logout();
-
         $request->session()->invalidate();
-
-        return $this->loggedOut($request) ?: redirect('/');
+        return $this->loggedOut($request, $user) ?: redirect('/');
     }
 
     /**
@@ -183,9 +189,12 @@ trait AuthenticatesUsers
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
-    protected function loggedOut(Request $request)
+    protected function loggedOut(Request $request, $user)
     {
-        //
+        $data = [
+            'LOGOUT_TIMESTAMP' => Carbon::now()->toDateTimeString()
+        ];
+        UserLogin::where('USER_ID', $user->USER_ID)->latest('CREATE_DT')->first()->update($data);
     }
 
     /**

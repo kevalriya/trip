@@ -178,6 +178,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         KingFlamez\Rave\RaveServiceProvider::class,
         hisorange\BrowserDetect\ServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
     ],
 
     /*
@@ -231,6 +232,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Rave' => KingFlamez\Rave\Facades\Rave::class,
         'BrowserDetect' => hisorange\BrowserDetect\Facade::class,
+        'Location' => 'Stevebauman\Location\Facades\Location',
     ],
 
 ];
