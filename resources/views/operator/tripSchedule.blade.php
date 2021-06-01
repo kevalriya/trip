@@ -75,7 +75,7 @@ $ActiveSide='trip';
 
        <div class="form-group col-md-4 pull-right">
              <div class="checkbox icheck">
-            <label>Active Trip
+            <label>Activate Trip
               <input type="checkbox" class="mcheck" value="1" name="status" <?php echo ($Trip->STATUS == '1') ? 'checked' : '' ?>> 
             </label>
           </div>
