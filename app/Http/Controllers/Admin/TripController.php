@@ -482,7 +482,7 @@ class TripController extends Controller
       // $tab->save();
       // return response()->json($tab);
 
-      $update = DB::table('tabs')
+      $update = DB::table('PAGE_NOTES')
               ->where('id', $request->id)
               ->update(['description' => $request->data]);
       return "Successfully update the information!";
