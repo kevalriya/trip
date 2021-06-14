@@ -163,7 +163,7 @@ class RouteController extends Controller
     private function getLatLong($address,$state)
     {
      $add=$address;    
-     $url = "https://maps.google.com/maps/api/geocode/json?sensor=false&key=AIzaSyCErrMt0mj6St2316G_GpD4dptGv0w7-II&address=".urlencode($add);
+     $url = "https://maps.google.com/maps/api/geocode/json?sensor=false&key=AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8&address=".urlencode($add);
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);

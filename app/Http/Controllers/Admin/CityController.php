@@ -254,7 +254,7 @@ class CityController extends Controller
     private function getLatlONG($address)
     {
          
-    $url = "https://maps.google.com/maps/api/geocode/json?sensor=false&key=AIzaSyCErrMt0mj6St2316G_GpD4dptGv0w7-II&address=".urlencode($address);
+    $url = "https://maps.google.com/maps/api/geocode/json?sensor=false&key=AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8&address=".urlencode($address);
 
 
 

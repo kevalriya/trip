@@ -40,7 +40,7 @@ class AjaxController extends Controller
   $to = $request->to .','.$request->ostate;
   $from = urlencode($from);
   $to = urlencode($to);
-  $apiKey= "AIzaSyCErrMt0mj6St2316G_GpD4dptGv0w7-II";  
+  $apiKey= "AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8";  
 
 
   $data = $this->executeCurl("https://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&key=$apiKey&language=en-EN&sensor=false");
@@ -174,13 +174,16 @@ class AjaxController extends Controller
   $to = $request->to .','.$request->ostate;
   $from = urlencode($from);
   $to = urlencode($to);
-  $apiKey= "AIzaSyBi6mRd9VA96WNfQAz3JWbF3-WK-sLFIZY";  
+  $apiKey= "AIzaSyCxtH7uIB-sE5pzeSCTIWCIBRK3JiKLYS8";  
 
 
   $data = $this->executeCurl("https://maps.googleapis.com/maps/api/distancematrix/json?origins=$from&destinations=$to&key=$apiKey&language=en-EN&sensor=false");
 
   $data = json_decode($data);
   $distance='';
+
+  
+
   foreach($data->rows[0]->elements as $road) {
      
       $distance = $road->distance->text;
@@ -232,6 +235,8 @@ class AjaxController extends Controller
 
     private function executeCurl($url) {
 
+        
+
     $auth = curl_init($url);
     curl_setopt($auth, CURLOPT_POST, false);
     curl_setopt($auth, CURLOPT_HEADER, false);
@@ -240,6 +245,8 @@ class AjaxController extends Controller
     $response = curl_exec($auth);
     curl_close($auth);
 
+    $out = new \Symfony\Component\Console\Output\ConsoleOutput();
+        $out->writeln($response);
     return $response;
   }
 
