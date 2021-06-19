@@ -56,8 +56,8 @@
 	if(count($BusesRoutes) > 0 ){
 
 		foreach ($BusesRoutes as $Route) {
-		$Dtime=	$Times[$Route->TRIP_ID][$Route->ROUTE_ID][0]['departure_time'];
-        $Atime= $Times[$Route->TRIP_ID][$Route->ROUTE_ID] ? end($Times[$Route->TRIP_ID][$Route->ROUTE_ID])['arrival_time'] : "";
+		$Dtime=	$Times[$Route->TRIP_ID][$Route->ROUTE_ID][0]['DEPARTURE_TIME'];
+        $Atime= $Times[$Route->TRIP_ID][$Route->ROUTE_ID] ? end($Times[$Route->TRIP_ID][$Route->ROUTE_ID])['ARRIVAL_TIME'] : "";
         $sDtime=date('h:i',strtotime($Dtime));
         $sAtime=date('h:i',strtotime($Atime));
 		$startimes=$date.' '.$Dtime;
@@ -122,7 +122,7 @@
 
 
 <div class="col-md-2 col-xs-4">
-<h5><span class="visible-xs">Seats</span>20 left</h5>                                                  
+<h5><span class="visible-xs">Seats</span>{{$Route->seat_left}} left</h5>                                                  
 </div>
 
 <div class="col-md-2 col-xs-12">
@@ -154,8 +154,8 @@
                         <p>
 						<form method="post" action="<?php echo $Url ?>" onsubmit="return checkbooking('uuidinput{{$Route->TRIP_ID}}')">
 						 {{ csrf_field() }}
-						 <h4>Boarding Point</h4>
-                        <select class="form-control" name="startBoard">
+						 <h4>Boarding Points</h4>
+                        <select class="form-control" name="startBoard" id="startBoard">
                         	<option value="">Select</option>
                         	<?php 
                         	if(is_countable($RoutepointData[$Route->ROUTE_ID]) && count($RoutepointData[$Route->ROUTE_ID]) > 0){
@@ -169,7 +169,7 @@
 						</select>
                         <div class="gap gap-small"></div>
                         <h4>Drop-off Points</h4>
-                        <select class="form-control" name="endBoard">
+                        <select class="form-control" name="endBoard" id="endBoard">
                                     <option value="">Select</option>
                             <?php    
                             if(is_countable($RoutepointData[$Route->ROUTE_ID]) && count($RoutepointData[$Route->ROUTE_ID]) > 0){
@@ -218,6 +218,17 @@
                     </div>
                 </div>
                 
+                                        <div style="bottom: 0;
+    position: absolute; margin: 20px; display: flex; font-size: 15px;
+    align-items: center;
+    right: 0;" class="row">
+		
+        <div class="seat" style="height: 30px; width: 30px; margin-left: 20px"></div> Available
+        <div class="selectseat" style="height: 30px; width: 30px; margin-left: 20px"></div> Selected
+        <div class="bookseat" style="height: 30px; width: 30px; margin-left: 20px"></div> Booked
+        
+
+		</div>
            
                                                 </div>
                                             </div>

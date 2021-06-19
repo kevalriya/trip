@@ -203,6 +203,9 @@ class HomeController extends Controller
     foreach ($BusesRoutes as $Route) {
       $RouteIds[]=$Route['ROUTE_ID'];
       $TripIds[]=$Route['TRIP_ID'];
+
+      $Bookings=Booking::leftjoin('tkt_booking_details', 'tkt_booking_details.BOOKING_ID', '=', 'tkt_booking.BOOKING_ID')->where('tkt_booking.TRIP_ID',$Route['TRIP_ID'])->where('tkt_booking.ROUTE_ID',$Route['ROUTE_ID'])->where('tkt_booking.PROCESSED_DATE','>=',$date)->select(['tkt_booking_details.PASSENGER_SEATNO'])->get()->toArray();
+      $Route->seat_left = $Route->max_seat - sizeof($Bookings);
     }
 
   $Routepoints=Routepoint::join('city', 'city.CITY_CODE', '=', 'route_stoppoint.CITY_CODE')->whereIn('ROUTE_ID', $RouteIds)->select('route_stoppoint.*','city.CITY_NAME','city.STATE_CODE')->orderBy('ROUTE_STOPPOINT_SEQNO','ASC')->get()->toArray();

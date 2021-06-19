@@ -1079,9 +1079,17 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 		alert('Please Select Seat first');
 		return false;
 	}
-	else{
-		return true;
-	}
+	else if($('#startBoard').val() == ""){
+        alert('Please Select Boarding Point.');
+        return false;
+    }
+    else if($('#endBoard').val() == ""){
+        alert('Please Select Drop-off Point.');
+        return false;
+    }
+    else
+        return true;
+	
   }
         </script>        
 
