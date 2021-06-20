@@ -436,7 +436,7 @@ $ActiveSide='home';
                  		 <div class="row">
                 <div class="col-md-12">
                  <p class="insurancetext">	
-                 	<label class="checkbox-inline"><input type="checkbox" class="ins-chk" value="">
+                 	<label class="checkbox-inline"><input type="checkbox" class="ins-chk" value="" checked>
  Add Travel Insurance And Secure Your Trip With ICICI Lombard Travel Insurance for ₦ 15/Person
 </label>
 

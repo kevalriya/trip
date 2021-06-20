@@ -24,13 +24,11 @@ $ActiveSide='trip';
 
     
     <ul class="nav nav-tabs">
-  <li  class="active"><a  href="{{route('editTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
-  <li ><a  href="{{route('editTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
-   <li ><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
-    <li > <a href="{{route('startTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
-
-    <li> <a href="{{route('endTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
- 
+    <li ><a  href="{{route('editTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
+		<li><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
+  		<li class="active"><a  href="{{route('editTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
+		<li> <a href="{{route('startTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
+		<li> <a href="{{route('endTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
 </ul>
 
       <div class="info-box">

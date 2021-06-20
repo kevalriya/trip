@@ -83,7 +83,7 @@ $ActiveSide='trip';
 
    <div class="form-group col-md-4">
 	        <label for="name">Actual Arrival Date</label>
-	           <input type="text" class="form-control datepicker" name="act_arr_date"  value="{{(isset( $AssignTrip->ACTUAL_ARR_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_ARR_DATE)) :  date('Y-m-d') }}"  >
+	           <input type="text" class="form-control datepicker" name="act_arr_date"  value="{{(isset( $AssignTrip->ACTUAL_ARR_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_ARR_DATE)) :  date('Y-m-d') }}"  required>
 	         
 	    </div>
 
@@ -91,7 +91,7 @@ $ActiveSide='trip';
 	    
    <div class="form-group col-md-4">
 	        <label for="name">Actual Arrival Time</label>
-	           <input type="text" class="form-control timepicker" name="act_arr_time"  value="{{(isset( $AssignTrip->ACTUAL_ARR_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_ARR_TIME)) : date('H:i') }}">
+	           <input type="text" class="form-control timepicker" name="act_arr_time"  value="{{(isset( $AssignTrip->ACTUAL_ARR_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_ARR_TIME)) : date('H:i') }}" required>
 	         
 	    </div>
  
@@ -100,7 +100,7 @@ $ActiveSide='trip';
 	    
    <div class="form-group col-md-4">
 	        <label for="name">End Odometer</label>
-	           <input type="text" class="form-control" name="e_odometer"  value="{{(isset( $AssignTrip->END_ODOMETER)) ?  $AssignTrip->END_ODOMETER  : '' }}">
+	           <input type="text" class="form-control" name="e_odometer"  value="{{(isset( $AssignTrip->END_ODOMETER)) ?  $AssignTrip->END_ODOMETER  : '' }}" required>
 	         
 	    </div>
    <div class="clearfix"></div>

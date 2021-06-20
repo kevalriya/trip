@@ -72,6 +72,8 @@
         $endtimes=$date.' '.$Atime;
         $starttime=strtotime($startimes);
         $endtime=strtotime($endtimes);
+        $status = $Route->STATUS;
+        if($status !== 0) {
 	?>
 
 				<li>
@@ -255,6 +257,7 @@
 	<?php
 	 }
 	}
+}
 	 else{
 		 echo "<h5 class='text-danger'>No Bus Found </h5>";
 	 }

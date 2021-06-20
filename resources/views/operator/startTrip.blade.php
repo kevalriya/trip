@@ -84,7 +84,7 @@ $ActiveSide='trip';
 
    <div class="form-group col-md-4">
 	        <label for="name">Actual Departure Date</label>
-	           <input type="text" class="form-control datepicker" name="act_dep_date"  value="{{(isset( $AssignTrip->ACTUAL_DEP_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_DEP_DATE)) : '' }}" >
+	           <input type="text" class="form-control datepicker" name="act_dep_date"  value="{{(isset( $AssignTrip->ACTUAL_DEP_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_DEP_DATE)) : '' }}" required>
 	         
 	</div>
 <div class="clearfix"></div>
@@ -92,13 +92,13 @@ $ActiveSide='trip';
 	    
    <div class="form-group col-md-4">
 	        <label for="name">Actual Departure Time</label>
-	        <input type="text" class="form-control timepicker" name="act_dep_time" value="{{(isset( $AssignTrip->ACTUAL_DEP_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_DEP_TIME)) : '' }}" >
+	        <input type="text" class="form-control timepicker" name="act_dep_time" value="{{(isset( $AssignTrip->ACTUAL_DEP_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_DEP_TIME)) : '' }}" required>
 	         
 	    </div>
 	    <div class="clearfix"></div>
    <div class="form-group col-md-4">
 	        <label for="name">Begin Odometer</label>
-	           <input type="text" class="form-control" name="b_odometer"  value="{{(isset( $AssignTrip->BEGIN_ODOMETER)) ?  $AssignTrip->BEGIN_ODOMETER  : '' }}" >
+	           <input type="text" class="form-control" name="b_odometer"  value="{{(isset( $AssignTrip->BEGIN_ODOMETER)) ?  $AssignTrip->BEGIN_ODOMETER  : '' }}" required>
 	         
 	    </div>
 	    <div class="clearfix"></div>

@@ -20,13 +20,11 @@ $ActiveSide='trip';
 	  <section class="content">
 
 	    <ul class="nav nav-tabs">
-  <li ><a  href="{{route('editTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
-  <li ><a  href="{{route('editTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
-   <li ><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
-    <li > <a href="{{route('startTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
-
-    <li  class="active"> <a href="{{route('endTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
- 
+		<li ><a  href="{{route('editTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
+		<li ><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
+  		<li ><a  href="{{route('editTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
+		<li > <a href="{{route('startTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
+		<li  class="active"> <a href="{{route('endTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
 </ul>
 
 	  		  	<div class="info-box">
@@ -83,7 +81,7 @@ $ActiveSide='trip';
 
    <div class="form-group col-md-4">
 	        <label for="name">Actual Arrival Date</label>
-	           <input type="text" class="form-control datepicker" name="act_arr_date"  value="{{(isset( $AssignTrip->ACTUAL_ARR_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_ARR_DATE)) :  date('Y-m-d') }}"  >
+	           <input type="text" class="form-control datepicker" name="act_arr_date"  value="{{(isset( $AssignTrip->ACTUAL_ARR_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_ARR_DATE)) :  date('Y-m-d') }}"  required>
 	         
 	    </div>
 
@@ -91,7 +89,7 @@ $ActiveSide='trip';
 	    
    <div class="form-group col-md-4">
 	        <label for="name">Actual Arrival Time</label>
-	           <input type="text" class="form-control timepicker" name="act_arr_time"  value="{{(isset( $AssignTrip->ACTUAL_ARR_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_ARR_TIME)) : date('H:i') }}">
+	           <input type="text" class="form-control timepicker" name="act_arr_time"  value="{{(isset( $AssignTrip->ACTUAL_ARR_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_ARR_TIME)) : date('H:i') }}" required>
 	         
 	    </div>
  
@@ -100,7 +98,7 @@ $ActiveSide='trip';
 	    
    <div class="form-group col-md-4">
 	        <label for="name">End Odometer</label>
-	           <input type="text" class="form-control" name="e_odometer"  value="{{(isset( $AssignTrip->END_ODOMETER)) ?  $AssignTrip->END_ODOMETER  : '' }}">
+	           <input type="text" class="form-control" name="e_odometer"  value="{{(isset( $AssignTrip->END_ODOMETER)) ?  $AssignTrip->END_ODOMETER  : '' }}" required>
 	         
 	    </div>
    <div class="clearfix"></div>

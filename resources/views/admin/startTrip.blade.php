@@ -22,13 +22,11 @@ $ActiveSide='trip';
 
 	  		  	    
  	    <ul class="nav nav-tabs">
-  <li><a  href="{{route('editTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
-  <li><a  href="{{route('editTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
-   <li><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
-    <li class="active"> <a href="{{route('startTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
-
-    <li> <a href="{{route('endTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
- 
+		 <li ><a  href="{{route('editTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
+		<li ><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
+  		<li ><a  href="{{route('editTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
+		<li  class="active"> <a href="{{route('startTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
+		<li> <a href="{{route('endTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
 </ul>
 
 	  		  	<div class="info-box">
@@ -84,7 +82,7 @@ $ActiveSide='trip';
 
    <div class="form-group col-md-4">
 	        <label for="name">Actual Departure Date</label>
-	           <input type="text" class="form-control datepicker" name="act_dep_date"  value="{{(isset( $AssignTrip->ACTUAL_DEP_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_DEP_DATE)) : '' }}" >
+	           <input type="text" class="form-control datepicker" name="act_dep_date"  value="{{(isset( $AssignTrip->ACTUAL_DEP_DATE)) ? date('Y-m-d',strtotime($AssignTrip->ACTUAL_DEP_DATE)) : '' }}" required>
 	         
 	</div>
 <div class="clearfix"></div>
@@ -92,19 +90,19 @@ $ActiveSide='trip';
 	    
    <div class="form-group col-md-4">
 	        <label for="name">Actual Departure Time</label>
-	        <input type="text" class="form-control timepicker" name="act_dep_time" value="{{(isset( $AssignTrip->ACTUAL_DEP_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_DEP_TIME)) : '' }}" >
+	        <input type="text" class="form-control timepicker" name="act_dep_time" value="{{(isset( $AssignTrip->ACTUAL_DEP_TIME)) ? date('H:i',strtotime($AssignTrip->ACTUAL_DEP_TIME)) : '' }}" required>
 	         
 	    </div>
 	    <div class="clearfix"></div>
    <div class="form-group col-md-4">
 	        <label for="name">Begin Odometer</label>
-	           <input type="text" class="form-control" name="b_odometer"  value="{{(isset( $AssignTrip->BEGIN_ODOMETER)) ?  $AssignTrip->BEGIN_ODOMETER  : '' }}" >
+	           <input type="text" class="form-control" name="b_odometer"  value="{{(isset( $AssignTrip->BEGIN_ODOMETER)) ?  $AssignTrip->BEGIN_ODOMETER  : '' }}" required>
 	         
 	    </div>
 	    <div class="clearfix"></div>
    <div class="form-group col-md-4">
 	        <label for="name">Total Passenger Count</label>
-	           <input type="text" class="form-control" name="totalpassenger"  value="{{(isset( $AssignTrip->TotalPassenger)) ?  $AssignTrip->TotalPassenger  : '' }}" >
+	           <input type="text" class="form-control" name="totalpassenger"  value="{{(isset( $AssignTrip->TotalPassenger)) ?  $AssignTrip->TotalPassenger  : '' }}">
 	         
 	    </div>
 <div class="clearfix"></div>
