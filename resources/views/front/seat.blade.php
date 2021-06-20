@@ -19,8 +19,8 @@
 					$Latter=range('A', 'Z');
 					array_unshift($Latter, "#");
 
-					array_unshift($BookArr, 203);
-					array_unshift($BookArr, 204);
+					// array_unshift($BookArr, 203);
+					// array_unshift($BookArr, 204);
 
 					$Rows=$Seat->rows;
 					$Columns=$Seat->columns;
