@@ -112,14 +112,11 @@ table#compare_table td{
     <section class="content">
 
      <ul class="nav nav-tabs">
- 
-  <li ><a  href="{{route('opeditTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
-  <li  class="active"><a  href="{{route('opeditTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
-   <li class="active"><a  href="{{route('editTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
-    <li > <a href="{{route('opstartTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
-
+      <li><a  href="{{route('opeditTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
+ 	<li class="active"><a  href="{{route('opeditTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
+  	<li><a  href="{{route('opeditTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
+    <li> <a href="{{route('opstartTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
     <li> <a href="{{route('opendTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
- 
 </ul>
 
       <div class="info-box">

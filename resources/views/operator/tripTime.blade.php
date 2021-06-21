@@ -27,14 +27,12 @@ $ActiveSide='trip';
     <section class="content">
 
     <ul class="nav nav-tabs">
- 
-  <li ><a  href="{{route('opeditTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
-  <li  class="active"><a  href="{{route('opeditTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
-   <li ><a  href="{{route('opeditTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
-    <li > <a href="{{route('opstartTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
-
+    <li class="active"><a  href="{{route('opeditTripTime',$Trip->TRIP_ID)}}">Itinerary</a></li>
+ 	<li><a  href="{{route('opeditTripFare',$Trip->TRIP_ID)}}">Fare</a></li>
+  	<li><a  href="{{route('opeditTripschedule',$Trip->TRIP_ID)}}">Schedule</a></li>
+    <li> <a href="{{route('opstartTrip',$Trip->TRIP_ID)}}">Start Trip</a></li>
     <li> <a href="{{route('opendTrip',$Trip->TRIP_ID)}}">End Trip</a></li>
- 
+   
 </ul>
 
       <div class="info-box">
