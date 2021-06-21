@@ -58,14 +58,20 @@ $ActiveSide='trip';
             <div class="box-header with-border">
               <h3 class="box-title">Trip Detail</h3>
             </div>
-          @include('includes.messages')      
+          <?php if ($Trip->STATUS !== 0) { ?>
+              @include('includes.messages')
+            <?php } ?>     
             <!-- /.box-header -->
             <!-- form start -->
             
             {{ csrf_field() }}
             {{ method_field('PUT') }}
               <div class="box-body">
-              
+              <?php if ($Trip->STATUS === 0) { ?>
+              <div class="alert alert-danger" role="alert">
+                This trip is not activated yet. Please activate the trip.
+              </div>
+                <?php } ?>
 
        <div class="form-group col-md-6">
                   <label for="name">Trip</label>
@@ -180,7 +186,7 @@ $ActiveSide='trip';
          </div>
 
          <div class="col-md-1 col-xs-3 col-sm-3" style="padding: 0px;margin: 0px">
-             <select class="form-control" name="ampm">
+             <select class="form-control" name="ampm" required>
               <option value="AM" <?php echo (date('A',strtotime($Trip->ACTUAL_DEP_TIME)) == 'AM') ? 'selected' : '' ?>>AM</option>
               <option value="PM" <?php echo (date('A',strtotime($Trip->ACTUAL_DEP_TIME)) == 'PM') ? 'selected' : '' ?>>PM</option>
           </select>
@@ -196,13 +202,13 @@ $ActiveSide='trip';
 
         <div class="form-group col-md-3">
           
-             <input type="text" class="form-control datepicker" name="from_date" value="{{(empty($Trip->fromDate)) ? '' : $Trip->fromDate }}" >
+             <input type="text" class="form-control datepicker" name="from_date" value="{{(empty($Trip->fromDate)) ? '' : $Trip->fromDate }}" required>
            
       </div>
       <div class="col-md-2 text-right" style="margin-top: 10px;width: 100px"><label for="name">To:</label></div>
          <div class="form-group col-md-3">
          
-             <input type="text" class="form-control datepicker" name="to_date" value="{{(empty($Trip->toDate)) ? '' : $Trip->toDate }}" >
+             <input type="text" class="form-control datepicker" name="to_date" value="{{(empty($Trip->toDate)) ? '' : $Trip->toDate }}" required>
            
       </div>
       <div class="clearfix"></div>
