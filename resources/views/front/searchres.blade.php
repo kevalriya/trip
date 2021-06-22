@@ -62,7 +62,6 @@
 <?php
     
 	if(count($BusesRoutes) > 0 ){
-
 		foreach ($BusesRoutes as $Route) {
 		$Dtime=	$Times[$Route->TRIP_ID][$Route->ROUTE_ID][0]['DEPARTURE_TIME'];
         $Atime= $Times[$Route->TRIP_ID][$Route->ROUTE_ID] ? end($Times[$Route->TRIP_ID][$Route->ROUTE_ID])['ARRIVAL_TIME'] : "";

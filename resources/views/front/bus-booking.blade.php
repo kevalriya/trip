@@ -505,7 +505,11 @@ $ActiveSide='home';
 					</div>	 
        
        <div class="col-md-12 text-center">
-          <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	
+        <form>
+            <script src="https://checkout.flutterwave.com/v3.js" defer></script>
+            <button type="button" onClick="makePayment()" class="btn btn-primary checkformvalidation">Pay Now</button>
+        </form>
+          <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
       </div>
             </div>
                  	  
@@ -678,55 +682,6 @@ $ActiveSide='home';
 				<?php } ?>
 
             </div>
-		
-			<div class="row underidiv" style="display: none;">
-			
-				<div class="col-md-6 col-md-offset-3" >			  
-                        <div class="col-md-12" style="box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);padding: 25px" >
-                            <h4>Bank Transfer</h4>
-
-                        <div class="row">
-                            <img src="{{url('front/img/zenith_bank.png')}}" alt="Image Alternative text" title="Image Title" class="col-md-3 col-sm-3 col-xs-3">
-                            <img src="{{url('front/img/skye_bank.png')}}" alt="Image Alternative text" title="Image Title" class="col-md-3 col-sm-3 col-xs-3">
-                            <img src="{{url('front/img/first_bank.jpg')}}" alt="Image Alternative text" title="Image Title" class="col-md-3 col-sm-3 col-xs-3">
-                            <img src="{{url('front/img/uba_bank.png')}}" alt="Image Alternative text" title="Image Title" class="col-md-3 col-sm-3 col-xs-3">
-                        </div>
-                        <br>
-                            <p>Important: Our Bank Account Numbers will be sent to you via text message and email.</p><a class="btn btn-primary cashpayment">Bank Transfer</a>	
-                        </div>
-                      
-                   
-				
-				  <div class="col-md-12" style="margin-top: 10px;border-top:1px solid #e8c5a5;box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);padding: 25px ">
-                            <h4>Online Payment</h4>
-						
-					<div class="row">
-						<div class="col-md-9">
-				 <img src="{{url('front/img/payment/payment1.png')}}" class="img-responsive">
-				</div>
-					</div>		
-             <form method="POST" action="{{ route('pay') }}"  id="paymentForm">
-             	{{ csrf_field() }}
-            <input type="hidden" name="amount" class="btotalval" value="" />
-            <input type="hidden" name="payment_options" value="" /> <!-- Can be card, account, ussd, qr, mpesa, mobilemoneyghana  (optional) -->
-            <input type="hidden" name="description" value="Bus Ticket Booking" /> <!-- Replace the value with your transaction description -->
-            <input type="hidden" name="logo" value="{{url('front/img/tripon_white_logo.png')}}" /> <!-- Replace the value with your logo url (optional) -->
-            <input type="hidden" name="title" value="Bus Ticket" /> <!-- Replace the value with your transaction title (optional) -->
-            <input type="hidden" name="country" value="NG" /> <!-- Replace the value with your transaction country -->
-            <input type="hidden" name="currency" value="NGN" /> <!-- Replace the value with your transaction currency -->
-            <input type="hidden" name="email" id="ccemail"  /> <!-- Replace the value with your customer email -->
-            <input type="hidden" name="firstname"  id="ccfirstname" /> <!-- Replace the value with your customer firstname (optional) -->
-            <input type="hidden" name="lastname"  /> <!-- Replace the value with your customer lastname (optional) -->
-            <input type="hidden" name="phonenumber" id="ccphonenumber" /> <!-- Replace the value with your customer phonenumber (optional if email is passes) -->
-            <input type="hidden" name="pay_button_text" value="Complete Payment" /> <!-- Replace the value with the payment button text you prefer (optional) -->
-            <input type="hidden" name="ref" id="ref"  /> 
-	
-        </form>
-        <br>
-		<input class="btn btn-primary submitonline" type="submit" value="Online Payment">
-                        </div>
-			</div>
-		</div>
 			<div class="row">
 
 							 <div class="col-md-8">
@@ -746,7 +701,38 @@ $ActiveSide='home';
 
   @section('footerSection')
 	  <script type="text/javascript">
-
+            function makePayment() {
+            FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+            tx_ref: "RX1",
+            amount: 10,
+            currency: "USD",
+            country: "US",
+            payment_options: " ",
+            redirect_url: // specified redirect URL
+                "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
+            meta: {
+                consumer_id: 23,
+                consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+                email: "cornelius@gmail.com",
+                phone_number: "08102909304",
+                name: "Flutterwave Developers",
+            },
+            callback: function (data) {
+                console.log(data);
+            },
+            onclose: function() {
+                // close modal
+            },
+            customizations: {
+                title: "My store",
+                description: "Payment for items in cart",
+                logo: "https://assets.piedpiper.com/logo.png",
+            },
+            });
+        }
 
 		
 	    $(".submitonline").click(function (e) {
