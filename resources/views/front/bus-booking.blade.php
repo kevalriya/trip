@@ -505,8 +505,9 @@ $ActiveSide='home';
 					</div>	 
        
        <div class="col-md-12 text-center">
+           <input type="hidden" id="totalTripAmount" />
         <form>
-            <script src="https://checkout.flutterwave.com/v3.js" defer></script>
+            <script src="{{env('PAYMENT_API_URL')}}" defer></script>
             <button type="button" onClick="makePayment()" class="btn btn-primary checkformvalidation">Pay Now</button>
         </form>
           <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
@@ -701,46 +702,47 @@ $ActiveSide='home';
 
   @section('footerSection')
 	  <script type="text/javascript">
+        function uuidv4() {
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+        }
             function makePayment() {
             FlutterwaveCheckout({
-            public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
-            tx_ref: "RX1",
-            amount: 10,
-            currency: "USD",
-            country: "US",
+            public_key: "{{env('PAYMENT_PUBLIC_KEY')}}",
+            tx_ref: "ONTRIP" + uuidv4(),
+            amount: document.getElementById("totalTripAmount").value,
+            currency: "NGN",
+            country: "NG",
             payment_options: " ",
-            redirect_url: // specified redirect URL
-                "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
+           // redirect_url: "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
             meta: {
                 consumer_id: 23,
                 consumer_mac: "92a3-912ba-1192a",
             },
             customer: {
-                email: "cornelius@gmail.com",
-                phone_number: "08102909304",
-                name: "Flutterwave Developers",
+                email: "{{Auth::guard('web')->user()->EMAIL_ADDRESS}}",
+                phone_number: "{{Auth::guard('web')->user()->PHONE_NUMBER_COUNTRY}} {{Auth::guard('web')->user()->PHONE_NUMBER1}}",
+                name: "{{Auth::guard('web')->user()->FIRSTNAME}} {{Auth::guard('web')->user()->SURNAME}}",
             },
             callback: function (data) {
                 console.log(data);
+                addData();
             },
             onclose: function() {
                 // close modal
             },
             customizations: {
-                title: "My store",
-                description: "Payment for items in cart",
+                title: "TripOn",
+                description: "Payment for trip ticket.",
                 logo: "https://assets.piedpiper.com/logo.png",
             },
             });
         }
 
 		
-	    $(".submitonline").click(function (e) {
-        e.preventDefault();
-		
-		
-		   e.preventDefault();
-      
+	    function addData() {
+    
 
     var errorCounter = validateForm();
 
@@ -846,7 +848,7 @@ $ActiveSide='home';
         });
      }
 	 
-      	  });
+      	  }
 		  
 		
 	    $(".checkformvalidation").click(function (e) {
@@ -1073,6 +1075,8 @@ $ActiveSide='home';
 	var bothtax=parseFloat(ftaxtotal+ltaxtotal);
 	var bothprice=parseFloat(ftotal+0);
 	var btotal=parseFloat(bothprice+bothtax);
+
+    $("#totalTripAmount").val(btotal);
 
 	$('.ftotal').text(ftotal);
 	$('.ftaxtotal').text(ftaxtotal);
