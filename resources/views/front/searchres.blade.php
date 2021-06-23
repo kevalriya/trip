@@ -140,7 +140,7 @@
 
 
 <div class="col-md-2 hidden-xs">
-<h5><span class="visible-xs">Seats</span>20 left</h5>                                                  
+<h5><span class="visible-xs">Seats</span>{{$Route->seat_left}} left</h5>                                                  
 </div>
 
 <div class="col-md-2 col-xs-5 top-10">

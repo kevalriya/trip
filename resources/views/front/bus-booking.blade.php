@@ -630,19 +630,19 @@ $ActiveSide='home';
                         </header>
                         <ul class="booking-item-payment-details">
                             <li>
-                                <h5>Bus Details</h5>
+                                <h5 style="text-decoration: underline;">Bus Details</h5>
                                 <div class="booking-item-payment-flight">
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="booking-item-flight-details">
                                                 <div class="booking-item-departure"><i class="fa fa-bus"></i>
                                                     <h5><?php echo date('H:i', strtotime($startimes)); ?></h5>
-                                                    <p><?php echo date('D, M d', strtotime($startimes)); ?></p>
+                                                    <p style="margin:0"><?php echo date('D, M d', strtotime($startimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $pickup_text ?></p>
                                                 </div>
                                                 <div class="booking-item-arrival"><i class="fa fa-bus"></i>
                                                     <h5><?php echo date('H:i', strtotime($endtimes)); ?></h5>
-                                                    <p><?php echo date('D, M d', strtotime($endtimes)); ?></p>
+                                                    <p style="margin:0"><?php echo date('D, M d', strtotime($endtimes)); ?></p>
                                                     <p class="booking-item-destination"><?php echo $return_text ?></p>
                                                 </div>
                                             </div>
@@ -657,24 +657,69 @@ $ActiveSide='home';
                                  
                                 </div>
                             </li>
+
+
                             <li>
-                                <h5>Bus (<?php echo $passenger ?> Passengers)</h5>
+                                <h5 style="text-decoration: underline;">Service Details</h5>
+                                <div class="booking-item-payment-flight">
                                 <ul class="booking-item-payment-price">
                                     <li>
-                                        <p class="booking-item-payment-price-title"><?php echo $passenger ?> Passengers</p>
+                                        <p class="booking-item-payment-price-title">Trip</p>
+                                        <p class="booking-item-payment-price-amount" style="font-weight: 600;"><?php echo $pickup_text ?> => <?php echo $return_text ?>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Service Provider</p>
+                                        <p class="booking-item-payment-price-amount"></p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Boarding Point</p>
+                                        <p class="booking-item-payment-price-amount"><?php echo $pickup_text ?></p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Boarding Date/Time</p>
+                                        <p class="booking-item-payment-price-amount"><?php echo date('M/d/Y', strtotime($startimes)); ?>@<?php echo date('H:iA', strtotime($startimes)); ?></p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Bus Type</p>
+                                        <p class="booking-item-payment-price-amount"></p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Bus Seat Capacity</p>
+                                        <p class="booking-item-payment-price-amount"></p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Selected Seat(s)</p>
+                                        <p class="booking-item-payment-price-amount"><?php echo Str::substr($seat_no, 2)?></p>
+                                    </li>
+                                </ul>
+                                 
+                                </div>
+                            </li>
+
+                            <li>
+                                <h5 style="text-decoration: underline;">Fare Details (<?php echo $passenger ?> Passengers)</h5>
+                                <ul class="booking-item-payment-price">
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Base Fare X <?php echo $passenger ?></p>
                                         <p class="booking-item-payment-price-amount"> ₦<span class="ftotal"></span>
                                         </p>
                                     </li>
                                     <li>
-                                        <p class="booking-item-payment-price-title">Taxes</p>
+                                        <p class="booking-item-payment-price-title">Travel Insurance X <?php echo $passenger ?></p>
                                         <p class="booking-item-payment-price-amount">₦<span class="ftaxtotal"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="booking-item-payment-price-title">Taxes(5%)</p>
+                                        <p class="booking-item-payment-price-amount">₦<span class="ftaxtotal1"></span>
                                         </p>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
 						
-                        <p class="booking-item-payment-total">Total trip: <span>₦ <span class="btotal"></span></span>
+                        <p class="booking-item-payment-total">Total trip: <span style="float: right;">₦ <span class="btotal"></span></span>
                         </p>
                     </div>
 
@@ -1007,12 +1052,18 @@ $ActiveSide='home';
       return errorCounter;
   }
 
-  BothTicket();
+  if($('.ins-chk')[0].checked){
+        BothTicket(15);
+    } else BothTicket(0);
  $(document).on('change', ".ticket-type", function(e) {
- 	BothTicket();
+    if($('.ins-chk')[0].checked){
+        BothTicket(15);
+    } else BothTicket(0);
  });
   $(document).on('change', ".return-ticket-type", function(e) {
- 	BothTicket();
+    if($('.ins-chk')[0].checked){
+        BothTicket(15);
+    } else BothTicket(0);
  });
 
  $(document).on('click', ".select-insurance", function(e) {
@@ -1021,13 +1072,17 @@ $ActiveSide='home';
          $('.select-insurance').find('i').removeClass('fa-check-circle').addClass('fa-check-circle-o');
  		$(this).find('i').removeClass('fa-check-circle-o').addClass('fa-check-circle');
  		$('#insuranceval').val($(this).data('ins')) ;
-    
+         if($('.ins-chk')[0].checked){
+        BothTicket(15);
+    } else BothTicket(0);
  });
 
  $(document).on('click', ".ins-chk", function(e) {
  	$('.select-insurance').find('i').removeClass('fa-check-circle').addClass('fa-check-circle-o');
  	$('#insuranceval').val('') ;
-
+    if(e.target.checked){
+        BothTicket(15);
+    } else BothTicket(0);
  });
 
   function totalTicket() {
@@ -1053,11 +1108,12 @@ $ActiveSide='home';
 	return total;
   }
 
-  function BothTicket() {
-  	var ftotal=totalTicket();
+  function BothTicket(insval) {
 
   	var fpsnger='<?php echo $passenger ?>';
-  	var ftaxtotal=parseFloat(fpsnger*10);
+  	var ftotal=totalTicket()*parseFloat(fpsnger);
+  	var ftaxtotal=parseFloat(fpsnger*insval);
+      var ftaxtotal1=parseFloat((ftotal+ftaxtotal)*0.05);
 
   	<?php 
 		if($isback == 'Y'){
@@ -1074,12 +1130,13 @@ $ActiveSide='home';
 
 	var bothtax=parseFloat(ftaxtotal+ltaxtotal);
 	var bothprice=parseFloat(ftotal+0);
-	var btotal=parseFloat(bothprice+bothtax);
+	var btotal=parseFloat(ftotal+ftaxtotal+ftaxtotal1);
 
     $("#totalTripAmount").val(btotal);
 
 	$('.ftotal').text(ftotal);
 	$('.ftaxtotal').text(ftaxtotal);
+    $('.ftaxtotal1').text(ftaxtotal1);
 
 	$('.ftotalval').val(ftotal);
 	$('.ftaxtotalval').val(ftaxtotal);
