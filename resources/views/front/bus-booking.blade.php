@@ -787,115 +787,88 @@ $ActiveSide='home';
         }
 
 		
-	    function addData() {
-    
-
-    var errorCounter = validateForm();
-
-    if (errorCounter > 0) {
-      $('#clientinfo').slideDown('slow');
-        $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();
-        $("#response .message").html("<strong>Error</strong>: Please Fill Required Fields");
-        $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);
-
-        $('.upperdiv').show();
-    	$('.underidiv').hide();
-    }
-
-   
-     else {
-    
-		var name= $("#name-no").val(); 
-		var phn= $("#phn-no").val(); 
-		var lname= $("#last-name").val();
-		var email= $("#email-no").val(); 
-	
-	 if($('#trvchk').prop("checked") == true){
-              var trvchk='T';
-     }
-     else if($('#trvchk').prop("checked") == false){
-              var trvchk='F';
-     }
-	
-		<?php 
-		if($isback == 'Y'){
-			?>
- var pickup_id= '<?php echo $Old_from_location_id ?>';
- var return_id =  '<?php echo $Old_to_location_id ?>';
- var bus_id = '<?php echo $Old_bus_id ?>';
- var ticket_id= '<?php echo $Old_ticket_id ?>';
- 
- var startdate= '<?php echo $Old_startimes ?>';
- var routetxt= '<?php echo $Old_routetxt ?>';
- var enddate= '<?php echo $Old_endtimes ?>';
-
- var return_pickup_id= '<?php echo $from_location_id ?>';
- var return_return_id =  '<?php echo $to_location_id ?>';
- var return_bus_id = '<?php echo $bus_id ?>';
- var return_ticket_id= '<?php echo $ticket_id ?>';
- 
- var return_startdate= '<?php echo $startimes ?>';
- var return_routetxt= '<?php echo $routetxt ?>';
- var return_enddate= '<?php echo $endtimes ?>';
- 
- var rData='&return_pickup_id='+return_pickup_id+'&return_return_id='+return_return_id+'&return_bus_id='+return_bus_id+'&return_ticket_id='+return_ticket_id+'&return_startdate='+return_startdate+'&return_routetxt='+return_routetxt+'&return_enddate='+return_enddate;
-		<?php 
-		}
-	else{		
-		?>
- var pickup_id= '<?php echo $from_location_id ?>';
- var return_id =  '<?php echo $to_location_id ?>';
- var bus_id = '<?php echo $bus_id ?>';
-  var trip_id='<?php echo $trip_id ?>';
- var route_id='<?php echo $route_id ?>';
- var startdate= '<?php echo $startimes ?>';
- var routetxt= '<?php echo $routetxt ?>';
- var enddate= '<?php echo $endtimes ?>';
- var rData='';
-	<?php } ?>
-
-    $.ajax({
-
-        url: "{{route('bookingPayment')}}",
-        type: 'POST',
-        data: $("#booking_form").serialize()+'&fname='+name+'&lname='+lname+'&phone='+phn+'&email='+email+'&regcheck='+trvchk+'&pickup_id='+pickup_id+'&return_id='+return_id+'&bus_id='+bus_id+'&startdate='+startdate+'&enddate='+enddate+'&routetxt='+routetxt+'&trip_id='+trip_id+'&route_id='+route_id+'&PayMethod=ONLINE'+rData,
-
-        dataType: 'json',
-        success: function(data){
-        
-       if(data.success==1){
-		  $('#ccfirstname').val(name);	
-		  $('#ccemail').val(email);	
-		  $('#ccphonenumber').val(phn);	
-		  $('#ref').val(data.data.booking);
-		 
-   		  $('form#paymentForm').submit();
-        
-        }
-            else{
-               $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
-        $("#response .message").html(data.msg);
-        $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
-
-        $('.upperdiv').show();
-    	$('.underidiv').hide();
+	    function addData(paymentData) {
+            var errorCounter = validateForm();
+            if (errorCounter > 0) {
+            $('#clientinfo').slideDown('slow');
+                $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();
+                $("#response .message").html("<strong>Error</strong>: Please Fill Required Fields");
+                $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);
+                $('.upperdiv').show();
+                $('.underidiv').hide();
+            } else {
+                var name= $("#name-no").val(); 
+                var phn= $("#phn-no").val(); 
+                var lname= $("#last-name").val();
+                var email= $("#email-no").val(); 
+            if($('#trvchk').prop("checked") == true){
+                var trvchk='T';
             }
-        
-        },
-        error:function(data){
-          
-          $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
-        $("#response .message").html(data.msg);
-        $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
+            else if($('#trvchk').prop("checked") == false){
+                var trvchk='F';
+            }
+            <?php if($isback == 'Y'){ ?>
+                var pickup_id= '<?php echo $Old_from_location_id ?>';
+                var return_id =  '<?php echo $Old_to_location_id ?>';
+                var bus_id = '<?php echo $Old_bus_id ?>';
+                var ticket_id= '<?php echo $Old_ticket_id ?>';
+                
+                var startdate= '<?php echo $Old_startimes ?>';
+                var routetxt= '<?php echo $Old_routetxt ?>';
+                var enddate= '<?php echo $Old_endtimes ?>';
 
-        $('.upperdiv').show();
-    	$('.underidiv').hide();
+                var return_pickup_id= '<?php echo $from_location_id ?>';
+                var return_return_id =  '<?php echo $to_location_id ?>';
+                var return_bus_id = '<?php echo $bus_id ?>';
+                var return_ticket_id= '<?php echo $ticket_id ?>';
+                
+                var return_startdate= '<?php echo $startimes ?>';
+                var return_routetxt= '<?php echo $routetxt ?>';
+                var return_enddate= '<?php echo $endtimes ?>';
+                
+                var rData='&return_pickup_id='+return_pickup_id+'&return_return_id='+return_return_id+'&return_bus_id='+return_bus_id+'&return_ticket_id='+return_ticket_id+'&return_startdate='+return_startdate+'&return_routetxt='+return_routetxt+'&return_enddate='+return_enddate;
+            <?php } else { ?>
+                var pickup_id= '<?php echo $from_location_id ?>';
+                var return_id =  '<?php echo $to_location_id ?>';
+                var bus_id = '<?php echo $bus_id ?>';
+                var trip_id='<?php echo $trip_id ?>';
+                var route_id='<?php echo $route_id ?>';
+                var startdate= '<?php echo $startimes ?>';
+                var routetxt= '<?php echo $routetxt ?>';
+                var enddate= '<?php echo $endtimes ?>';
+                var rData='';
+            <?php } ?>
+            $.ajax({
+                url: "{{route('bookingPayment')}}",
+                type: 'POST',
+                data: $("#booking_form").serialize()+'&fname='+name+'&lname='+lname+'&phone='+phn+'&email='+email+'&regcheck='+trvchk+'&pickup_id='+pickup_id+'&return_id='+return_id+'&bus_id='+bus_id+'&startdate='+startdate+'&enddate='+enddate+'&routetxt='+routetxt+'&trip_id='+trip_id+'&route_id='+route_id+'&PayMethod=ONLINE'+rData,
+                dataType: 'json',
+                success: function(data){
+            if(data.success==1){
+                $('#ccfirstname').val(name);	
+                $('#ccemail').val(email);	
+                $('#ccphonenumber').val(phn);	
+                $('#ref').val(data.data.booking);
+                $('form#paymentForm').submit();
+            } else {
+                $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
+                $("#response .message").html(data.msg);
+                $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
+                $('.upperdiv').show();
+                $('.underidiv').hide();
+                }
+                
+            },
+            error:function(data){
+                $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
+                $("#response .message").html(data.msg);
+                $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
+                $('.upperdiv').show();
+                $('.underidiv').hide();
+                }    
+            });
+            }
         }
-        
-        });
-     }
-	 
-      	  }
 		  
 		
 	    $(".checkformvalidation").click(function (e) {
