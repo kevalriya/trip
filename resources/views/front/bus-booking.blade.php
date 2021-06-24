@@ -323,7 +323,7 @@ $ActiveSide='home';
                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Age</label>
-                                        <input class="form-control required" name="return_age[]" type="text" style="padding: 6px 7px;"/>
+                                        <input class="form-control required" name="return_age[]" type="number" style="padding: 6px 7px;"/>
                                     </div>
                                 </div>
 
@@ -418,7 +418,7 @@ $ActiveSide='home';
                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Age</label>
-                                        <input class="form-control required" name="age[]" type="text" style="padding: 6px 7px;"/>
+                                        <input class="form-control required" name="age[]" type="number" style="padding: 6px 7px;"/>
                                     </div>
                                 </div>
 
@@ -755,7 +755,7 @@ $ActiveSide='home';
             function makePayment() {
             FlutterwaveCheckout({
             public_key: "{{env('PAYMENT_PUBLIC_KEY')}}",
-            tx_ref: "ONTRIP" + uuidv4(),
+            tx_ref: "ONTRIP-" + uuidv4(),
             amount: document.getElementById("totalTripAmount").value,
             currency: "NGN",
             country: "NG",
@@ -798,9 +798,13 @@ $ActiveSide='home';
                 $('.underidiv').hide();
             } else {
                 var name= $("#name-no").val(); 
-                var phn= $("#phn-no").val(); 
+                var phn= paymentData.customer.phone_number; 
                 var lname= $("#last-name").val();
-                var email= $("#email-no").val(); 
+                var email= paymentData.customer.email;
+                var flwRef = paymentData.flw_ref;
+                var status = paymentData.status;
+                var txRef = paymentData.tx_ref;
+                var transactionId = paymentData.transaction_id;
             if($('#trvchk').prop("checked") == true){
                 var trvchk='T';
             }
@@ -838,35 +842,37 @@ $ActiveSide='home';
                 var enddate= '<?php echo $endtimes ?>';
                 var rData='';
             <?php } ?>
-            $.ajax({
-                url: "{{route('bookingPayment')}}",
-                type: 'POST',
-                data: $("#booking_form").serialize()+'&fname='+name+'&lname='+lname+'&phone='+phn+'&email='+email+'&regcheck='+trvchk+'&pickup_id='+pickup_id+'&return_id='+return_id+'&bus_id='+bus_id+'&startdate='+startdate+'&enddate='+enddate+'&routetxt='+routetxt+'&trip_id='+trip_id+'&route_id='+route_id+'&PayMethod=ONLINE'+rData,
-                dataType: 'json',
-                success: function(data){
-            if(data.success==1){
-                $('#ccfirstname').val(name);	
-                $('#ccemail').val(email);	
-                $('#ccphonenumber').val(phn);	
-                $('#ref').val(data.data.booking);
-                $('form#paymentForm').submit();
-            } else {
-                $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
-                $("#response .message").html(data.msg);
-                $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
-                $('.upperdiv').show();
-                $('.underidiv').hide();
+            if(paymentData.status === "successful" || paymentData.status === "pending") {
+                $.ajax({
+                    url: "{{route('bookingPayment')}}",
+                    type: 'POST',
+                    data: $("#booking_form").serialize()+'&fname='+name+'&lname='+lname+'&phone='+phn+'&email='+email+'&regcheck='+trvchk+'&pickup_id='+pickup_id+'&return_id='+return_id+'&bus_id='+bus_id+'&startdate='+startdate+'&enddate='+enddate+'&routetxt='+routetxt+'&trip_id='+trip_id+'&route_id='+route_id+'&flwRef='+flwRef+'&status='+status+'&txRef='+txRef+'&transactionId='+transactionId+'&PayMethod=ONLINE'+rData,
+                    dataType: 'json',
+                    success: function(data){
+                if(data.success==1){
+                    $('#ccfirstname').val(name);	
+                    $('#ccemail').val(email);	
+                    $('#ccphonenumber').val(phn);	
+                    $('#ref').val(data.data.booking);
+                    $('form#paymentForm').submit();
+                } else {
+                    $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
+                    $("#response .message").html(data.msg);
+                    $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
+                    $('.upperdiv').show();
+                    $('.underidiv').hide();
+                    }
+                    
+                },
+                error:function(data){
+                    $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
+                    $("#response .message").html(data.msg);
+                    $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
+                    $('.upperdiv').show();
+                    $('.underidiv').hide();
+                    }    
+                });
                 }
-                
-            },
-            error:function(data){
-                $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
-                $("#response .message").html(data.msg);
-                $("html, body").animate({ scrollTop: $('#response').offset().top }, 1000);  
-                $('.upperdiv').show();
-                $('.underidiv').hide();
-                }    
-            });
             }
         }
 		  
@@ -897,7 +903,7 @@ $ActiveSide='home';
 
       	 
       	});
-
+/*
 	    $(".cashpayment").click(function (e) {
         e.preventDefault();
       
@@ -1006,7 +1012,7 @@ $ActiveSide='home';
         });
      }
     });
-
+*/
 	
 	   function validateForm() {
       // error handling

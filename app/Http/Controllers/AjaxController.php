@@ -234,52 +234,58 @@ public function sendContactMail(Request $request)
       $UserId=Auth::user()->USER_ID;
    }
 
-$PayMethod=(isset($request->PayMethod) && $request->PayMethod == 'ONLINE') ? 'ONLINE' : 'CASH';
-$Total=$request->ftotalval+$request->ftaxtotalval;
-$data = [
-'USER_ID'=> $UserId,
-'BUS_ID'=> $request->bus_id,
-'TRIP_ID'=> $request->trip_id,
-'ROUTE_ID'=> $request->route_id,
-'BOARDING_POINT'=> $request->startBoard ,
-'DROPOFF_POINT'=> $request->endBoard ,
-'PROCESSED_DATE'=> $request->startdate,
-'PRICE'=> $request->ticket_price,
-'TOTAL_SEAT_BOOKED'=> $request->passengertotal,
-'SUB_TOTAL'=> $request->ftotalval,
-'TAX'=> $request->ftaxtotalval ,
-'TOTAL'=> $Total,
-'PAYMENT_METHOD'=> $PayMethod,
-'STATUS'=> 'PAYMENT PENDING',
-'PAYMENT_STATUS'=> 'PENDING',
-'OPERATOR_CODE'=> $request->operator_id,
- ];
+    $PayMethod=(isset($request->PayMethod) && $request->PayMethod == 'ONLINE') ? 'ONLINE' : 'CASH';
+    $Total=$request->ftotalval+$request->ftaxtotalval;
+    $data = [
+      'USER_ID'=> $UserId,
+      'BUS_ID'=> $request->bus_id,
+      'TRIP_ID'=> $request->trip_id,
+      'ROUTE_ID'=> $request->route_id,
+      'BOARDING_POINT'=> $request->startBoard ,
+      'DROPOFF_POINT'=> $request->endBoard ,
+      'PROCESSED_DATE'=> $request->startdate,
+      'PRICE'=> $request->ticket_price,
+      'TOTAL_SEAT_BOOKED'=> $request->passengertotal,
+      'SUB_TOTAL'=> $request->ftotalval,
+      'TAX'=> $request->ftaxtotalval ,
+      'TOTAL'=> $Total,
+      'PAYMENT_METHOD'=> $PayMethod,
+      'STATUS'=> $request->status === "successful" ? "COMPLETED" : "PAYMENT PENDING",
+      'PAYMENT_STATUS'=> $request->status === "successful" ? "SUCCESS" : $request->status,
+      'OPERATOR_CODE'=> $request->operator_id,
+      'EMAIL' => $request->email,
+      'PHONE_NUMBER' => $request->phone,
+      'FLW_REF' => $request->flwRef,
+      'TX_REF' => $request->txRef,
+      'TRANSACTION_ID' => $request->transactionId,
+    ];
 
- try {
+    try {
 
-   $Booking = Booking::create($data);
+      $Booking = Booking::create($data);
 
-   if(isset($request->seatid) && count($request->seatid) > 0){
-   foreach ($request->seatid as $key => $value) {
-    $Seatno=$request->seatid[$key];
-    $name=$request->name[$key];
-    $surname=$request->surname[$key];
-    $age=$request->age[$key];
-    $passenger=$request->passenger[$key];
-     $Detail=[
-    'BOOKING_ID' => $Booking->BOOKING_ID,
-    'PASSENGER_SEATNO' => $Seatno,
-    'PASSENGER_FIRSTNAME' => $name,
-    'PASSENGER_LASTNAME' => $surname,
-    'PASSENGER_AGE' => $age,
-    'PASSENGER_GENDER' => $passenger,
-    'PROCESSED_DATE' => $request->startdate,
-    'TICKETNO_PRICE' => $request->ticket_price,
-   ];
-   Bookingdetail::create($Detail);
-   }
+      if(isset($request->seatid) && count($request->seatid) > 0){
+      foreach ($request->seatid as $key => $value) {
+        $Seatno=$request->seatid[$key];
+        $name=$request->name[$key];
+        $surname=$request->surname[$key];
+        $age=$request->age[$key];
+        $passenger=$request->passenger[$key];
+        $Detail=[
+        'BOOKING_ID' => $Booking->BOOKING_ID,
+        'PASSENGER_SEATNO' => $Seatno,
+        'PASSENGER_FIRSTNAME' => $name,
+        'PASSENGER_LASTNAME' => $surname,
+        'PASSENGER_AGE' => $age,
+        'PASSENGER_GENDER' => $passenger,
+        'PROCESSED_DATE' => $request->startdate,
+        'TICKETNO_PRICE' => $request->ticket_price,
+        'BARCODE' => strtoupper($Seatno . $name . $surname . $Booking->BOOKING_ID . uniqid()),
+      ];
+      Bookingdetail::create($Detail);
+      }
 
- }
+    }
    
           \DB::commit();
          return $this->create_output(1, [], [
