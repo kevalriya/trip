@@ -760,7 +760,7 @@ $ActiveSide='home';
             currency: "NGN",
             country: "NG",
             payment_options: " ",
-           // redirect_url: "https://callbacks.piedpiper.com/flutterwave.aspx?ismobile=34",
+            // redirect_url: "{{route('searchRes')}}",
             meta: {
                 consumer_id: 23,
                 consumer_mac: "92a3-912ba-1192a",
@@ -772,15 +772,16 @@ $ActiveSide='home';
             },
             callback: function (data) {
                 console.log(data);
-                addData();
+                addData(data);
             },
             onclose: function() {
-                // close modal
+              //  {{route("home")}}
+              location.href = "{{route('home')}}"
             },
             customizations: {
                 title: "TripOn",
                 description: "Payment for trip ticket.",
-                logo: "https://assets.piedpiper.com/logo.png",
+                logo: "{{url('images/color_logo.png')}}",
             },
             });
         }
@@ -869,6 +870,7 @@ $ActiveSide='home';
 		  $('#ref').val(data.data.booking);
 		 
    		  $('form#paymentForm').submit();
+        
         }
             else{
                $("#response").removeClass("alert-success").addClass("alert-danger").fadeIn();;
