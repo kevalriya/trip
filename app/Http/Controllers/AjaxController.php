@@ -235,7 +235,9 @@ public function sendContactMail(Request $request)
    }
 
     $PayMethod=(isset($request->PayMethod) && $request->PayMethod == 'ONLINE') ? 'ONLINE' : 'CASH';
-    $Total=$request->ftotalval+$request->ftaxtotalval;
+    $Total=$request->ftotalval+$request->ftaxtotalval+$request->ftaxtotalval1;
+    $eachTotalPrice = $Total / $request->passengertotal;
+    $isInsurance = $request->insurance === 'CHOSEN' ? 1 : 0;
     $data = [
       'USER_ID'=> $UserId,
       'BUS_ID'=> $request->bus_id,
@@ -247,7 +249,8 @@ public function sendContactMail(Request $request)
       'PRICE'=> $request->ticket_price,
       'TOTAL_SEAT_BOOKED'=> $request->passengertotal,
       'SUB_TOTAL'=> $request->ftotalval,
-      'TAX'=> $request->ftaxtotalval ,
+      'INSURANCE' => $request->ftaxtotalval,
+      'TAX'=> $request->ftaxtotalval1,
       'TOTAL'=> $Total,
       'PAYMENT_METHOD'=> $PayMethod,
       'STATUS'=> $request->status === "successful" ? "COMPLETED" : "PAYMENT PENDING",
@@ -258,8 +261,9 @@ public function sendContactMail(Request $request)
       'FLW_REF' => $request->flwRef,
       'TX_REF' => $request->txRef,
       'TRANSACTION_ID' => $request->transactionId,
+      'TRAVEL_INS_FLAG' => $request->insurance,
     ];
-
+   
     try {
 
       $Booking = Booking::create($data);
@@ -279,7 +283,8 @@ public function sendContactMail(Request $request)
         'PASSENGER_AGE' => $age,
         'PASSENGER_GENDER' => $passenger,
         'PROCESSED_DATE' => $request->startdate,
-        'TICKETNO_PRICE' => $request->ticket_price,
+        'TICKETNO_PRICE' => $eachTotalPrice,
+        'INSURANCE' => $isInsurance,
         'BARCODE' => strtoupper($Seatno . $name . $surname . $Booking->BOOKING_ID . uniqid()),
       ];
       Bookingdetail::create($Detail);

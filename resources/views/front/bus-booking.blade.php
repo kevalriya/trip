@@ -172,6 +172,7 @@ $ActiveSide='home';
 					<input type="hidden" name="operator_id" value="<?php echo $operator ?>">
 					<input type="hidden" name="ftotalval" class="ftotalval"  >
 					<input type="hidden" name="ftaxtotalval" class="ftaxtotalval"  >
+                    <input type="hidden" name="ftaxtotalval1" class="ftaxtotalval1"  >
 					<input type="hidden" name="ltotalval" class="ltotalval"  >
 					<input type="hidden" name="ltaxtotalval" class="ltaxtotalval"  >
 
@@ -215,7 +216,7 @@ $ActiveSide='home';
 								<div class="col-md-2">
 										<div class="form-group">
 										    <label for="exampleFormControlSelect1">Gender</label>
-										    <select class="form-control required" name="passenger[]" >
+										    <select class="form-control required" name="passenger[]" required>
 										      <option value="">-Select-</option>
 										      <option value="M">Male</option>
 										      <option value="F">Female</option>
@@ -229,13 +230,13 @@ $ActiveSide='home';
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input class="form-control required" name="name[]" type="text" />
+                                        <input class="form-control required" name="name[]" type="text" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input class="form-control required" name="surname[]" type="text" />
+                                        <input class="form-control required" name="surname[]" type="text" required/>
                                     </div>
                                 </div>
 								
@@ -244,7 +245,7 @@ $ActiveSide='home';
                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Age</label>
-                                        <input class="form-control required" name="age[]" type="text" style="padding: 6px 7px;"/>
+                                        <input class="form-control required" name="age[]" type="text" style="padding: 6px 7px;" required/>
                                     </div>
                                 </div>
 
@@ -294,7 +295,7 @@ $ActiveSide='home';
 								<div class="col-md-2">
 										<div class="form-group">
 										    <label for="exampleFormControlSelect1">Gender</label>
-										    <select class="form-control required" name="return_passenger[]" >
+										    <select class="form-control required" name="return_passenger[]" required>
 										      <option value="">-Select-</option>
 										      <option value="M">Male</option>
 										      <option value="F">Female</option>
@@ -308,13 +309,13 @@ $ActiveSide='home';
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input class="form-control required" name="return_name[]" type="text" />
+                                        <input class="form-control required" name="return_name[]" type="text" required/>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input class="form-control required" name="return_surname[]" type="text" />
+                                        <input class="form-control required" name="return_surname[]" type="text" required/>
                                     </div>
                                 </div>
 								
@@ -323,7 +324,7 @@ $ActiveSide='home';
                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Age</label>
-                                        <input class="form-control required" name="return_age[]" type="number" style="padding: 6px 7px;"/>
+                                        <input class="form-control required" name="return_age[]" type="number" style="padding: 6px 7px;" required/>
                                     </div>
                                 </div>
 
@@ -361,6 +362,7 @@ $ActiveSide='home';
 					<input type="hidden" name="passengertotal" value="<?php echo $passenger ?>">
 						<input type="hidden" name="ftotalval" class="ftotalval"  >
 					<input type="hidden" name="ftaxtotalval" class="ftaxtotalval"  >
+                    <input type="hidden" name="ftaxtotalval1" class="ftaxtotalval1"  >
 					
 					<input type="hidden" name="startBoard" value="<?php echo $startBoard ?>" >
 					<input type="hidden" name="endBoard" value="<?php echo $endBoard ?>" >
@@ -436,7 +438,7 @@ $ActiveSide='home';
                  		 <div class="row">
                 <div class="col-md-12">
                  <p class="insurancetext">	
-                 	<label class="checkbox-inline"><input type="checkbox" class="ins-chk" value="" checked>
+                 	<label class="checkbox-inline"><input type="checkbox" class="ins-chk" id="isInsuranceChoose" checked>
  Add Travel Insurance And Secure Your Trip With ICICI Lombard Travel Insurance for ₦ 15/Person
 </label>
 
@@ -747,6 +749,19 @@ $ActiveSide='home';
 
   @section('footerSection')
 	  <script type="text/javascript">
+
+                    function getInsurance() {
+                          var insurances;
+                          var insuranceId = document.getElementById('isInsuranceChoose');
+                            if(insuranceId.checked === true) {
+                                var insurances = "CHOSEN";
+                            } else {
+                                var insurances = "DECLINED";
+                            }
+                        return insurances;
+                    }
+      
+        
         function uuidv4() {
             return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
                 (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
@@ -771,7 +786,6 @@ $ActiveSide='home';
                 name: "{{Auth::guard('web')->user()->FIRSTNAME}} {{Auth::guard('web')->user()->SURNAME}}",
             },
             callback: function (data) {
-                console.log(data);
                 addData(data);
             },
             onclose: function() {
@@ -805,6 +819,7 @@ $ActiveSide='home';
                 var status = paymentData.status;
                 var txRef = paymentData.tx_ref;
                 var transactionId = paymentData.transaction_id;
+                var insurance = getInsurance();
             if($('#trvchk').prop("checked") == true){
                 var trvchk='T';
             }
@@ -846,7 +861,7 @@ $ActiveSide='home';
                 $.ajax({
                     url: "{{route('bookingPayment')}}",
                     type: 'POST',
-                    data: $("#booking_form").serialize()+'&fname='+name+'&lname='+lname+'&phone='+phn+'&email='+email+'&regcheck='+trvchk+'&pickup_id='+pickup_id+'&return_id='+return_id+'&bus_id='+bus_id+'&startdate='+startdate+'&enddate='+enddate+'&routetxt='+routetxt+'&trip_id='+trip_id+'&route_id='+route_id+'&flwRef='+flwRef+'&status='+status+'&txRef='+txRef+'&transactionId='+transactionId+'&PayMethod=ONLINE'+rData,
+                    data: $("#booking_form").serialize()+'&fname='+name+'&lname='+lname+'&phone='+phn+'&email='+email+'&regcheck='+trvchk+'&pickup_id='+pickup_id+'&return_id='+return_id+'&bus_id='+bus_id+'&startdate='+startdate+'&enddate='+enddate+'&routetxt='+routetxt+'&trip_id='+trip_id+'&route_id='+route_id+'&flwRef='+flwRef+'&status='+status+'&txRef='+txRef+'&transactionId='+transactionId+'&insurance='+insurance+'&PayMethod=ONLINE'+rData,
                     dataType: 'json',
                     success: function(data){
                 if(data.success==1){
@@ -1121,6 +1136,7 @@ $ActiveSide='home';
 
 	$('.ftotalval').val(ftotal);
 	$('.ftaxtotalval').val(ftaxtotal);
+    $('.ftaxtotalval1').val(ftaxtotal1);
 
 	$('.ltotal').text(ltotal);
 	$('.ltaxtotal').text(ltaxtotal);
