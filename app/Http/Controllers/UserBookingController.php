@@ -83,7 +83,7 @@ class UserBookingController extends Controller
             return DataTables::of($data)
                 
                   ->addColumn('booking',function ($data){
-                     return '<a href="'.route("showubooking",$data->BOOKING_ID).'">'.$data->BOOKING_ID.'</a>';
+                     return $data->BOOKING_ID;
  
                  }) ->addColumn('processed_date',function ($data){
                      return $data->PROCESSED_DATE ;
@@ -99,12 +99,10 @@ class UserBookingController extends Controller
                      return $data->DROPOFF_POINT ;
                  })  ->addColumn('status',function ($data){
                      return $data->STATUS ;
-                 })
-                 ->addColumn('action', function($row){
-
-                    $btn= '<a href="'.route("showubooking",$row->BOOKING_ID).'"> <span class="glyphicon glyphicon glyphicon glyphicon-th-list"></span></a>';
-                            return $btn;
-                    })
+                 }) ->addColumn('action', function($data){
+                    $btn= '<a href="'.route("showubooking",$data->BOOKING_ID).'"> <span class="glyphicon glyphicon glyphicon glyphicon-th-list">View</span></a>';
+                    return $btn;
+                })
                     ->rawColumns(['booking','action'])
                     ->make(true);
         }

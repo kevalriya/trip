@@ -35,13 +35,13 @@ $ActiveSide='booking';
                             <tr>
                                 
                           <th>Booking ID</th>
-                          <th>Processed Date</th>
                           <th>Fleet</th>
                           <th>Trip</th>
                           <th>Route</th>
                           <th>Boarding</th>
                           <th>Drop Off</th>
                           <th>Status</th>
+                          <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -110,13 +110,13 @@ $ActiveSide='booking';
                    },
         columns: [
             {data: 'booking', name: 'booking'},
-            {data: 'processed_date', name: 'processed_date', "visible": false,},
             {data: 'fleet', name: 'fleet'},
             {data: 'trip', name: 'trip'},
             {data: 'route', name: 'route'},
             {data: 'boarding', name: 'boarding'},
             {data: 'drop_off', name: 'drop_off'},
             {data: 'status', name: 'status'},
+            {data: 'action', name: 'action'},
         ]
     });
 
