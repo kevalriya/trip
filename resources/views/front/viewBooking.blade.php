@@ -5,7 +5,40 @@ $ActiveSide='booking';
 
 @section('title','TripOn - Booking Detail')
 @section('main-content')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+<style>
+.tickets {
+    border: 5px dashed #999999;
+    margin-top: 20px;
+}
+.ticketHeader {
+    background-color: #ED8325;
+}
+.ticketHeader h2 {
+ color: #ffffff;
+ font-weight: 600;
+ margin-top: 10px;
+}
+.ticketBody {
+    margin-top: 20px;
+}
+.ticketBody h3 {
+   font-weight: 600; 
+}
+.p-4{
+  padding: 20px 10px;
+}
+.tickets p {
+  font-size: 18px;
+}
+.bgGrey {
+  background-color: #e0e0e0;
+  padding: 10px;
+}
 
+</style>
 
 
         <div class="container-fluid">
@@ -28,6 +61,7 @@ $ActiveSide='booking';
                        <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#bookingtab">Booking Detail</a></li>
     <li><a data-toggle="tab" href="#passengertab">Passenger Detail</a></li>
+   <li><a data-toggle="tab" href="#tickettab">Ticket(s)</a></li>
     
   </ul>
 
@@ -104,7 +138,6 @@ $ActiveSide='booking';
                 <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
-                <th>Price</th>
                 <th>Insurance</th>
               </tr>
                 @forelse ($Booking->bookingDetails as $detail)
@@ -113,8 +146,7 @@ $ActiveSide='booking';
                <td> {{$detail->PASSENGER_FIRSTNAME}} {{$detail->PASSENGER_LASTNAME}}</td>
                <td>{{$detail->PASSENGER_AGE}}</td>
                <td> {{$detail->PASSENGER_GENDER}}</td>
-               <td> {{$detail->TICKETNO_PRICE}}</td>
-               <td> {{$detail->INSURANCE_PRICE}}</td>
+               <td> {{$detail->INSURANCE === 1 ? 'CHOSEN' : 'DECLINED'}}</td>
                </tr>
             @empty
                 <tr><td>No record found</td></tr>
@@ -127,6 +159,83 @@ $ActiveSide='booking';
        </div>
 
             </div>
+
+             <div id="tickettab" class="tab-pane fade">
+
+                <br>
+                  <div class="col-md-12">
+                    <div class="box-body">
+
+                     
+                      @foreach ($Booking->bookingDetails as $detail)
+                          <div class="col-md-12 tickets">
+                              <!-- <div class="col-xs-12 ticketHeader">
+                                  <h2>BUS TICKET</h2>
+                              </div> -->
+                              <div class="col-xs-12 ticketBody">
+                                  <div class="col-sm-6 col-xs-12 p-4">
+                                      <h3>{{$detail->PASSENGER_FIRSTNAME}} {{$detail->PASSENGER_LASTNAME}}</h3>
+                                    <p><b>TRIP NAME:</b> {{$Booking->trip->TRIP_NAME }}</p>
+                                    <p><b>FLEET NAME:</b> {{$Booking->bus->FLEET_NAME}} </p>
+                                    <p><b>FLEET REG NO:</b> {{$Booking->bus->REG_NO }}  </p>
+                                    <p><b>ROUTE NAME:</b> {{$Booking->route->ROUTE_NAME  }} </p>
+                                      
+                                     
+                                  
+                                  </div>
+                                  <div class="col-sm-6 col-xs-12 p-4">
+                                    <h3 style='color: green;'>SEAT NO: {{$detail->PASSENGER_SEATNO}}</h3>
+                                      <a data-fancybox="gallery" class="primary-btn" href="https://cdn-codespeedy.pressidium.com/wp-content/uploads/2020/02/Qrcode.png"> <img src="https://cdn-codespeedy.pressidium.com/wp-content/uploads/2020/02/Qrcode.png" alt="barcode" style="width: 150px;" /></a>
+                                  </div>
+                                  <div class="col-xs-12 p-4 bgGrey">
+                                      <div class="col-sm-6 col-xs-12">
+                                          <h3>DEPEARTURE:</h3>
+                                          <p><b>FROM:</b> {{$Booking->BOARDING_POINT}}</p>
+                                          <p><b>DATE:</b> {{$Booking->trip->fromDate}}</p>
+                                          <?php
+                                            $ddate = strtotime($Booking->trip->ACTUAL_DEP_TIME);
+                                          ?>
+                                           <p><b>TIME:</b> {{date("h:i A", $ddate)}}</p>
+                                          
+                                      </div>
+                                      <div class="col-sm-6 col-xs-12">
+                                        <h3>ARRIVAL:</h3>
+                                          <p><b>TO:</b> {{$Booking->DROPOFF_POINT}}</p>
+                                          <p><b>DATE:</b> {{$Booking->trip->toDate}}</p>
+                                           <?php
+                                            $adate = strtotime($Booking->trip->ACTUAL_ARR_TIM);
+                                          ?>
+                                          <p><b>TIME:</b> {{date("h:i A", $adate)}}</p>
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="col-sm-6 col-xs-12 p-4">
+                                    <p><b>PAYMENT STATUS:</b> <?php 
+                                    if($Booking->PAYMENT_STATUS === "SUCCESS") {
+                                      echo "<b style='color: green;'>" . $Booking->PAYMENT_STATUS . "</b>"; 
+                                      } else { echo  "<b style='color: red;'>" . $Booking->PAYMENT_STATUS . "</b>";
+                                      }
+                                      ?></p>
+                                  </div>
+                                  <div class="col-sm-6 col-xs-12 p-4">
+                                    <p><b>INSURANCE:</b> {{$Booking->TRAVEL_INS_FLAG}}</p>
+                                  </div>
+                                   <div class="col-sm-6 col-xs-12 p-4">
+                                    <span>{{$Booking->TX_REF}}</span>
+                                  </div>
+                                  <div class="col-sm-6 col-xs-12 p-4">
+                                    <span>{{$detail->BARCODE}}</span>
+                                  </div>
+                              </div>
+                              
+                          </div>
+                      @endforeach
+
+
+                   </div>
+                  </div>
+
+             </div>
 
          </div>
         
