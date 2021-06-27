@@ -233,7 +233,6 @@ $ActiveSide='booking';
                           </div>
                       @endforeach
                       </div>
-
                    </div>
                   </div>
 
