@@ -165,8 +165,10 @@ $ActiveSide='booking';
                 <br>
                   <div class="col-md-12">
                     <div class="box-body">
-
+                    <div class="col-xs-8"><h2>Ticket(s)</h2></div>
                      
+                     <div class="col-xs-4"><button onclick="printDiv()"><i class="fa fa-print fa-3x" aria-hidden="true"></i></button></div>
+                     <div id="DivIdToPrint">
                       @foreach ($Booking->bookingDetails as $detail)
                           <div class="col-md-12 tickets">
                               <!-- <div class="col-xs-12 ticketHeader">
@@ -230,7 +232,7 @@ $ActiveSide='booking';
                               
                           </div>
                       @endforeach
-
+                      </div>
 
                    </div>
                   </div>
@@ -252,3 +254,21 @@ $ActiveSide='booking';
 
         <div class="gap"></div>
        @endsection
+<script>
+function printDiv() 
+{
+
+  var divToPrint=document.getElementById('DivIdToPrint');
+
+  var newWin=window.open('','Print-Window');
+
+  newWin.document.open();
+
+  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+  newWin.document.close();
+
+  setTimeout(function(){newWin.close();},10);
+
+}
+</script>
