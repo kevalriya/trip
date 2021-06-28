@@ -273,3 +273,9 @@ Route::match(['get', 'post'],'bus-booking', 'HomeController@busBooking')->name('
 	Route::post('/pay', 'RaveController@initialize')->name('pay');
 	Route::get('/rave/callback', 'RaveController@callback')->name('callback');
 
+Route::get('qr-code-g', function () {
+  \QrCode::size(500)
+        ->format('png')
+        ->generate('', public_path('images/qrcode/qrcode.png'));
+  return view('viewBooking');
+});

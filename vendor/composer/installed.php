@@ -1,16 +1,25 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '67177d73c37fa481c1749135b3996c0538a2b1d9',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
+    'bacon/bacon-qr-code' => 
+    array (
+      'pretty_version' => '2.0.4',
+      'version' => '2.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f73543ac4e1def05f1a70bcd1525c8a157a1ad09',
+    ),
     'beyondcode/laravel-dump-server' => 
     array (
       'pretty_version' => '1.3.0',
@@ -20,12 +29,30 @@
       ),
       'reference' => 'fcc88fa66895f8c1ff83f6145a5eff5fa2a0739a',
     ),
+    'composer/ca-bundle' => 
+    array (
+      'pretty_version' => '1.2.9',
+      'version' => '1.2.9.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '78a0e288fdcebf92aa2318a8d3656168da6ac1a5',
+    ),
     'cordoval/hamcrest-php' => 
     array (
       'replaced' => 
       array (
         0 => '*',
       ),
+    ),
+    'dasprid/enum' => 
+    array (
+      'pretty_version' => '1.0.3',
+      'version' => '1.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5abf82f213618696dda8e3bf6f64dd042d8542b2',
     ),
     'davedevelopment/hamcrest-php' => 
     array (
@@ -124,6 +151,15 @@
       ),
       'reference' => '848d8125239d7dbf8ab25cb7f054f1a630e68c2e',
     ),
+    'geoip2/geoip2' => 
+    array (
+      'pretty_version' => 'v2.11.0',
+      'version' => '2.11.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd01be5894a5c1a3381c58c9b1795cd07f96c30f7',
+    ),
     'hamcrest/hamcrest-php' => 
     array (
       'pretty_version' => 'v2.0.1',
@@ -132,6 +168,15 @@
       array (
       ),
       'reference' => '8c3d0a3f6af734494ad8f6fbbee0ba92422859f3',
+    ),
+    'hisorange/browser-detect' => 
+    array (
+      'pretty_version' => '4.4.0',
+      'version' => '4.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4f1fb99a8ecb5d28117f9a44874ff9a1fd7d1a61',
     ),
     'illuminate/auth' => 
     array (
@@ -343,6 +388,15 @@
         0 => '*',
       ),
     ),
+    'jaybizzle/crawler-detect' => 
+    array (
+      'pretty_version' => 'v1.2.106',
+      'version' => '1.2.106.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '78bf6792cbf9c569dc0bf2465481978fd2ed0de9',
+    ),
     'kingflamez/laravelrave' => 
     array (
       'pretty_version' => '2.0.0',
@@ -370,12 +424,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '67177d73c37fa481c1749135b3996c0538a2b1d9',
     ),
     'laravel/tinker' => 
     array (
@@ -404,6 +458,15 @@
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
     ),
+    'league/pipeline' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'aa14b0e3133121f8be39e9a3b6ddd011fc5bb9a8',
+    ),
     'mashape/unirest-php' => 
     array (
       'pretty_version' => 'v3.0.4',
@@ -412,6 +475,42 @@
       array (
       ),
       'reference' => '842c0f242dfaaf85f16b72e217bf7f7c19ab12cb',
+    ),
+    'matomo/device-detector' => 
+    array (
+      'pretty_version' => '4.2.3',
+      'version' => '4.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd879f07496d6e6ee89cef5bcd925383d9b0c2cc0',
+    ),
+    'maxmind-db/reader' => 
+    array (
+      'pretty_version' => 'v1.10.1',
+      'version' => '1.10.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '569bd44d97d30a4ec12c7793a33004a76d4caf18',
+    ),
+    'maxmind/web-service-common' => 
+    array (
+      'pretty_version' => 'v0.8.1',
+      'version' => '0.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '32f274051c543fc865e5a84d3a2c703913641ea8',
+    ),
+    'mobiledetect/mobiledetectlib' => 
+    array (
+      'pretty_version' => '2.8.37',
+      'version' => '2.8.37.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9841e3c46f5bd0739b53aed8ac677fa712943df7',
     ),
     'mockery/mockery' => 
     array (
@@ -430,6 +529,15 @@
       array (
       ),
       'reference' => '2209ddd84e7ef1256b7af205d0717fb62cfc9c33',
+    ),
+    'mustangostang/spyc' => 
+    array (
+      'pretty_version' => '0.6.3',
+      'version' => '0.6.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4627c838b16550b666d15aeae1e5289dd5b77da0',
     ),
     'myclabs/deep-copy' => 
     array (
@@ -624,6 +732,13 @@
       ),
       'reference' => '9467db479d1b0487c99733bb1e7944d32deded2c',
     ),
+    'piwik/device-detector' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '4.2.3',
+      ),
+    ),
     'psr/container' => 
     array (
       'pretty_version' => '1.1.1',
@@ -789,6 +904,24 @@
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'simplesoftwareio/simple-qrcode' => 
+    array (
+      'pretty_version' => '4.2.0',
+      'version' => '4.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '916db7948ca6772d54bb617259c768c9cdc8d537',
+    ),
+    'stevebauman/location' => 
+    array (
+      'pretty_version' => 'v6.1.0',
+      'version' => '6.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7f5085f23612aec628507c83c0913cc1d5ba8bdb',
     ),
     'swiftmailer/swiftmailer' => 
     array (
@@ -1064,6 +1197,15 @@
       array (
       ),
       'reference' => 'b43b05cf43c1b6d849478965062b6ef73e223bb5',
+    ),
+    'ua-parser/uap-php' => 
+    array (
+      'pretty_version' => 'v3.9.14',
+      'version' => '3.9.14.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b796c5ea5df588e65aeb4e2c6cce3811dec4fed6',
     ),
     'vlucas/phpdotenv' => 
     array (

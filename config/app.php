@@ -179,6 +179,7 @@ return [
         KingFlamez\Rave\RaveServiceProvider::class,
         hisorange\BrowserDetect\ServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
     ],
 
     /*
@@ -233,6 +234,7 @@ return [
         'Rave' => KingFlamez\Rave\Facades\Rave::class,
         'BrowserDetect' => hisorange\BrowserDetect\Facade::class,
         'Location' => 'Stevebauman\Location\Facades\Location',
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
     ],
 
 ];

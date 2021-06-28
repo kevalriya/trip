@@ -17,14 +17,6 @@ function addScript(url) {
     document.head.appendChild(script);
 }
 addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
-
-var QR_CODE = new QRCode("qrcode", {
-  width: 220,
-  height: 220,
-  colorDark: "#000000",
-  colorLight: "#ffffff",
-  correctLevel: QRCode.CorrectLevel.H,
-});
 </script>
 <style>
 .tickets {
@@ -55,7 +47,6 @@ var QR_CODE = new QRCode("qrcode", {
   background-color: #e0e0e0;
   padding: 10px;
 }
-
 
 </style>
 
@@ -208,8 +199,8 @@ var QR_CODE = new QRCode("qrcode", {
                                   <div class="col-sm-6 col-xs-12 p-4">
                                     <h3 style='color: green;'>SEAT NO: {{$detail->PASSENGER_SEATNO}}</h3>
                                       <!-- <a data-fancybox="gallery" class="primary-btn" href="https://cdn-codespeedy.pressidium.com/wp-content/uploads/2020/02/Qrcode.png"> <img src="https://cdn-codespeedy.pressidium.com/wp-content/uploads/2020/02/Qrcode.png" alt="barcode" style="width: 150px;" /></a> -->
-                                      <div id="qrcode"></div>
-                                      <script>QR_CODE.makeCode('+{{$detail->BARCODE}}+');</script>
+                                      {!! QrCode::size(160)->generate($detail->BARCODE); !!}
+                                      
                                   </div>
                                   <div class="col-xs-12 p-4 bgGrey">
                                       <div class="col-sm-6 col-xs-12">

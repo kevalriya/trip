@@ -14,6 +14,7 @@
         "kingflamez/laravelrave": "^2.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "simplesoftwareio/simple-qrcode": "^4.2",
         "stevebauman/location": "^6.1",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
