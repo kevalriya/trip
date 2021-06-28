@@ -8,6 +8,15 @@ $ActiveSide='booking';
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.0/jquery.fancybox.min.js"></script>
+<script>
+function addScript(url) {
+    var script = document.createElement('script');
+    script.type = 'application/javascript';
+    script.src = url;
+    document.head.appendChild(script);
+}
+addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js');
+</script>
 <style>
 .tickets {
     border: 5px dashed #999999;
@@ -37,6 +46,7 @@ $ActiveSide='booking';
   background-color: #e0e0e0;
   padding: 10px;
 }
+
 
 </style>
 
@@ -167,13 +177,14 @@ $ActiveSide='booking';
                     <div class="box-body">
                     <div class="col-xs-8"><h2>Ticket(s)</h2></div>
                      
-                     <div class="col-xs-4"><button onclick="printDiv()"><i class="fa fa-print fa-3x" aria-hidden="true"></i></button></div>
+                     <div class="col-xs-4">
+                       <button onclick="printDiv()"><i class="fa fa-print fa-3x" aria-hidden="true"></i></button>
+                       <button onclick="pdf()"><i class="fa fa-download fa-3x" aria-hidden="true"></i></button>
+                      </div>
                      <div id="DivIdToPrint">
                       @foreach ($Booking->bookingDetails as $detail)
                           <div class="col-md-12 tickets">
-                              <!-- <div class="col-xs-12 ticketHeader">
-                                  <h2>BUS TICKET</h2>
-                              </div> -->
+                              
                               <div class="col-xs-12 ticketBody">
                                   <div class="col-sm-6 col-xs-12 p-4">
                                       <h3>{{$detail->PASSENGER_FIRSTNAME}} {{$detail->PASSENGER_LASTNAME}}</h3>
@@ -230,12 +241,12 @@ $ActiveSide='booking';
                                   </div>
                               </div>
                               
-                          </div>
+                          </div> 
                       @endforeach
                       </div>
                    </div>
                   </div>
-
+                  
              </div>
 
          </div>
@@ -262,5 +273,9 @@ function printDiv()
   newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
   newWin.document.close();
   setTimeout(function(){newWin.close();},10);
+}
+function pdf() {
+  var element = document.getElementById('DivIdToPrint');
+  html2pdf(element);
 }
 </script>
