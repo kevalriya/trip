@@ -672,7 +672,7 @@ $ActiveSide='home';
                                     </li>
                                     <li>
                                         <p class="booking-item-payment-price-title">Service Provider</p>
-                                        <p class="booking-item-payment-price-amount"></p>
+                                        <p class="booking-item-payment-price-amount"><?php echo $mOperatorDetail->OPERATOR_LEGAL_NAME ?></p>
                                     </li>
                                     <li>
                                         <p class="booking-item-payment-price-title">Boarding Point</p>
@@ -682,13 +682,13 @@ $ActiveSide='home';
                                         <p class="booking-item-payment-price-title">Boarding Date/Time</p>
                                         <p class="booking-item-payment-price-amount"><?php echo date('M/d/Y', strtotime($startimes)); ?>@<?php echo date('H:iA', strtotime($startimes)); ?></p>
                                     </li>
-                                    <li>
+                                    <!-- <li>
                                         <p class="booking-item-payment-price-title">Bus Type</p>
                                         <p class="booking-item-payment-price-amount"></p>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <p class="booking-item-payment-price-title">Bus Seat Capacity</p>
-                                        <p class="booking-item-payment-price-amount"></p>
+                                        <p class="booking-item-payment-price-amount"><?php echo $TRIP->max_seat ?></p>
                                     </li>
                                     <li>
                                         <p class="booking-item-payment-price-title">Selected Seat(s)</p>
