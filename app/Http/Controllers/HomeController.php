@@ -64,8 +64,9 @@ class HomeController extends Controller
      
       if($request->has('trip_id')){
         $operator=$request->operator_id;
+        $mOperatorDetail=Operator::where('OPERATOR_CODE', $request->operator_id)->first();
         $TRIP=Trip::where('TRIP_ID',$request->trip_id)->first();
-        return view('front.bus-booking',compact('TRIP','operator'));
+        return view('front.bus-booking',compact('TRIP','operator','mOperatorDetail'));
 
       }
       else{
