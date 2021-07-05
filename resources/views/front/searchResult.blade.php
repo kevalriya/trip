@@ -1074,8 +1074,12 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 	  var str=oldval;
 	var res =str.replace("X", "");
 	
-	
-	if(res == ''){
+    var AuthUser = "{{{ isset(Auth::guard('web')->user()->EMAIL_ADDRESS) ? true : false }}}";
+    if(!AuthUser){
+        alert('Please login first to book your trip.');
+        return true;
+    }
+	else if(res == ''){
 		alert('Please Select Seat first');
 		return false;
 	}
@@ -1087,6 +1091,7 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
         alert('Please Select Drop-off Point.');
         return false;
     }
+    
     else
         return true;
 	

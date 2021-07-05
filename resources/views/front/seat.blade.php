@@ -7,7 +7,21 @@
 				if($Seat->rows > 0 && $Seat->columns > 0){
 					?>
 
-					<div class="seatcolrow">
+					<div class="seatcolrow" style="
+    padding-bottom: 30px;
+">
+
+					<div style="bottom: 0;
+    position: absolute; margin: 20px; display: flex; font-size: 15px;
+    align-items: center;
+    right: 0;" class="row">
+		
+        <div class="seat" style="height: 30px; width: 30px; margin-left: 20px"></div> Available
+        <div class="selectseat" style="height: 30px; width: 30px; margin-left: 20px"></div> Selected
+        <div class="bookseat" style="height: 30px; width: 30px; margin-left: 20px"></div> Booked
+        
+
+		</div>
 
 		<div class="row mt-2">
 		

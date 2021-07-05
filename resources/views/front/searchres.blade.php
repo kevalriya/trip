@@ -165,6 +165,8 @@
                                                 <div class="row">
 
                 <div class="row" style="margin: 0px;">
+
+                
                     
                     <div class="col-md-12 originalSeatMapHere">
 
@@ -236,17 +238,7 @@
                     </div>
                 </div>
                 
-                                        <div style="bottom: 0;
-    position: absolute; margin: 20px; display: flex; font-size: 15px;
-    align-items: center;
-    right: 0;" class="row">
-		
-        <div class="seat" style="height: 30px; width: 30px; margin-left: 20px"></div> Available
-        <div class="selectseat" style="height: 30px; width: 30px; margin-left: 20px"></div> Selected
-        <div class="bookseat" style="height: 30px; width: 30px; margin-left: 20px"></div> Booked
-        
-
-		</div>
+                                        
            
                                                 </div>
                                             </div>
