@@ -533,9 +533,6 @@ $ActiveSide='home';
           $("#response").removeClass("alert-danger").addClass("alert-success").fadeIn();
           
           $("html, body").animate({ scrollTop: $('#response').offset().top }, 500);
-         
-        //  window.location.href = "{{back()}}";
-            //  window.location.href = "{{route('bookinghistory')}}";
         
     
             }else{
