@@ -120,9 +120,8 @@ class OperatorRegisterController extends Controller
        
        $Operator = Operator::create($data);
         
-       
         
-    Mail::to($Operator->MAIN_CONTACT_EMAIL)->send(new VerifyMail($Operator));
+         Mail::to($Operator->MAIN_CONTACT_EMAIL)->send(new VerifyMail($Operator));
 
 
     return $this->create_output(1, [], [
