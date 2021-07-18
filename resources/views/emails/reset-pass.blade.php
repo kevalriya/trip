@@ -453,7 +453,7 @@
                                                                     <td align="center">
                                                                         <div
                                                                             style="text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 14px;">
-                                                                            <a href="#" style="color: #747d8c; margin: 0;">© 2020 TripOn | All Rights Reserved</a>
+                                                                            <a href="#" style="color: #747d8c; margin: 0;">© {{date('Y')}} TripOn | All Rights Reserved</a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>

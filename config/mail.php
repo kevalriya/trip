@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => 'smtp.mailtrap.io',
+    'host' => env('MAIL_HOST'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => 587,
+    'port' => env('MAIL_PORT'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,10 +54,14 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
+    
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', null),
+        'name' => env('MAIL_FROM_NAME', null),
+    ],
+
+    'contact' => [
+        'address' => env('MAIL_CONTACT_ADDRESS', null)
     ],
 
     /*
@@ -84,9 +88,9 @@ return [
     |
     */
 
-    'username' => 'd34e08080f44f3',
+    'username' => env('MAIL_USERNAME'),
 
-    'password' => 'df798ae56c50ee',
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
