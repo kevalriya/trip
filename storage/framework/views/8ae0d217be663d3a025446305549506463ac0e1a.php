@@ -798,7 +798,7 @@ $ActiveSide='home';
             customizations: {
                 title: "TripOn",
                 description: "Payment for trip ticket.",
-                logo: "<?php echo e(url('images/color_logo.png')); ?>",
+                logo: "<?php echo e(url('images/icons/color_logo.png')); ?>",
             },
             });
         }

@@ -21,19 +21,19 @@ $ActiveSide='home';
         padding: 1px 10px;
     }
     .seat{
-        background: url("{{url('images/seatk.png')}}");
+        background: url("{{url('images/icons/seatk.png')}}");
         background-size: contain;
         padding: 1px 10px;
     }
 
     .steering{
-        background: url("{{url('images/steering.png')}}");
+        background: url("{{url('images/icons/steering.png')}}");
         background-size: contain;
         padding: 1px 10px;
     }
     .bookseat{
     
-        background: url("{{url('images/bookseat.png')}}");
+        background: url("{{url('images/seat/bookseat.png')}}");
         background-size: contain;
         padding: 1px 10px;
         border-radius: 5px;
@@ -41,14 +41,14 @@ $ActiveSide='home';
     }
     .selectseat{
     
-        background: url("{{url('images/selectseat.png')}}");
+        background: url("{{url('images/icons/selectseat.png')}}");
         background-size: contain;
         padding: 1px 10px;
         border-radius: 5px;
     
     }
     .door{
-        background: url("{{url('images/door.png')}}");
+        background: url("{{url('images/icons/door.png')}}");
         background-size: contain;
         padding: 1px 10px;
     }

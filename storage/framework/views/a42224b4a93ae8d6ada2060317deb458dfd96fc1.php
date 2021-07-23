@@ -21,19 +21,19 @@ $ActiveSide='home';
         padding: 1px 10px;
     }
     .seat{
-        background: url("<?php echo e(url('images/seatk.png')); ?>");
+        background: url("<?php echo e(url('images/icons/seatk.png')); ?>");
         background-size: contain;
         padding: 1px 10px;
     }
 
     .steering{
-        background: url("<?php echo e(url('images/steering.png')); ?>");
+        background: url("<?php echo e(url('images/icons/steering.png')); ?>");
         background-size: contain;
         padding: 1px 10px;
     }
     .bookseat{
     
-        background: url("<?php echo e(url('images/bookseat.png')); ?>");
+        background: url("<?php echo e(url('images/seat/bookseat.png')); ?>");
         background-size: contain;
         padding: 1px 10px;
         border-radius: 5px;
@@ -41,14 +41,14 @@ $ActiveSide='home';
     }
     .selectseat{
     
-        background: url("<?php echo e(url('images/selectseat.png')); ?>");
+        background: url("<?php echo e(url('images/icons/selectseat.png')); ?>");
         background-size: contain;
         padding: 1px 10px;
         border-radius: 5px;
     
     }
     .door{
-        background: url("<?php echo e(url('images/door.png')); ?>");
+        background: url("<?php echo e(url('images/icons/door.png')); ?>");
         background-size: contain;
         padding: 1px 10px;
     }
@@ -604,9 +604,7 @@ $fdate=trim(strip_tags($_GET['start']));
   </div>
 </div>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -1086,18 +1084,13 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
   }
 
   $("#login").on('click', function() {
-      var AuthUser = "<?php echo e(isset(Auth::guard('web')->user()->EMAIL_ADDRESS) ? true : false); ?>";
-      if(!AuthUser){
-          alert('Please login first to book your trip.');
-    //   $("#exampleModal").css("display", "none");
-    //   $("#exampleModal").removeClass('in');
-    //   $("#removedAppend").remove();
-    //   location.href = "/login";
+      $("#exampleModal").css("display", "none");
+      $("#exampleModal").removeClass('in');
+      $("#removedAppend").remove();
+      location.href = "/login";
       return true
-      }
   })
 $("#signup").on('click', function() {
-    var AuthUser = "<?php echo e(isset(Auth::guard('web')->user()->EMAIL_ADDRESS) ? true : false); ?>";
       $("#exampleModal").css("display", "none");
       $("#exampleModal").removeClass('in');
       $("#removedAppend").remove();

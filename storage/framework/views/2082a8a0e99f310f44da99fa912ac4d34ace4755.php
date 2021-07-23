@@ -19,13 +19,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<?php echo e(url('/images/user.png')); ?>" class="user-image" alt="User Image">
+              <img src="<?php echo e(url('/images/icons/user.png')); ?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo e(Auth::user()->FIRSTNAME); ?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo e(url('/images/user.png')); ?>" class="img-circle" alt="User Image">
+                <img src="<?php echo e(url('/images/icons/user.png')); ?>" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo e(Auth::user()->FIRSTNAME); ?>

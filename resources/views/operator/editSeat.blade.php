@@ -19,19 +19,19 @@ $ActiveSide='fleet';
 		
 	}
 	.seat{
-		background: url({{URL::to('images/seatk.png')}});
+		background: url({{URL::to('images/icons/seatk.png')}});
 		background-size: contain;
 		padding: 1px 10px;
 	}
 
 	.steering{
-		background: url({{URL::to('images/steering.png')}});
+		background: url({{URL::to('images/icons/steering.png')}});
 		background-size: contain;
 		padding: 1px 10px;
 	}
 	.bookseat{
 	
-		background: url({{URL::to('images/bookseat.png')}});
+		background: url({{URL::to('images/seat/bookseat.png')}});
 		background-size: contain;
 		padding: 1px 10px;
 		border-radius: 5px;
@@ -39,14 +39,14 @@ $ActiveSide='fleet';
 	}
 	.selectseat{
 	
-		background: url({{URL::to('images/selectseat.png')}});
+		background: url({{URL::to('images/icons/selectseat.png')}});
 		background-size: contain;
 		padding: 1px 10px;
 		border-radius: 5px;
 	
 	}
 	.door{
-		background: url({{URL::to('images/door.png')}});
+		background: url({{URL::to('images/icons/door.png')}});
 		background-size: contain;
 		padding: 1px 10px;
 	}
