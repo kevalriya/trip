@@ -43,8 +43,8 @@ $ActiveSide='home';
             <div class="row"  data-gutter="60" style="min-height: 660px">
                 
                 <div class="col-md-12 nopadding text-right">
-                  <button class="btn btn-primary" id="login_btn" style="display: none;" onclick="showFormLogin()">Login</button>
-                  <button class="btn btn-primary" id="signup_btn" onclick="showFormSignUp()" >Sign Up</button>
+                  <button class="btn btn-primary" id="login_btn" style="display: none;" >Login</button>
+                  <button class="btn btn-primary" id="signup_btn" >Sign Up</button>
                 </div>
                 <div class="clearfix"></div>
                <section class="theme-border">&nbsp;</section>
@@ -394,8 +394,25 @@ $ActiveSide='home';
 
 <?php $__env->startSection('footerSection'); ?>    
 
+<script>
+  $("#signup_btn").on('click', function() {
+    $('#login_btn').show();
+    $('#signup_btn').hide();
+    $("#signup_div").show().animate({ right: '0' });
+    $("#login_div").hide().animate({ right: '-100px' });
+  });
+
+
+ $("#login_btn").on('click', function() {
+    $('#login_btn').hide();
+    $('#signup_btn').show();
+    $("#login_div").show().animate({ right: '0' });
+    $("#signup_div").hide().animate({ right: '-100px' });
+ });
+</script>
     
   <script type="text/javascript">
+
 
     $(document).on('submit', "#simple_user_reg", function(e) {
 
@@ -537,7 +554,7 @@ $ActiveSide='home';
           $("#response").removeClass("alert-danger").addClass("alert-success").fadeIn();
           
           $("html, body").animate({ scrollTop: $('#response').offset().top }, 500);
-        
+        // window.location.href = "<?php echo e(back()); ?>";
     
             }else{
 
@@ -722,24 +739,6 @@ $('#state').empty();
       return op;
    }
 
-
-
-
- function showFormLogin() {
-            $('#login_btn').hide();
-            $('#signup_btn').show();
-            $("#login_div").show().animate({ right: '0' });
-            $("#signup_div").hide().animate({ right: '-100px' });
-            
-        }
-
- function showFormSignUp() {
-            $('#login_btn').show();
-            $('#signup_btn').hide();
-            $("#signup_div").show().animate({ right: '0' });
-            $("#login_div").hide().animate({ right: '-100px' });
-            
-        }
 
   </script>
 <?php $__env->stopSection(); ?>
