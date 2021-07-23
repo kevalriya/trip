@@ -3,12 +3,12 @@ $ActiveSide='home';
 $url=config('constants.city_url');
 $Slideurl=config('constants.operator_slide_url');
 ?>  
-@extends('front.layouts.app')
 
-@section('title','TripOn - Home')
 
-@section('main-content')
-@section('headSection')
+<?php $__env->startSection('title','TripOn - Home'); ?>
+
+<?php $__env->startSection('main-content'); ?>
+<?php $__env->startSection('headSection'); ?>
 <style type="text/css">
     .bg-color {
     background: rgb(237, 131, 35,1);
@@ -70,7 +70,7 @@ $Slideurl=config('constants.operator_slide_url');
 .carousel-inner .item         { background: white;      }
 </style>
 
-@endsection
+<?php $__env->stopSection(); ?>
         <div class="bg-holder">
             <div class="bg-mask-darken"></div>
             <div class="bg-parallax"></div>
@@ -79,202 +79,202 @@ $Slideurl=config('constants.operator_slide_url');
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/01.jpg')}}" alt="Image Alternative text" title="In the bokeh forest" />
+                            <img src="<?php echo e(url('front/img/01.jpg')); ?>" alt="Image Alternative text" title="In the bokeh forest" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/02.jpg')}}" alt="Image Alternative text" title="Our Coffee miss u" />
+                            <img src="<?php echo e(url('front/img/02.jpg')); ?>" alt="Image Alternative text" title="Our Coffee miss u" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/03.jpg')}}" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" />
+                            <img src="<?php echo e(url('front/img/03.jpg')); ?>" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/04.jpg')}}" alt="Image Alternative text" title="Playstation controller" />
+                            <img src="<?php echo e(url('front/img/04.jpg')); ?>" alt="Image Alternative text" title="Playstation controller" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/05.jpg')}}" alt="Image Alternative text" title="Gaviota en el Top" />
+                            <img src="<?php echo e(url('front/img/05.jpg')); ?>" alt="Image Alternative text" title="Gaviota en el Top" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/06.jpg')}}" alt="Image Alternative text" title="196_365" />
+                            <img src="<?php echo e(url('front/img/06.jpg')); ?>" alt="Image Alternative text" title="196_365" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/07.jpg')}}" alt="Image Alternative text" title="end of the day" />
+                            <img src="<?php echo e(url('front/img/07.jpg')); ?>" alt="Image Alternative text" title="end of the day" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/08.jpg')}}" alt="Image Alternative text" title="lack of blue depresses me" />
+                            <img src="<?php echo e(url('front/img/08.jpg')); ?>" alt="Image Alternative text" title="lack of blue depresses me" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/09.jpg')}}" alt="Image Alternative text" title="Working in the Nature" />
+                            <img src="<?php echo e(url('front/img/09.jpg')); ?>" alt="Image Alternative text" title="Working in the Nature" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/10.jpg')}}" alt="Image Alternative text" title="Bekohlicious Flower" />
+                            <img src="<?php echo e(url('front/img/10.jpg')); ?>" alt="Image Alternative text" title="Bekohlicious Flower" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/11.jpg')}}" alt="Image Alternative text" title="people on the beach" />
+                            <img src="<?php echo e(url('front/img/11.jpg')); ?>" alt="Image Alternative text" title="people on the beach" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/12.jpg')}}" alt="Image Alternative text" title="Sydney Harbour" />
+                            <img src="<?php echo e(url('front/img/12.jpg')); ?>" alt="Image Alternative text" title="Sydney Harbour" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/13.jpg')}}" alt="Image Alternative text" title="sweet escape" />
+                            <img src="<?php echo e(url('front/img/13.jpg')); ?>" alt="Image Alternative text" title="sweet escape" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/14.jpg')}}" alt="Image Alternative text" title="Street" />
+                            <img src="<?php echo e(url('front/img/14.jpg')); ?>" alt="Image Alternative text" title="Street" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/15.jpg')}}" alt="Image Alternative text" title="Play Ball" />
+                            <img src="<?php echo e(url('front/img/15.jpg')); ?>" alt="Image Alternative text" title="Play Ball" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/16.jpg')}}" alt="Image Alternative text" title="El inevitable paso del tiempo" />
+                            <img src="<?php echo e(url('front/img/16.jpg')); ?>" alt="Image Alternative text" title="El inevitable paso del tiempo" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/17.jpg')}}" alt="Image Alternative text" title="Bekohlicious" />
+                            <img src="<?php echo e(url('front/img/17.jpg')); ?>" alt="Image Alternative text" title="Bekohlicious" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/18.jpg')}}" alt="Image Alternative text" title="Spidy" />
+                            <img src="<?php echo e(url('front/img/18.jpg')); ?>" alt="Image Alternative text" title="Spidy" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/19.jpg')}}" alt="Image Alternative text" title="Sevenly Shirts - June 2012  2" />
+                            <img src="<?php echo e(url('front/img/19.jpg')); ?>" alt="Image Alternative text" title="Sevenly Shirts - June 2012  2" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/20.jpg')}}" alt="Image Alternative text" title="Viva Las Vegas" />
+                            <img src="<?php echo e(url('front/img/20.jpg')); ?>" alt="Image Alternative text" title="Viva Las Vegas" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/21.jpg')}}" alt="Image Alternative text" title="the best mode of transport here in maldives" />
+                            <img src="<?php echo e(url('front/img/21.jpg')); ?>" alt="Image Alternative text" title="the best mode of transport here in maldives" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/22.jpg')}}" alt="Image Alternative text" title="The Big Showoff-Take 2" />
+                            <img src="<?php echo e(url('front/img/22.jpg')); ?>" alt="Image Alternative text" title="The Big Showoff-Take 2" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/23.jpg')}}" alt="Image Alternative text" title="a turn" />
+                            <img src="<?php echo e(url('front/img/23.jpg')); ?>" alt="Image Alternative text" title="a turn" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/24.jpg')}}" alt="Image Alternative text" title="Rail Road" />
+                            <img src="<?php echo e(url('front/img/24.jpg')); ?>" alt="Image Alternative text" title="Rail Road" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/25.jpg')}}" alt="Image Alternative text" title="new york at an angle" />
+                            <img src="<?php echo e(url('front/img/25.jpg')); ?>" alt="Image Alternative text" title="new york at an angle" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/26.jpg')}}" alt="Image Alternative text" title="waipio valley" />
+                            <img src="<?php echo e(url('front/img/26.jpg')); ?>" alt="Image Alternative text" title="waipio valley" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/27.jpg')}}" alt="Image Alternative text" title="pink flowers" />
+                            <img src="<?php echo e(url('front/img/27.jpg')); ?>" alt="Image Alternative text" title="pink flowers" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/28.jpg')}}" alt="Image Alternative text" title="cascada" />
+                            <img src="<?php echo e(url('front/img/28.jpg')); ?>" alt="Image Alternative text" title="cascada" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/29.jpg')}}" alt="Image Alternative text" title="a dreamy jump" />
+                            <img src="<?php echo e(url('front/img/29.jpg')); ?>" alt="Image Alternative text" title="a dreamy jump" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/30.jpg')}}" alt="Image Alternative text" title="Foots and grass" />
+                            <img src="<?php echo e(url('front/img/30.jpg')); ?>" alt="Image Alternative text" title="Foots and grass" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/31.jpg')}}" alt="Image Alternative text" title="4 Strokes of Fun" />
+                            <img src="<?php echo e(url('front/img/31.jpg')); ?>" alt="Image Alternative text" title="4 Strokes of Fun" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/32.jpg')}}" alt="Image Alternative text" title="Afro" />
+                            <img src="<?php echo e(url('front/img/32.jpg')); ?>" alt="Image Alternative text" title="Afro" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/33.jpg')}}" alt="Image Alternative text" title="sunny wood" />
+                            <img src="<?php echo e(url('front/img/33.jpg')); ?>" alt="Image Alternative text" title="sunny wood" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/34.jpg')}}" alt="Image Alternative text" title="b and w camera" />
+                            <img src="<?php echo e(url('front/img/34.jpg')); ?>" alt="Image Alternative text" title="b and w camera" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/35.jpg')}}" alt="Image Alternative text" title="drifting days" />
+                            <img src="<?php echo e(url('front/img/35.jpg')); ?>" alt="Image Alternative text" title="drifting days" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/36.jpg')}}" alt="Image Alternative text" title="AMaze" />
+                            <img src="<?php echo e(url('front/img/36.jpg')); ?>" alt="Image Alternative text" title="AMaze" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/37.jpg')}}" alt="Image Alternative text" title="Pictures at the museum" />
+                            <img src="<?php echo e(url('front/img/37.jpg')); ?>" alt="Image Alternative text" title="Pictures at the museum" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/38.jpg')}}" alt="Image Alternative text" title="The Hidden Power of the Heart" />
+                            <img src="<?php echo e(url('front/img/38.jpg')); ?>" alt="Image Alternative text" title="The Hidden Power of the Heart" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/39.jpg')}}" alt="Image Alternative text" title="Street Yoga" />
+                            <img src="<?php echo e(url('front/img/39.jpg')); ?>" alt="Image Alternative text" title="Street Yoga" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/40.jpg')}}" alt="Image Alternative text" title="Sorry to Bust Your Bubble" />
+                            <img src="<?php echo e(url('front/img/40.jpg')); ?>" alt="Image Alternative text" title="Sorry to Bust Your Bubble" />
                         </a>
                     </li>
                 </ul>
@@ -289,7 +289,7 @@ $Slideurl=config('constants.operator_slide_url');
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="tab-2">
                                    <!--  <h2>Search for Buses</h2> -->
-                                    <form action="{{route('searchResult')}}" id="search_trip_from" onsubmit="return checkform()">
+                                    <form action="<?php echo e(route('searchResult')); ?>" id="search_trip_from" onsubmit="return checkform()">
                                     
                                         <div class="tabbable">
                                            <ul class="nav nav-pills nav-sm nav-no-br mb10" id="flightChooseTab">
@@ -432,7 +432,7 @@ $Slideurl=config('constants.operator_slide_url');
                     <div class="col-md-4">
                         <div class="thumb">
 
-                            <header class="thumb-header"><a href="{{url('about')}}"><i style="float: left;margin-right: 1rem;" class="far fa-clock box-icon-border no-line round box-icon-white "></i></a><h4 class="thumb-title">Real-time Inventory</h4>
+                            <header class="thumb-header"><a href="<?php echo e(url('about')); ?>"><i style="float: left;margin-right: 1rem;" class="far fa-clock box-icon-border no-line round box-icon-white "></i></a><h4 class="thumb-title">Real-time Inventory</h4>
                             </header>
                             <div class="thumb-caption">                                
                                 <p class="thumb-desc">Seat availability are automatically updated when your booking is processed.</p>
@@ -441,7 +441,7 @@ $Slideurl=config('constants.operator_slide_url');
                     </div>
                     <div class="col-md-4">
                         <div class="thumb">
-                            <header class="thumb-header"><a href="{{url('about')}}"><i style="float: left;margin-right: 1rem;" class="fas fa-bus box-icon-border no-line round box-icon-white "></i></a><h4 class="thumb-title">Bus Selection</h4>
+                            <header class="thumb-header"><a href="<?php echo e(url('about')); ?>"><i style="float: left;margin-right: 1rem;" class="fas fa-bus box-icon-border no-line round box-icon-white "></i></a><h4 class="thumb-title">Bus Selection</h4>
                             </header>
                             <div class="thumb-caption">
                                 
@@ -451,7 +451,7 @@ $Slideurl=config('constants.operator_slide_url');
                     </div>
                     <div class="col-md-4">
                         <div class="thumb">
-                            <header class="thumb-header"><a href="{{url('about')}}"><i style="float: left;margin-right: 1rem;" class="fas fa-couch box-icon-border no-line round box-icon-white "></i></a> <h4 class="thumb-title">Seat Selection</h4>
+                            <header class="thumb-header"><a href="<?php echo e(url('about')); ?>"><i style="float: left;margin-right: 1rem;" class="fas fa-couch box-icon-border no-line round box-icon-white "></i></a> <h4 class="thumb-title">Seat Selection</h4>
                             </header>
                             <div class="thumb-caption">
                                
@@ -465,7 +465,7 @@ $Slideurl=config('constants.operator_slide_url');
                 <div class="row row-wrap" data-gutter="120">
                     <div class="col-md-4">
                         <div class="thumb">
-                            <header class="thumb-header"><a href="{{url('about')}}"><i style="float: left;margin-right: 1rem;" class="fa fa-lock box-icon-border no-line round box-icon-white "></i></a><h4 class="thumb-title">Trust & Safety </h4>
+                            <header class="thumb-header"><a href="<?php echo e(url('about')); ?>"><i style="float: left;margin-right: 1rem;" class="fa fa-lock box-icon-border no-line round box-icon-white "></i></a><h4 class="thumb-title">Trust & Safety </h4>
                             </header>
                             <div class="thumb-caption">
                                 
@@ -475,7 +475,7 @@ $Slideurl=config('constants.operator_slide_url');
                     </div>
                     <div class="col-md-4">
                         <div class="thumb">
-                            <header class="thumb-header"><a href="{{url('about')}}"><i style="float: left;margin-right: 1rem;" class="fas fa-dollar-sign no-line box-icon-border round box-icon-white "></i></a><h4 class="thumb-title">Best Price Guarantee </h4>
+                            <header class="thumb-header"><a href="<?php echo e(url('about')); ?>"><i style="float: left;margin-right: 1rem;" class="fas fa-dollar-sign no-line box-icon-border round box-icon-white "></i></a><h4 class="thumb-title">Best Price Guarantee </h4>
                             </header>
                             <div class="thumb-caption">
                                 
@@ -485,7 +485,7 @@ $Slideurl=config('constants.operator_slide_url');
                     </div>
                     <div class="col-md-4">
                         <div class="thumb">
-                            <header class="thumb-header"><a href="{{url('about')}}"><i style="float: left;margin-right: 1rem;" class="fas fa-pencil-alt no-line box-icon-border round box-icon-white "></i></a><h4 class="thumb-title">Ratings & Reviews</h4>
+                            <header class="thumb-header"><a href="<?php echo e(url('about')); ?>"><i style="float: left;margin-right: 1rem;" class="fas fa-pencil-alt no-line box-icon-border round box-icon-white "></i></a><h4 class="thumb-title">Ratings & Reviews</h4>
                             </header>
                             <div class="thumb-caption">
                                 
@@ -501,24 +501,24 @@ $Slideurl=config('constants.operator_slide_url');
         <div class="special-area">
             <div class="owl-carousel owl-slider owl-carousel-area" id="owl-carousel-slider">
             
-            @if ($operators > 0)
-            @foreach ($operators as $operator)
+            <?php if($operators > 0): ?>
+            <?php $__currentLoopData = $operators; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $operator): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
            <div class="bg-holder full text-center text-white">
                     <div class="bg-mask"></div>
-                    <div class="bg-img" style="background-image:url('images/operator/{{$operator->FLEET_PHOTO}}');"></div>
+                    <div class="bg-img" style="background-image:url('images/operator/<?php echo e($operator->FLEET_PHOTO); ?>');"></div>
                     <div class="bg-front full-center">
                         <div class="owl-cap">
                           
-                            <h1 class="owl-cap-title">{{$operator->OPERATOR_LEGAL_NAME}}</h1>
+                            <h1 class="owl-cap-title"><?php echo e($operator->OPERATOR_LEGAL_NAME); ?></h1>
                             <div class="owl-cap-price"><small>from</small>
-                                <h5>{{$operator->PREFERRED_ROUTES}}</h5>
+                                <h5><?php echo e($operator->PREFERRED_ROUTES); ?></h5>
                             </div>
                             <a class="btn btn-white btn-ghost" href="#"><i class="fa fa-angle-right"></i> Explore</a>
                         </div>
                     </div>
                 </div>
-          @endforeach
-            @else
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php else: ?>
                 <div class="bg-holder full text-center text-white">
                     <div class="bg-mask"></div>
                     <div class="bg-img" style="background-image:url('images/operator/1562704039.jpg');"></div>
@@ -533,7 +533,7 @@ $Slideurl=config('constants.operator_slide_url');
                         </div>
                     </div>
                 </div>
-            @endif
+            <?php endif; ?>
                        
             </div>
         </div>
@@ -663,9 +663,9 @@ $Slideurl=config('constants.operator_slide_url');
 
        
 
-  @endsection
+  <?php $__env->stopSection(); ?>
 
-  @section('footerSection')
+  <?php $__env->startSection('footerSection'); ?>
 
    <script>
    $('#myCarousel').carousel({
@@ -766,11 +766,11 @@ $('input.date-pick, .input-daterange input[name="end"]').datepicker({format:'yyy
   source: function( request, response ) {
    // Fetch data
    $.ajax({
-    url: "{{route('getCities')}}",
+    url: "<?php echo e(route('getCities')); ?>",
     type: 'post',
     dataType: "json",
     data: {
-    _token: "{{csrf_token()}}", search: request.term,action:action
+    _token: "<?php echo e(csrf_token()); ?>", search: request.term,action:action
     },
     success: function( data ) {
       response( $.map( data, function( item ) {
@@ -859,4 +859,5 @@ $('input.date-pick, .input-daterange input[name="end"]').datepicker({format:'yyy
 
  
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('front.layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/MAMP/htdocs/trip/resources/views/front/home.blade.php ENDPATH**/ ?>

@@ -61,7 +61,7 @@ return [
     ],
 
     'contact' => [
-        'address' => env('MAIL_CONTACT_ADDRESS', null)
+        'address' => env('MAIL_CONTACT_ADDRESS', null),
     ],
 
     /*

@@ -55,52 +55,38 @@ class LoginController extends Controller
 
      public function login(Request $request)
     {
-
         $this->validateLogin($request);
-
-
-         $admin = User::where([['EMAIL_ADDRESS',$request->EMAIL_ADDRESS],['USER_TYPE_CODE','USER']])->first();
-
-     
+        $admin = User::where([['EMAIL_ADDRESS',$request->EMAIL_ADDRESS],['USER_TYPE_CODE','USER']])->first();
         if (count((array)$admin) > 0) {
-
-             $password = Hash::make($request->password);
-    
-   
-    if (!Hash::check($request->password,$admin->password)) {
- 
-         return
-            response([
-               'status'=> 'error' ,
-                'message' => 'Incorrect email or password'
-            ], 200);
-      }
-
-            if ($admin->ACTIVE_INDICATOR == 'N') {
-
+            $password = Hash::make($request->password);
+                if (!Hash::check($request->password,$admin->password)) {
+                    return
+                        response([
+                        'status'=> 'error' ,
+                            'message' => 'Incorrect email or password'
+                        ], 200);
+                }
+                if ($admin->ACTIVE_INDICATOR == 'N') {
                    return
-            response([
-               'status'=> 'error' ,
-                'message' => 'You are not an active person'
-            ], 200);
+                        response([
+                        'status'=> 'error' ,
+                            'message' => 'You are not an active person'
+                        ], 200);
+                    }
+                else if($admin->EMAIL_VALID_FLAG == 'INVALID'){
+                    return
+                        response([
+                        'status'=> 'error' ,
+                            'message' => 'Please verify email'
+                        ], 200);
+                }
+
+                else if ($this->attemptLogin($request)) {
+                    $request->session()->regenerate();
+                    return response(['status' => 'success'], 200);
+                    // return $this->sendLoginResponse($request);
+                }
             }
-            else if($admin->EMAIL_VALID_FLAG == 'INVALID'){
-            
-               return
-            response([
-               'status'=> 'error' ,
-                'message' => 'Please verify email'
-            ], 200);
-            }
-
-        else if ($this->attemptLogin($request)) {
-
-             $request->session()->regenerate();
-            // return response(['status' => 'success'], 200);
-
-           return $this->sendLoginResponse($request);
-        }
-    }
 
         return
             response([
