@@ -4,7 +4,7 @@
                     <div class="row">
                         <div class="col-md-7">
                             <a class="logoimg" href="<?php echo e(route('home')); ?>">
-                                <img src="<?php echo e(url('front/img/tripon_white_logo.png')); ?>" alt="TripOn" />
+                                <img src="<?php echo e(url('images/front/tripon_white_logo.png')); ?>" alt="TripOn" />
                             </a>
                         </div>
                        
@@ -23,7 +23,7 @@
                                 <ul id="slimmenu" class="slimmenu top-user-area-list list list-horizontal list-border">
                                     <li class="top-user-area-avatar">
                                         <a href="<?php echo e(route('profileSetting')); ?>">
-                                            <img class="origin round" src="<?php echo e(url('front/img/amaze_40x40.jpg')); ?>" alt="Image Alternative text" title="AMaze" />Hi, <?php echo e(Auth::guard('web')->user()->FIRSTNAME); ?></a>
+                                            <img class="origin round" src="<?php echo e(url('images/front/amaze_40x40.jpg')); ?>" alt="Image Alternative text" title="AMaze" />Hi, <?php echo e(Auth::guard('web')->user()->FIRSTNAME); ?></a>
                                     </li>
                                     <li> <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();
@@ -53,7 +53,7 @@
                                 <ul id="slimmenu" class="slimmenu top-user-area-list list list-horizontal list-border">
                                    <!--  <li class="top-user-area-avatar">
                                         <a href="#">
-                                            <img class="origin round" src="<?php echo e(url('front/img/amaze_40x40.jpg')); ?>" alt="Image Alternative text" title="AMaze" />Hi, Guest</a>
+                                            <img class="origin round" src="<?php echo e(url('images/front/amaze_40x40.jpg')); ?>" alt="Image Alternative text" title="AMaze" />Hi, Guest</a>
                                     </li> -->
                                     <li><a href="<?php echo e(route('login')); ?>">Login</a>
                                     </li> 

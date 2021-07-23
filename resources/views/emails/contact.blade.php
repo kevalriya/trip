@@ -376,7 +376,7 @@
                                 <td height="80"></td>
                             </tr>
                             <tr>
-                                <td align="center" width="100%"><img src="http://tripon.ng/front/img/tripon_logo1.png" alt="Logo" border="0" style="display:block" /></td>
+                                <td align="center" width="100%"><img src="http://tripon.ng/images/front/tripon_logo1.png" alt="Logo" border="0" style="display:block" /></td>
                             </tr>
                             <tr>
                                 <td align="center" width="100%" style="text-align: center;">

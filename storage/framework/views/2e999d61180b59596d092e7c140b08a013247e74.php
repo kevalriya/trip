@@ -6,7 +6,7 @@
                           }
                           else{
                             
-                             $img=url('front/img/amaze_300x300.jpg');
+                             $img=url('images/front/amaze_300x300.jpg');
                           }
                           ?>
                         

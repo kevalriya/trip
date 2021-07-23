@@ -79,202 +79,202 @@ $Slideurl=config('constants.operator_slide_url');
                 <ul>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/01.jpg')}}" alt="Image Alternative text" title="In the bokeh forest" />
+                            <img src="{{url('images/front/01.jpg')}}" alt="Image Alternative text" title="In the bokeh forest" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/02.jpg')}}" alt="Image Alternative text" title="Our Coffee miss u" />
+                            <img src="{{url('images/front/02.jpg')}}" alt="Image Alternative text" title="Our Coffee miss u" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/03.jpg')}}" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" />
+                            <img src="{{url('images/front/03.jpg')}}" alt="Image Alternative text" title="hotel PORTO BAY RIO INTERNACIONAL rooftop pool" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/04.jpg')}}" alt="Image Alternative text" title="Playstation controller" />
+                            <img src="{{url('images/front/04.jpg')}}" alt="Image Alternative text" title="Playstation controller" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/05.jpg')}}" alt="Image Alternative text" title="Gaviota en el Top" />
+                            <img src="{{url('images/front/05.jpg')}}" alt="Image Alternative text" title="Gaviota en el Top" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/06.jpg')}}" alt="Image Alternative text" title="196_365" />
+                            <img src="{{url('images/front/06.jpg')}}" alt="Image Alternative text" title="196_365" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/07.jpg')}}" alt="Image Alternative text" title="end of the day" />
+                            <img src="{{url('images/front/07.jpg')}}" alt="Image Alternative text" title="end of the day" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/08.jpg')}}" alt="Image Alternative text" title="lack of blue depresses me" />
+                            <img src="{{url('images/front/08.jpg')}}" alt="Image Alternative text" title="lack of blue depresses me" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/09.jpg')}}" alt="Image Alternative text" title="Working in the Nature" />
+                            <img src="{{url('images/front/09.jpg')}}" alt="Image Alternative text" title="Working in the Nature" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/10.jpg')}}" alt="Image Alternative text" title="Bekohlicious Flower" />
+                            <img src="{{url('images/front/10.jpg')}}" alt="Image Alternative text" title="Bekohlicious Flower" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/11.jpg')}}" alt="Image Alternative text" title="people on the beach" />
+                            <img src="{{url('images/front/11.jpg')}}" alt="Image Alternative text" title="people on the beach" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/12.jpg')}}" alt="Image Alternative text" title="Sydney Harbour" />
+                            <img src="{{url('images/front/12.jpg')}}" alt="Image Alternative text" title="Sydney Harbour" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/13.jpg')}}" alt="Image Alternative text" title="sweet escape" />
+                            <img src="{{url('images/front/13.jpg')}}" alt="Image Alternative text" title="sweet escape" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/14.jpg')}}" alt="Image Alternative text" title="Street" />
+                            <img src="{{url('images/front/14.jpg')}}" alt="Image Alternative text" title="Street" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/15.jpg')}}" alt="Image Alternative text" title="Play Ball" />
+                            <img src="{{url('images/front/15.jpg')}}" alt="Image Alternative text" title="Play Ball" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/16.jpg')}}" alt="Image Alternative text" title="El inevitable paso del tiempo" />
+                            <img src="{{url('images/front/16.jpg')}}" alt="Image Alternative text" title="El inevitable paso del tiempo" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/17.jpg')}}" alt="Image Alternative text" title="Bekohlicious" />
+                            <img src="{{url('images/front/17.jpg')}}" alt="Image Alternative text" title="Bekohlicious" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/18.jpg')}}" alt="Image Alternative text" title="Spidy" />
+                            <img src="{{url('images/front/18.jpg')}}" alt="Image Alternative text" title="Spidy" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/19.jpg')}}" alt="Image Alternative text" title="Sevenly Shirts - June 2012  2" />
+                            <img src="{{url('images/front/19.jpg')}}" alt="Image Alternative text" title="Sevenly Shirts - June 2012  2" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/20.jpg')}}" alt="Image Alternative text" title="Viva Las Vegas" />
+                            <img src="{{url('images/front/20.jpg')}}" alt="Image Alternative text" title="Viva Las Vegas" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/21.jpg')}}" alt="Image Alternative text" title="the best mode of transport here in maldives" />
+                            <img src="{{url('images/front/21.jpg')}}" alt="Image Alternative text" title="the best mode of transport here in maldives" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/22.jpg')}}" alt="Image Alternative text" title="The Big Showoff-Take 2" />
+                            <img src="{{url('images/front/22.jpg')}}" alt="Image Alternative text" title="The Big Showoff-Take 2" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/23.jpg')}}" alt="Image Alternative text" title="a turn" />
+                            <img src="{{url('images/front/23.jpg')}}" alt="Image Alternative text" title="a turn" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/24.jpg')}}" alt="Image Alternative text" title="Rail Road" />
+                            <img src="{{url('images/front/24.jpg')}}" alt="Image Alternative text" title="Rail Road" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/25.jpg')}}" alt="Image Alternative text" title="new york at an angle" />
+                            <img src="{{url('images/front/25.jpg')}}" alt="Image Alternative text" title="new york at an angle" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/26.jpg')}}" alt="Image Alternative text" title="waipio valley" />
+                            <img src="{{url('images/front/26.jpg')}}" alt="Image Alternative text" title="waipio valley" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/27.jpg')}}" alt="Image Alternative text" title="pink flowers" />
+                            <img src="{{url('images/front/27.jpg')}}" alt="Image Alternative text" title="pink flowers" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/28.jpg')}}" alt="Image Alternative text" title="cascada" />
+                            <img src="{{url('images/front/28.jpg')}}" alt="Image Alternative text" title="cascada" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/29.jpg')}}" alt="Image Alternative text" title="a dreamy jump" />
+                            <img src="{{url('images/front/29.jpg')}}" alt="Image Alternative text" title="a dreamy jump" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/30.jpg')}}" alt="Image Alternative text" title="Foots and grass" />
+                            <img src="{{url('images/front/30.jpg')}}" alt="Image Alternative text" title="Foots and grass" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/31.jpg')}}" alt="Image Alternative text" title="4 Strokes of Fun" />
+                            <img src="{{url('images/front/31.jpg')}}" alt="Image Alternative text" title="4 Strokes of Fun" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/32.jpg')}}" alt="Image Alternative text" title="Afro" />
+                            <img src="{{url('images/front/32.jpg')}}" alt="Image Alternative text" title="Afro" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/33.jpg')}}" alt="Image Alternative text" title="sunny wood" />
+                            <img src="{{url('images/front/33.jpg')}}" alt="Image Alternative text" title="sunny wood" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/34.jpg')}}" alt="Image Alternative text" title="b and w camera" />
+                            <img src="{{url('images/front/34.jpg')}}" alt="Image Alternative text" title="b and w camera" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/35.jpg')}}" alt="Image Alternative text" title="drifting days" />
+                            <img src="{{url('images/front/35.jpg')}}" alt="Image Alternative text" title="drifting days" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/36.jpg')}}" alt="Image Alternative text" title="AMaze" />
+                            <img src="{{url('images/front/36.jpg')}}" alt="Image Alternative text" title="AMaze" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/37.jpg')}}" alt="Image Alternative text" title="Pictures at the museum" />
+                            <img src="{{url('images/front/37.jpg')}}" alt="Image Alternative text" title="Pictures at the museum" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/38.jpg')}}" alt="Image Alternative text" title="The Hidden Power of the Heart" />
+                            <img src="{{url('images/front/38.jpg')}}" alt="Image Alternative text" title="The Hidden Power of the Heart" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/39.jpg')}}" alt="Image Alternative text" title="Street Yoga" />
+                            <img src="{{url('images/front/39.jpg')}}" alt="Image Alternative text" title="Street Yoga" />
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <img src="{{url('front/img/40.jpg')}}" alt="Image Alternative text" title="Sorry to Bust Your Bubble" />
+                            <img src="{{url('images/front/40.jpg')}}" alt="Image Alternative text" title="Sorry to Bust Your Bubble" />
                         </a>
                     </li>
                 </ul>
