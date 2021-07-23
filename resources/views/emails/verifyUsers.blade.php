@@ -404,7 +404,7 @@
                                                         <td>
                                                             <div
                                                                 style="padding: 0 10px; text-align: center; font-family: 'Roboto', sans-serif; font-weight: 500; font-size: 16px;">
-                                                                <p style="color: #222f3e; ">Welcome aboard. At TripOn we strive to make road transportation simpler, cheaper and stress free. Verify Your email and start taking to take advantage of our wide selection of service providers and buses.</p>
+                                                                <p style="color: #222f3e; ">Welcome aboard. At TripOn we strive to make road transportation simpler, cheaper and stress free. Verify your email and start to take advantage of our wide selection of service providers and buses.</p>
 
                                                             </div>
                                                         </td>
