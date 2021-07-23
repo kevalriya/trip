@@ -603,6 +603,23 @@ $fdate=trim(strip_tags($_GET['start']));
 
   </div>
 </div>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border-bottom:none">
+        <h4 class="modal-title" id="exampleModalLabel" style="padding-top:20px; padding-left:20px"><b>Already have an account?</b></h4>
+      </div>
+      <div class="modal-footer" style="border-top:none; margin-top:0px;">
+        <button type="button" id="login" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-secondary" id="signup">Sign-up</button>
+      </div>
+    </div>
+  </div>
+</div>
            					
 		 <div id="rating_route" class="modal fade" >
         <div class="modal-dialog modal-xs">
@@ -1068,7 +1085,22 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 
   }
 
-  function checkbooking(id){
+  $("#login").on('click', function() {
+      $("#exampleModal").css("display", "none");
+      $("#exampleModal").removeClass('in');
+      $("#removedAppend").remove();
+      location.href = "/login";
+      return true
+  })
+$("#signup").on('click', function() {
+      $("#exampleModal").css("display", "none");
+      $("#exampleModal").removeClass('in');
+      $("#removedAppend").remove();
+      location.href = "/login?signup";
+      return true
+  })
+
+  function checkbooking(id) {
 	  
 	  var oldval=$('#'+id).val();
 	  var str=oldval;
@@ -1076,8 +1108,11 @@ $("input[name='bustypes[]']:checked").each(function(){busTypes.push($(this).val(
 	
     var AuthUser = "{{{ isset(Auth::guard('web')->user()->EMAIL_ADDRESS) ? true : false }}}";
     if(!AuthUser){
-        alert('Please login first to book your trip.');
-        return true;
+        // alert('Please login first to book your trip.');
+        $("#exampleModal").addClass('in');
+        $("#exampleModal").css("display", "block");
+        $("<div class='modal-backdrop fade in' id='removedAppend'></div>").appendTo($('body'));
+        return false;
     }
 	else if(res == ''){
 		alert('Please Select Seat first');

@@ -395,6 +395,17 @@ $ActiveSide='home';
 <?php $__env->startSection('footerSection'); ?>    
 
 <script>
+   $(window).on('load', function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams.has('signup'))
+    if(urlParams.has('signup')) {
+      $('#login_btn').show();
+      $('#signup_btn').hide();
+      $("#signup_div").show().animate({ right: '0' });
+      $("#login_div").hide().animate({ right: '-100px' });
+    }
+   });
+
   $("#signup_btn").on('click', function() {
     $('#login_btn').show();
     $('#signup_btn').hide();
