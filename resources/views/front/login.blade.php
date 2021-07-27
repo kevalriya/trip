@@ -548,12 +548,16 @@ $ActiveSide='home';
     $('.sub_btn').find('.fa').removeClass('fa-sign-in').addClass('fa-refresh fa-spin');
       $.ajax({
 
-        url: "{{route('login_response')}}",
+        url: 'login_response',
         type: 'POST',
         data: $("#login_form").serialize()+'&email=user',
-        dataType: 'json',
         success: function(data){
 
+          console.error(typeof(data));
+          if(typeof(data)=='string'){
+            window.location.href=document.referrer;
+            return true;
+          }
             $('.sub_btn').find('.fa').removeClass('fa-refresh fa-spin').addClass('fa-sign-in');
            if(data.status=='success'){
             
@@ -561,7 +565,6 @@ $ActiveSide='home';
           $("#response").removeClass("alert-danger").addClass("alert-success").fadeIn();
           
           $("html, body").animate({ scrollTop: $('#response').offset().top }, 500);
-        // window.location.href = "{{back()}}";
     
             }else{
 

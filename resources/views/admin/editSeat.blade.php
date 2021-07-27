@@ -294,7 +294,7 @@ $ActiveSide='fleet';
 		<div class="row mt-2">
 		
 		
-			<div class="col-md-3" style="max-width: 25%; width: auto !important">
+			<div class="col-md-3" style="width: fit-content !important">
 
   <!-- <div class="cockpit">
   <span class='steering' id='A1'></span>
