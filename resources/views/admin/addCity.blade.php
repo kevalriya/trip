@@ -1,5 +1,14 @@
 <?php 
 $ActiveSide='route';
+function generateRandomString($length = 10) {
+    $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+     return $randomString;
+}
 ?> 	
 @extends('admin.layouts.app')
 
@@ -50,7 +59,7 @@ $ActiveSide='route';
     	
     	 <div class="form-group col-md-6">
 	                <label for="name">City Code</label>
-	                <input type="text" class="form-control" name="city_code" value="{{old('city_code')}}" placeholder="City Code" >
+	                <input type="text" class="form-control" name="city_code" value="{{generateRandomString()}}" placeholder="City Code" readonly>
 	       </div>
 
 	    
