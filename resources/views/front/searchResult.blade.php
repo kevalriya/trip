@@ -1103,13 +1103,23 @@ $("#signup").on('click', function() {
 	  var oldval=$('#'+id).val();
 	  var str=oldval;
 	var res =str.replace("X", "");
-	
+
+
+    var seat_no_arr = res.split(",");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const passengers = urlParams.get('passengers')
+
     var AuthUser = "{{{ isset(Auth::guard('web')->user()->EMAIL_ADDRESS) ? true : false }}}";
     if(!AuthUser){
         // alert('Please login first to book your trip.');
         $("#exampleModal").addClass('in');
         $("#exampleModal").css("display", "block");
         $("<div class='modal-backdrop fade in' id='removedAppend'></div>").appendTo($('body'));
+        return false;
+    }
+    else if((seat_no_arr.length - 1).toString() != passengers){
+        alert('Please select seat for all passengers.');
         return false;
     }
 	else if(res == ''){
