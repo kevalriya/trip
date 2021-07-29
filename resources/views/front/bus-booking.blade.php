@@ -509,7 +509,7 @@ $ActiveSide='home';
        <div class="col-md-12 text-center">
            <input type="hidden" id="totalTripAmount" />
         <form>
-            <script src="{{env('PAYMENT_API_URL')}}" defer></script>
+            <script src="https://checkout.flutterwave.com/v3.js"></script>
             <button type="button" onClick="makePayment()" class="btn btn-primary checkformvalidation">Pay Now</button>
         </form>
           <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
