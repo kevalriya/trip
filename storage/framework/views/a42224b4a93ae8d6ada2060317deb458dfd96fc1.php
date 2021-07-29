@@ -606,13 +606,13 @@ $fdate=trim(strip_tags($_GET['start']));
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document" style="top:30%">
     <div class="modal-content">
-      <div class="modal-header" style="border-bottom:none">
-        <h4 class="modal-title" id="exampleModalLabel" style="padding-top:20px; padding-left:20px"><b>Already have an account?</b></h4>
+      <div class="modal-header" style="border-bottom:none; text-align:center">
+        <h4 class="modal-title" id="exampleModalLabel"><b>Already have an account?</b></h4>
       </div>
       <div class="modal-footer" style="border-top:none; margin-top:0px;">
-        <button type="button" id="login" class="btn btn-primary">Login</button>
+        <button type="button" id="login" class="btn btn-primary" style="float: left">Login</button>
         <button type="button" class="btn btn-secondary" id="signup">Sign-up</button>
       </div>
     </div>
@@ -1103,13 +1103,23 @@ $("#signup").on('click', function() {
 	  var oldval=$('#'+id).val();
 	  var str=oldval;
 	var res =str.replace("X", "");
-	
+
+
+    var seat_no_arr = res.split(",");
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const passengers = urlParams.get('passengers')
+
     var AuthUser = "<?php echo e(isset(Auth::guard('web')->user()->EMAIL_ADDRESS) ? true : false); ?>";
     if(!AuthUser){
         // alert('Please login first to book your trip.');
         $("#exampleModal").addClass('in');
         $("#exampleModal").css("display", "block");
         $("<div class='modal-backdrop fade in' id='removedAppend'></div>").appendTo($('body'));
+        return false;
+    }
+    else if((seat_no_arr.length - 1).toString() != passengers){
+        alert('Please select seat for all passengers.');
         return false;
     }
 	else if(res == ''){

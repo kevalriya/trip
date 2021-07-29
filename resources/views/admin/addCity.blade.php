@@ -55,9 +55,13 @@ function generateRandomString($length = 10) {
 	          {{ csrf_field() }}
 	          {{ method_field('POST') }}
 	            <div class="box-body">
-
+<style>
+	.hidden {
+		display: none !important;
+	}
+</style>
     	
-    	 <div class="form-group col-md-6">
+    	 <div class="form-group col-md-6 hidden">
 	                <label for="name">City Code</label>
 	                <input type="text" class="form-control" name="city_code" value="{{generateRandomString()}}" placeholder="City Code" readonly>
 	       </div>
