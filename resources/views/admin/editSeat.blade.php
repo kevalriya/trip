@@ -294,15 +294,20 @@ $ActiveSide='fleet';
 		<div class="row mt-2">
 		
 		
-			<div class="col-md-3" style="width: fit-content !important">
+			<div class="col-md-12" style="width: fit-content !important">
 
   <!-- <div class="cockpit">
   <span class='steering' id='A1'></span>
   </div> -->
-  <div class="exit exit--front fuselage" style="margin: 40px; box-shadow: 0px 0px 20px 5px grey">
+  <style>
+	  .inline {
+		  display: inline-flex;
+	  }
+	</style>
+  <div class="exit exit--front fuselage inline" style="margin: 40px; box-shadow: 0px 0px 20px 5px grey; width: max-content; min-width: 350px;">
     
 
-  <table class="table borderless no-spacing seats_table" id="sortable">
+  <table class="table borderless no-spacing seats_table" id="sortable" >
 	<?php
 					$Latter=range('A', 'Z');
 					array_unshift($Latter, "#");
@@ -354,16 +359,18 @@ $ActiveSide='fleet';
 
 
   </div>
-
+<div class="inline">
+	<ul class="legends">
+		<li><span class="steering"></span>&nbsp;Driver Seat</li>
+		<li><span class="seat"></span>&nbsp;Seats</li>
+		<li><span class="door"></span>&nbsp;Door</li>
+	</ul>
+</div>
 				
 			</div>
-				<div class="col-md-3">
-				<ul class="legends">
-					<li><span class="steering"></span>&nbsp;Driver Seat</li>
-					<li><span class="seat"></span>&nbsp;Seats</li>
-					<li><span class="door"></span>&nbsp;Door</li>
-				</ul>
-			</div>
+				<!-- <div class="col-md-3">
+				
+			</div> -->
 
 		</div>
 	</div>
