@@ -89,7 +89,7 @@ $ActiveSide='booking';
 
    <div class="form-group col-md-4">
                 
-                  <input type="email" class="form-control"  value="{{$User->EMAIL_ADDRESS}}" placeholder="Email" readonly="">
+                  <input type="email" class="form-control"  value="{{$User->EMAIL_ADDRESS}}" placeholder="Email" name="email" readonly>
                 </div>
 
         <div class="form-group col-md-4" >

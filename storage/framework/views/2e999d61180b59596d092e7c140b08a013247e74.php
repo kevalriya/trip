@@ -2,7 +2,7 @@
                         <div class="user-profile-avatar text-center">
                           <?php 
                           if(isset(Auth::user()->IMAGE) && !empty(Auth::user()->IMAGE)){
-                            $img=url('/public/images/users/'.Auth::user()->IMAGE);
+                            $img=url('/images/users/'.Auth::user()->IMAGE);
                           }
                           else{
                             

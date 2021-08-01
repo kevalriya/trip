@@ -90,7 +90,7 @@ $ActiveSide='booking';
 
    <div class="form-group col-md-4">
                 
-                  <input type="email" class="form-control"  value="<?php echo e($User->EMAIL_ADDRESS); ?>" placeholder="Email" readonly="">
+                  <input type="email" class="form-control"  value="<?php echo e($User->EMAIL_ADDRESS); ?>" placeholder="Email" name="email" readonly>
                 </div>
 
         <div class="form-group col-md-4" >
@@ -249,7 +249,7 @@ var formData = getFormData($("#change_prfile")[0]);
         success: function(data){
             
                 if(data.success==1){
-            
+                  window.location.reload();
                  $("#response").removeClass("alert-danger").addClass("alert-success").fadeIn();;
            $("#response .message").html('Update Success');
                 }
