@@ -248,7 +248,7 @@ var formData = getFormData($("#change_prfile")[0]);
         success: function(data){
             
                 if(data.success==1){
-            
+                  window.location.reload();
                  $("#response").removeClass("alert-danger").addClass("alert-success").fadeIn();;
            $("#response .message").html('Update Success');
                 }
