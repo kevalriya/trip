@@ -177,7 +177,7 @@ $ActiveSide='booking';
           
               <div class="form-group col-md-4">
        <label>Image</label>
-            <input type="file" name="image" value="{{old('image')}}" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <input type="file" name="image" accept="image/png, image/gif, image/jpeg, image/jpg" value="{{old('image')}}" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
      
       </div>  
 

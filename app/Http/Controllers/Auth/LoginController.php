@@ -52,6 +52,14 @@ class LoginController extends Controller
         return view('front.login',compact('Salutations'));
     }
 
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+        return redirect()->guest(route( 'user.login' ))->with('message', 'Thank you for using TripOn. You have successfully signed off.');
+    }
+
 
      public function login(Request $request)
     {

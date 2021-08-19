@@ -896,17 +896,20 @@ $(document).on('click', '.view-seat-ng', function(event) {
         
       $(document).on('click','.seattable span', function(e){
         var currentType = $(this).attr("class");
-        if(currentType=="seat"){
-           
-            
-      var uid=$('.insert_seat').find('#seat-uuid').val();
+
+        var uid=$('.insert_seat').find('#seat-uuid').val();
     var oldval=$('#'+uid).val();
     var oldvalsid=$('#'+uid+'-main').val();
     var array = oldval.split(',');
     var totalPass=$('#mpassid').val();  
-    if(array.length <= totalPass ){
         var seatno=$(this).attr('data-name');
         var seatid=$(this).attr('data-id');
+
+        if(currentType=="seat"){
+           
+            
+      
+    if(array.length <= totalPass ){
          $(this).removeClass("seat");
          $(this).addClass("selectseat");
         
@@ -917,6 +920,16 @@ $(document).on('click', '.view-seat-ng', function(event) {
         $('#'+uid+'-text').text('- Seat #'+res + ' selected');
         }    
         }
+else if(currentType=="selectseat"){
+    $(this).addClass("seat");
+         $(this).removeClass("selectseat");
+        
+        $('#'+uid).val(oldval.replace(','+seatno, ''));
+        $('#'+uid+'-main').val(oldvalsid.replace(','+seatid,''));
+        var str=oldval.replace(','+seatno,'');
+         var res =str.replace("X,", "");
+        $('#'+uid+'-text').text('- Seat #'+res + ' selected');
+}
     });
 
 	$(document).on('click','.route-details', function(e){
