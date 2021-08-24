@@ -510,7 +510,7 @@ $ActiveSide='home';
            <input type="hidden" id="totalTripAmount" />
         <form>
             <script src="https://checkout.flutterwave.com/v3.js"></script>
-            <button type="button" onClick="makePayment()" class="btn btn-primary checkformvalidation">Pay Now</button>
+            <button type="button" class="btn btn-primary checkformvalidation">Pay Now</button>
         </form>
           <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
       </div>
@@ -912,8 +912,7 @@ $ActiveSide='home';
 
     }
     else{
-    	$('.upperdiv').hide();
-    	$('.underidiv').show();
+    	makePayment();
     }
 
       	 
