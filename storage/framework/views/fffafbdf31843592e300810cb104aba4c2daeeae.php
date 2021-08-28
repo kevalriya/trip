@@ -23,7 +23,17 @@
                                 <ul id="slimmenu" class="slimmenu top-user-area-list list list-horizontal list-border">
                                     <li class="top-user-area-avatar">
                                         <a href="<?php echo e(route('profileSetting')); ?>">
-                                            <img class="origin round" src="<?php echo e(url('images/front/amaze_40x40.jpg')); ?>" alt="Image Alternative text" title="AMaze" />Hi, <?php echo e(Auth::guard('web')->user()->FIRSTNAME); ?></a>
+
+                                        <?php 
+                          if(isset(Auth::user()->IMAGE) && !empty(Auth::user()->IMAGE)){
+                            $img=url('/images/users/'.Auth::user()->IMAGE);
+                          }
+                          else{
+                            
+                             $img=url('images/front/amaze_300x300.jpg');
+                          }
+                          ?>
+                                            <img class="origin round" src="<?php echo e($img); ?>" alt="Image Alternative text" title="AMaze" />Hi, <?php echo e(Auth::guard('web')->user()->FIRSTNAME); ?></a>
                                     </li>
                                     <li> <a href="<?php echo e(route('logout')); ?>"
                                             onclick="event.preventDefault();

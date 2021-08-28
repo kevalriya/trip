@@ -511,8 +511,8 @@ $ActiveSide='home';
        <div class="col-md-12 text-center">
            <input type="hidden" id="totalTripAmount" />
         <form>
-            <!-- <script src="https://checkout.flutterwave.com/v3.js"></script> -->
-            <button type="button" onClick="makePayment()" class="btn btn-primary checkformvalidation">Pay Now</button>
+            <script src="https://checkout.flutterwave.com/v3.js"></script>
+            <button type="button" class="btn btn-primary checkformvalidation">Pay Now</button>
         </form>
           <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
       </div>
@@ -771,7 +771,7 @@ $ActiveSide='home';
         }
             function makePayment() {
             FlutterwaveCheckout({
-            public_key: "<?php echo e(env('PAYMENT_PUBLIC_KEY')); ?>",
+            public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
             tx_ref: "ONTRIP-" + uuidv4(),
             amount: document.getElementById("totalTripAmount").value,
             currency: "NGN",
@@ -915,8 +915,7 @@ $ActiveSide='home';
 
     }
     else{
-    	$('.upperdiv').hide();
-    	$('.underidiv').show();
+    	makePayment();
     }
 
       	 

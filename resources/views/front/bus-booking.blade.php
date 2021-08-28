@@ -769,7 +769,7 @@ $ActiveSide='home';
         }
             function makePayment() {
             FlutterwaveCheckout({
-            public_key: "{{env('PAYMENT_PUBLIC_KEY')}}",
+            public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
             tx_ref: "ONTRIP-" + uuidv4(),
             amount: document.getElementById("totalTripAmount").value,
             currency: "NGN",
