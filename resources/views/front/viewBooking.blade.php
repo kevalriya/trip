@@ -269,16 +269,36 @@ addScript('https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundl
 <script>
 function printDiv() 
 {
-  var divToPrint=document.getElementById('DivIdToPrint');
-  var newWin=window.open('','Print-Window');
-  newWin.document.open();
-  newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
-  newWin.document.close();
-  setTimeout(function(){newWin.close();},10);
+  // var divToPrint=document.getElementById('DivIdToPrint');
+  
+  var element = document.getElementById('DivIdToPrint');
+  var opt = {
+  margin:       1,
+  filename:     'Ticket.pdf',
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+};
+html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdfObj) {
+    // pdfObj has your jsPDF object in it, use it as you please!
+    // For instance (untested):
+    pdfObj.autoPrint();
+    var newWin = window.open(pdfObj.output('bloburl'));
+
+    // var newWin=window.open('','Print-Window');
+  // newWin.document.open();
+  // newWin.document.write('<html><body onload="window.print()"><object width="100%" height="100%" data="'+pdfObj.output('bloburl')+'"></object></body></html>');
+  // newWin.document.close();
+  // setTimeout(function(){newWin.close();},10);
+});
 }
 function pdf() {
   var element = document.getElementById('DivIdToPrint');
-  html2pdf(element);
+  var opt = {
+  margin:1,
+  filename:'Ticket.pdf',
+  jsPDF:{ unit: 'in', format: 'letter', orientation: 'landscape' }
+};
+  // html2pdf(element, opt);
+  html2pdf().set(opt).from(element).save();
 }
 
 
