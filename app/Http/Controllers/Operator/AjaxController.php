@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Operator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Bookingdetail;
 use App\Model\Route;
 use App\Model\Amenitie;
 use App\Model\State;
@@ -369,6 +370,18 @@ class AjaxController extends Controller
                
         return $array;
 
+    }
+
+    public function scanQRCode(Request $request)
+    {
+
+    $Booking=Bookingdetail::join('tkt_booking', 'tkt_booking.BOOKING_ID', '=', 'tkt_booking_details.BOOKING_ID')->where('BARCODE',$request->scannedQRCode)->where('TRIP_ID', $request->tripId)->get(); 
+       if(!$Booking){
+        return 'No Booking Found';
+       }
+      
+      // return view('front.viewBooking',compact('Booking'));
+        return $Booking;
     }
 
 }

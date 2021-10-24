@@ -356,7 +356,6 @@ class TripController extends Controller
     }
 
 
-
        public function tripLists(Request $request){
         
 
@@ -393,7 +392,7 @@ class TripController extends Controller
 
                      $frm=' <form id="delete-form-'.$row->TRIP_ID.'" method="post" action="'.route("operator.trip.destroy",$row->TRIP_ID).'" style="display: none">'.csrf_field(). method_field("DELETE").'</form>';
             $onclick    = "if(confirm('Are you sure, You Want to delete this?')){event.preventDefault();document.getElementById('delete-form-".$row->TRIP_ID."').submit(); }else{event.preventDefault();}";
-                    $btn= '<a href="'.route("operator.trip.edit",$row->TRIP_ID).'"> <span class="glyphicon glyphicon-edit"></span></a>&nbsp; <a href="'.route('opeditTripTime',$row->TRIP_ID).'" class="btn btn-xs btn-warning"> <span class="glyphicon glyphicon-th-large"></span></a>&nbsp;'.$frm.' <a href="" class="btn btn-xs btn-danger" onclick="'.$onclick.'" ><span class="glyphicon glyphicon-trash"></span></a>';
+                    $btn= '<a href="'.route("operator.trip.edit",$row->TRIP_ID).'"> <span class="glyphicon glyphicon-edit"></span></a>&nbsp; <a href="'.route('opeditTripTime',$row->TRIP_ID).'" class="btn btn-xs btn-warning"> <span class="glyphicon glyphicon-th-large"></span></a>&nbsp;'.$frm.' <a href="" class="btn btn-xs btn-danger" onclick="'.$onclick.'" ><span class="glyphicon glyphicon-trash"></span></a>&nbsp;<a class="btn btn-xs btn-success" href="'.route("checkIn",$row->TRIP_ID).'"> Check in</a>';
         
                             return $btn;
                     })

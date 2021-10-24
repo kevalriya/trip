@@ -136,6 +136,9 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
 	Route::post('routesData', 'RouteController@RouteLists')->name('oproutesData');
 	Route::post('add-route', 'AjaxController@addRoute')->name('opaddRoute');
 	Route::post('edit-route', 'AjaxController@editRoute')->name('opeditRoute');
+
+	Route::post('scan-qr-code', 'AjaxController@scanQRCode')->name('opScanQRCode');
+
 	Route::get('routedetail/{id}', 'RouteController@routeDetail')->name('oproutedata');
 	Route::get('routepoint/{id}', 'RouteController@routePoint')->name('oproutepoint');
 	Route::post('add-route-point', 'RouteController@addRoutePoint')->name('opaddRoutePoint');
@@ -170,6 +173,10 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
 
 	Route::get('trip-time/edit/{id}','TripController@editTripTime')->name('opeditTripTime');
 	Route::put('trip-time/edit/{id}','TripController@updateTripTime')->name('opupdateTripTime');
+
+	Route::get('check-in/{id}', function ($id) {
+		return view('operator.checkIn', ['id' => $id]);
+	})->name('checkIn');
 	
 	Route::get('trip-schedule/edit/{id}','TripController@editTripschedule')->name('opeditTripschedule');
 	Route::put('trip-schedule/edit/{id}','TripController@updateTripschedule')->name('opupdateTripschedule');
@@ -215,6 +222,9 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
  Route::get('reset-operator-password', function () {
     return view('front.resetoppassword');
 });
+
+
+
 
  Route::post('contact-us-req', 'AjaxController@sendContactMail')->name('sendContact');
  
