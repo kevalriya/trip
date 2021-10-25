@@ -508,14 +508,7 @@ $ActiveSide='home';
 					
 					</div>	 
        
-       <div class="col-md-12 text-center">
-           <input type="hidden" id="totalTripAmount" />
-        <form>
-            <script src="https://checkout.flutterwave.com/v3.js"></script>
-            <button type="button" class="btn btn-primary checkformvalidation">Pay Now</button>
-        </form>
-          <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
-      </div>
+       
             </div>
                  	  
 
@@ -731,6 +724,14 @@ $ActiveSide='home';
               
 				<?php } ?>
 
+                <div class="col-md-8 col-sm-12 text-center" style="margin-top: 10px;">
+                    <input type="hidden" id="totalTripAmount" />
+                    <form>
+                        <script src="https://checkout.flutterwave.com/v3.js"></script>
+                        <button type="button" class="btn btn-primary checkformvalidation">Pay Now</button>
+                    </form>
+                    <!-- <a href="javascript;" class="btn btn-primary checkformvalidation">Proceed</a>	 -->
+                </div>
             </div>
 			<div class="row">
 
