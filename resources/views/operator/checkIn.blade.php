@@ -16,6 +16,14 @@ $ActiveSide='trip';
   .modal-body {
     min-height: 350px;
   }
+  #successCheckIn {
+    color: green;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  #errorMsg {
+    color: red;
+  }
 </style>
 
 @endsection
@@ -48,7 +56,9 @@ $ActiveSide='trip';
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Check in</button>
+              <button type="submit" class="btn btn-success" onclick="checkIn()" id="checkIns">Check-in</button>
+              <p id="successCheckIn"></p>
+              <p id="errorMsg"></p>
             </div>
           </div>
         </div>
@@ -68,6 +78,26 @@ $ActiveSide='trip';
 @endsection
 @section('footerSection')
 <script>
+
+  function checkIn() {
+    var getBarcode = $('#barcodeVal').val();
+    $.ajax({
+      url: "{{route('updateQRCode')}}",
+      type: "put",
+      data: { _token: "{{csrf_token()}}", barcodeToUpdate: getBarcode },
+      success: function(data) {
+        $('#successCheckIn').text('The passanger has succefully check-in.')
+        setTimeout(function(){ 
+          $('#exampleModal').modal('toggle')
+         }, 1000);
+        
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+        console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+    })
+  }
+
   function onScanSuccess(decodedText, decodedResult) {
     // Handle on success condition with the decoded text or result.
     console.log(`Scan result: ${decodedText}`, decodedResult);
@@ -80,7 +110,13 @@ $ActiveSide='trip';
           $('#exampleModal').modal({
               show: true
           })
+          $('#successCheckIn').text('')
+          $('#errorMsg').text('')
           if(data.length > 0) {
+            if(data[0].IS_BARCODE_SCANNED === 1) {
+              $('#errorMsg').text('This ticket already checked-in.')
+              $('#checkIns').hide()
+            }
             $('#modal-body').html(`
               <div class="col-md-12">
                 <div class="col-md-4"><label>Name: </label></div>
@@ -128,13 +164,18 @@ $ActiveSide='trip';
               </div>
               <div class="col-md-12">
                 <div class="col-md-4"><label>Ticket scanned before: </label></div>
-                <div class="col-md-8">${data[0].IS_BARCODE_SCANNED === 0 ? "Not scanned" : "Scanned"}</div>
+                <div class="col-md-8">${data[0].IS_BARCODE_SCANNED === 0 ? "Not scanned" : `Scanned`}</div>
+              </div>
+               <div class="col-md-12">
+                <input type="hidden" value="${data[0].BARCODE}" id="barcodeVal" />
               </div>
             `)
 
             $('#ticket-status').html(data[0].IS_BARCODE_SCANNED === 0 ? "<b style='color: green;'>Not scanned</b>" : "<b style='color: red;'>Scanned</b>")
+            
           } else {
-             $('#modal-body').html(`
+            $('#checkIns').hide()
+            $('#modal-body').html(`
               <div class="col-md-12">
                 <h4 style='color:red'>This is not current trip ticket. Please use current trip ticket.</h4>
               </div>

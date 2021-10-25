@@ -138,6 +138,7 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
 	Route::post('edit-route', 'AjaxController@editRoute')->name('opeditRoute');
 
 	Route::post('scan-qr-code', 'AjaxController@scanQRCode')->name('opScanQRCode');
+	Route::put('update-qr-code', 'AjaxController@updateQRCode')->name('updateQRCode');
 
 	Route::get('routedetail/{id}', 'RouteController@routeDetail')->name('oproutedata');
 	Route::get('routepoint/{id}', 'RouteController@routePoint')->name('oproutepoint');
