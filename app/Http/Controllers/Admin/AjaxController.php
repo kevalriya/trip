@@ -379,4 +379,14 @@ class AjaxController extends Controller
 
     }
 
+    public function scanQRCode(Request $request){
+    $Booking=Bookingdetail::join('tkt_booking', 'tkt_booking.BOOKING_ID', '=', 'tkt_booking_details.BOOKING_ID')->where('BARCODE',$request->scannedQRCode)->where('TRIP_ID', $request->tripId)->get(); 
+       if(!$Booking){
+        return 'No Booking Found';
+       }
+        return $Booking;
+    }
+
+
+
 }
