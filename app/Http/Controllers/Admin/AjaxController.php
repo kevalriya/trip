@@ -387,6 +387,9 @@ class AjaxController extends Controller
         return $Booking;
     }
 
-
+    public function updateQRCode(Request $request) {
+        $Booking = Bookingdetail::where('BARCODE',$request->barcodeToUpdate)->update(['IS_BARCODE_SCANNED' => 1]);
+        return $Booking;
+    }
 
 }
