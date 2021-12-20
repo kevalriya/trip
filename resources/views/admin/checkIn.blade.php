@@ -1,7 +1,7 @@
 <?php 
 $ActiveSide='trip';
 ?>  
-@extends('operator.layouts.app')
+@extends('admin.layouts.app')
 
 @section('title','Trip')
 @section('headSection')

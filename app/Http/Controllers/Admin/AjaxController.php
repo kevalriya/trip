@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Model\Bookingdetail;
 use App\Model\Route;
 use App\Model\Amenitie;
 use App\Model\State;
