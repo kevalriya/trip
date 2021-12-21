@@ -82,7 +82,7 @@ $ActiveSide='trip';
   function checkIn() {
     var getBarcode = $('#barcodeVal').val();
     $.ajax({
-      url: "{{route('updateQRCode')}}",
+      url: "{{route('adUpdateQRCode')}}",
       type: "put",
       data: { _token: "{{csrf_token()}}", barcodeToUpdate: getBarcode },
       success: function(data) {
@@ -103,7 +103,7 @@ $ActiveSide='trip';
     console.log(`Scan result: ${decodedText}`, decodedResult);
 
     $.ajax({
-        url: "{{route('opScanQRCode')}}",
+        url: "{{route('adScanQRCode')}}",
         type: "post",
         data : { _token: "{{csrf_token()}}", scannedQRCode: decodedText, tripId: <?php echo $id; ?> },
         success: function(data){

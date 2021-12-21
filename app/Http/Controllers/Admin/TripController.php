@@ -402,7 +402,7 @@ class TripController extends Controller
              $sub_array[] = 0;
              $sub_array[] = $status;
            
-             $sub_array[] = '<a href="'.route("trip.edit",$row->TRIP_ID).'"> <span class="glyphicon glyphicon-edit"></span></a>&nbsp; <a href="'.route('editTripTime',$row->TRIP_ID).'" class="btn btn-xs btn-warning"> <span class="glyphicon glyphicon-th-large"></span></a>&nbsp;'.$frm.' <a href="" class="btn btn-xs btn-danger" onclick="'.$onclick.'" ><span class="glyphicon glyphicon-trash"></span></a>';
+             $sub_array[] = '<a href="'.route("trip.edit",$row->TRIP_ID).'"> <span class="glyphicon glyphicon-edit"></span></a>&nbsp; <a href="'.route('editTripTime',$row->TRIP_ID).'" class="btn btn-xs btn-warning"> <span class="glyphicon glyphicon-th-large"></span></a>&nbsp;'.$frm.' <a href="" class="btn btn-xs btn-danger" onclick="'.$onclick.'" ><span class="glyphicon glyphicon-trash"></span></a>&nbsp;<a class="btn btn-xs btn-success" href="'.route("adminCheckIn",$row->TRIP_ID).'"> Check in</a>';
             
              $data[] = $sub_array;
              }

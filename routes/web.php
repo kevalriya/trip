@@ -120,6 +120,10 @@ Route::put('admin/fleet-type/edit/{id}','FleetController@updateFleetType')->name
 	Route::resource('admin/booking','BookingController');
 	Route::post('get-booking','BookingController@Lists')->name('getbooking');
 	Route::post('update-booking','BookingController@updateMultiBooking')->name('updatemultistatus');
+
+	Route::post('scan-qr-code', 'AjaxController@scanQRCode')->name('adScanQRCode');
+	Route::put('update-qr-code', 'AjaxController@updateQRCode')->name('adUpdateQRCode');
+
 });
 
 
@@ -178,6 +182,10 @@ Route::group(['namespace' => 'Operator','prefix'=>'operator'],function(){
 	Route::get('check-in/{id}', function ($id) {
 		return view('operator.checkIn', ['id' => $id]);
 	})->name('checkIn');
+
+	Route::get('check-in/{id}', function ($id) {
+		return view('admin.adminCheckIn', ['id' => $id]);
+	})->name('adminCheckIn');
 	
 	Route::get('trip-schedule/edit/{id}','TripController@editTripschedule')->name('opeditTripschedule');
 	Route::put('trip-schedule/edit/{id}','TripController@updateTripschedule')->name('opupdateTripschedule');
